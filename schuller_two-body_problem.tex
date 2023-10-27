@@ -1,0 +1,176 @@
+% \DocumentMetadata{pdfstandard=A-3b}
+\documentclass[12pt, a4 paper]{article}
+
+\usepackage{embedall}
+\embedfile{schuller_two-body_problem.bib}
+
+\usepackage[ngerman,english]{babel}
+\PassOptionsToPackage{math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright, warnings-off={mathtools-colon,mathtools-overbracket}}{unicode-math}
+% \PassOptionsToPackage{warnings-off={mathtools-colon,mathtools-overbracket}}{unicode-math}
+\usepackage{mathtools, microtype}
+\usepackage{setspace}
+\usepackage[style=british]{csquotes}
+% \usepackage{fontsetup}
+% \usepackage[mathscr]{eucal}
+% \setmathfontface\itcal{NewCMMath-Book}[FakeSlant=-0.25]
+\usepackage{kpfonts-otf}
+% \setmainfont[Ligatures=Required]{KpRoman}
+% \setmathfont{KpMath-Bold.otf}[version=bold]
+% \setmathfont{KpMath-Regular.otf}[range={cal,bfcal},RawFeature=+ss01,BoldFont=KpMath-Bold.otf]
+% \setmathfont{KpMath-Regular.otf}[version=regular]
+% \setmathfont{KpMath-Regular}[range={cal,bfcal},StylisticSet=1]
+% \usepackage{sectsty}
+% \allsectionsfont{\mathversion{bold}}
+% \setmathfontface\itcal{KpMath-Regular.otf}[FakeSlant=-0.4]
+% \usepackage{newtx}
+% \usepackage[bold=0.1]{xfakebold}
+% \usepackage{xfp}
+% \usepackage{dsfont}
+% \renewcommand{\mathbb}{\mathbf}
+% \renewcommand{\mathbb}[1]{\setBold \mathds #1 \unsetBold}
+% \newcommand{\bmathscr}[1]{\setBold \mathscr #1 \unsetBold}
+% \renewcommand{\symbb}{\mathds}
+% \renewcommand{\symbb}{\symbfup}
+% \usepackage[T1]{fontenc}		% use this if European fonts (ec) package is installed
+% \usepackage{textcomp}			% adds some additional symbols
+% \usepackage[scaled=0.92]{helvet} % set Helvetica as the sans-serif font
+% \renewcommand{\rmdefault}{ptm} % set Times as the default text font
+% \usepackage{newtxtext}
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+% \setsansfont{Helvetica}
+% \setmonofont{Courier}
+% \usepackage[lite, subscriptcorrection, compatiblegreek]{mtpro2}
+
+% \usepackage{mlmodern}
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+
+\title{The Quantum Mechanical Two-body Problem}
+% \author{Frederic Schuller\\Apoorv Potnis}
+\author{}
+\date{\vspace{-5ex}}
+
+\usepackage[sorting=none]{biblatex}
+\addbibresource{schuller_two-body_problem.bib}
+\usepackage{hyperref}
+\hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-body Problem – Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Two-body Problem, Kepler problem}}
+% \hypersetup{linktoc=all, citecolor=black, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=black, breaklinks=true, urlcolor=black, pdftitle={Schuller – Rigged Hilbert Spaces}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Rigged Hilbert Spaces – Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Rigged Hilbert Spaces, Quantum Mechanics, Mathematical Physics, Lecture Notes, Bras, Kets}}
+\usepackage{cleveref, xurl, bookmark}
+
+% % \newcommand{\ltwo}{\mathup{L\kern-0.5pt^2}}
+% \newcommand{\position}{\mathup{Q}}
+% \newcommand{\momentum}{\mathup{P}}
+% \newcommand{\rthree}{\mathbb{R}^3}
+% \newcommand{\rr}{\mathbb{R}}
+% \newcommand{\cc}{\mathbb{C}}
+% \newcommand{\nn}{\mathbb{N}_0}
+% \newcommand{\dirac}{\symup{\delta}}
+% % \newcommand{\hilbert}{\itcal{ℋ}\kern-0.7pt}
+% \newcommand{\hilbert}{\mathcal{H}}
+% \newcommand{\ltwor}{\ltwo(\rr)}
+% % \newcommand{\poly}{\itcal{𝒫}\kern-0.5pt}
+% \newcommand{\poly}{𝒫}
+% \newcommand{\schwartz}{\kern0.5pt\itcal{𝒮}\kern-2pt}
+% % \newcommand{\schwartz}{\mathcal{S}}
+% \newcommand{\schwartzr}{\schwartz(\rr)}
+% \newcommand{\dist}{\itcal{\schwartz^\times}\kern-0.5pt}
+% % \newcommand{\dist}{\schwartz^\times}
+% \newcommand{\distr}{\dist(\rr)}
+% \newcommand{\distar}{\schwartz^{\kern-0.1pt*}(\rr)}
+% \newcommand{\anti}{\overline{\distr}}
+% \renewcommand*{\hbar}{\mathrm{^^^^0127}}
+% \renewcommand{\i}{\mathrm{i}}
+% \newcommand{\e}{\mathrm{e}}
+% \newcommand{\cinfinity}{\mathrm{C}^\infty}
+% \newcommand{\family}{\mathcal{F}}
+% \newcommand{\lift}{\hat{D}}
+% \newcommand{\domain}{\mathcal{D}}
+% \newcommand{\identity}{\mathrm{id}}
+% \newcommand{\w}{w\kern-1pt}
+% \DeclareMathOperator{\spec}{spec}
+% \newcommand{\resolvent}{\mathup{\rho}}
+
+\newcommand{\ltwo}{\mathup{L\kern-0.5pt^2}}
+\newcommand{\position}{Q}
+\newcommand{\momentum}{P}
+\newcommand{\rthree}{\mathbb{R}^3}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\nn}{\mathbb{N}_0}
+\newcommand{\dirac}{\delta}
+% \newcommand{\hilbert}{\itcal{ℋ}\kern-0.7pt}
+\newcommand{\hilbert}{\mathcal{H}}
+\newcommand{\ltwor}{\ltwo(\rr)}
+% \newcommand{\poly}{\itcal{𝒫}\kern-0.5pt}
+\newcommand{\poly}{\mathcal{P}}
+\newcommand{\schwartz}{\mathcal{S}}
+% \newcommand{\schwartz}{\mathcal{S}}
+\newcommand{\schwartzr}{\schwartz(\rr)}
+\newcommand{\dist}{\schwartz^\times}
+% \newcommand{\dist}{\schwartz^\times}
+\newcommand{\distr}{\dist(\rr)}
+\newcommand{\distar}{\schwartz^*(\rr)}
+\newcommand{\anti}{\overline{\distr}}
+\renewcommand*{\hbar}{\mathrm{^^^^0127}}
+\renewcommand{\i}{\mathrm{i}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\cinfinity}{\mathrm{C}^\infty}
+\newcommand{\family}{\mathcal{F}}
+\newcommand{\lift}{\hat{D}}
+\newcommand{\domain}{\mathcal{D}}
+\newcommand{\identity}{\mathrm{id}}
+\newcommand{\w}{w\kern-1pt}
+\DeclareMathOperator{\spec}{spec}
+\newcommand{\resolvent}{\mathup{\rho}}
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\newcommand{\der}{\operatorname{d\!}{}}
+\usepackage{mleftright}
+
+\usepackage{luatex85}
+\newsavebox{\foobox}
+\newcommand{\slantbox}[2][.5]
+{%
+	\mbox
+	{%
+		\sbox{\foobox}{#2}%
+		\hskip\wd\foobox
+		\pdfsave
+		\pdfsetmatrix{1 0 #1 1}%
+		\llap{\usebox{\foobox}}%
+		\pdfrestore
+	}%
+}
+
+\usepackage{etoolbox}
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+\emergencystretch=1em
+
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+
+\begin{document}
+
+	\maketitle
+
+	These are lecture notes by Apoorv Potnis of the lecture `\selectlanguage{ngerman}Quantenmechanisches Zweikörperproblem\selectlanguage{english}' or `The Quantum Mechanical Two-body Problem', given by \textbf{Prof.\@ Frederic Paul Schuller}, as the seventeenth lecture in the course `\selectlanguage{ngerman}Theoretische Physik 2: Theoretische Quantenmechanik\selectlanguage{english}' in 2014/15 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. While the original lecture is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The lecture is available at \url{https://www.youtube.com/watch?v=mcM4S3IMMvI&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=17} and at \url{https://www.fau.tv/clip/id/44891}.
+
+	\tableofcontents
+
+	\section{Introduction}
+
+
+
+	\nocite{*}
+	\printbibliography[heading=bibintoc]
+
+	\par\begin{spacing}{0.6}
+		{\footnotesize The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_two-body_problem}. The source code, along with the \texttt{.bib} file is embedded in this PDF. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.}
+	\end{spacing}
+
+\end{document}
