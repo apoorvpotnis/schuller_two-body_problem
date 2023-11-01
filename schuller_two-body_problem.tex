@@ -93,7 +93,9 @@
 % \DeclareMathOperator{\spec}{spec}
 % \newcommand{\resolvent}{\mathup{\rho}}
 
-\newcommand{\ltwo}{\mathup{L\kern-0.5pt^2}}
+\newcommand{\ltwo}{\mathup{L\kern-0.7pt^2}}
+\newcommand{\ltworthree}{\ltwo(\rr^3)}
+\newcommand{\ltworsix}{\ltwo(\rr^6)}
 \newcommand{\position}{Q}
 \newcommand{\momentum}{P}
 \newcommand{\rthree}{\mathbb{R}^3}
@@ -125,6 +127,7 @@
 \newcommand{\w}{w\kern-1pt}
 \DeclareMathOperator{\spec}{spec}
 \newcommand{\resolvent}{\mathup{\rho}}
+\newcommand{\lap}{∆}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -246,7 +249,7 @@
 				]
 				\addplot[thick, red] {-exp(-\x)/(\x)};
 				\addplot[thick, blue, dashed] {-1/(\x)};
-				\addlegendentry{$\displaystyle-\frac{e^{-r}}{r}$};
+				\addlegendentry{$\displaystyle-\frac{\e^{-r}}{r}$};
 				\addlegendentry{$\displaystyle-\frac{1}{r}$};
 			\end{axis};
 
@@ -279,6 +282,32 @@
 	\end{align*}
 
 	We also have the finite wall potential $V_{\text{finite wall}}(r) \coloneq a \upTheta(r - r_0)$ and the isotropic harmonic oscillator $V_{\text{ihc}} (r) \coloneq a r^2$.
+
+
+
+	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\) which is naturally isomorphic to \(\ltworsix\).
+
+	The Hamiltonian for our quantum-mechanical two-body system is
+	\begin{align*}
+		H \coloneq -\frac{\hbar^2}{2m_1}\lap_{(1)} - \frac{\hbar^2}{2m_2}\lap_{(2)} + V\left(\norm{x^{(1)} - x^{(2)}}\right),
+	\end{align*}
+	where \(\lap_{(i)}\) is the Laplacian operator which acts on the Hilbert space \(\ltworthree\) of the particle \(i\), and \(x^{(i)} \in \rthree\) denotes the position vector of the \(i^\text{th}\) particle. We are interested in finding out the spectrum of this Hamiltonian.
+
+	As is the case in classical mechanics, we shall move to the center-of-mass co-ordinates. We can move the center-of-mass of the system in any direction by any value, i.e. the spectrum of the `center-of-mass' position operator is \(\rr\). The discrete energy levels are due to the angular momentum about the center-of-mass. We thus introduce
+	\begin{align*}
+		y &\coloneq \frac{m_1 x^{(1)} + m_2 x^{(2)}}{m_1 + m_2},\\
+	    r &\coloneq x^{(1)} - x^{(2)},\\
+		\mu &\coloneq \frac{m_1 m_2}{m_1 + m_2}.
+	\end{align*}
+	The Hamiltonian then takes the form
+	\begin{align*}
+		H \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_y - \frac{\hbar^2}{2\mu}\lap_r + V(\norm{r}).
+	\end{align*}
+	The wave function of the system \(\psi\left(x^{(1)}, x^{(2)}\right)\) expressed in the new co-ordinates becomes
+	\begin{align*}
+	    \phi(y, r) \coloneq \psi\left(x^{(1)}(y, r), x^{(2)}(y,r)\right).
+	\end{align*}
+
 
 
 
