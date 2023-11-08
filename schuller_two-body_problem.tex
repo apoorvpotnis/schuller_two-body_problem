@@ -128,6 +128,14 @@
 \DeclareMathOperator{\spec}{spec}
 \newcommand{\resolvent}{\mathup{\rho}}
 \newcommand{\lap}{∆}
+% \renewcommand{\symbfit}[1]{\symbfit{#1}}
+\newcommand{\xone}{\symbfit{x}^{(1)}}
+\newcommand{\xtwo}{\symbfit{x}^{(2)}}
+\newcommand{\rvec}{\symbfit{r}}
+\newcommand{\yvec}{\symbfit{y}}
+\newcommand{\angsone}{\tilde{L}_1}
+\newcommand{\angstwo}{\tilde{L}_2}
+\newcommand{\angsthree}{\tilde{L}_3}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -175,6 +183,15 @@
 % }
 % \usepackage{fontsetup}
 % \setmathfont{KpMath-Regular_arrow.otf}
+
+\usepackage{tikz-3dplot}
+
+\tdplotsetmaincoords{60}{110}
+%
+\pgfmathsetmacro{\rlength}{.8}
+\pgfmathsetmacro{\thetavec}{30}
+\pgfmathsetmacro{\phivec}{60}
+
 \begin{document}
 
 	\maketitle
@@ -289,29 +306,76 @@
 
 	The Hamiltonian for our quantum-mechanical two-body system is
 	\begin{align*}
-		H \coloneq -\frac{\hbar^2}{2m_1}\lap_{(1)} - \frac{\hbar^2}{2m_2}\lap_{(2)} + V\left(\norm{x^{(1)} - x^{(2)}}\right),
+		H \coloneq -\frac{\hbar^2}{2m_1}\lap_{(1)} - \frac{\hbar^2}{2m_2}\lap_{(2)} + V\left(\norm{\xone - \xtwo}\right),
 	\end{align*}
-	where \(\lap_{(i)}\) is the Laplacian operator which acts on the Hilbert space \(\ltworthree\) of the particle \(i\), and \(x^{(i)} \in \rthree\) denotes the position vector of the \(i^\text{th}\) particle. We are interested in finding out the spectrum of this Hamiltonian.
+	where \(\lap_{(i)}\) is the Laplacian operator which acts on the Hilbert space \(\ltworthree\) of the particle \(i\), and \(\symbfit{x}^{(i)} \in \rthree\) denotes the position vector of the \(i^\text{th}\) particle. We are interested in finding out the spectrum of this Hamiltonian.
 
 	As is the case in classical mechanics, we shall move to the center-of-mass co-ordinates. We can move the center-of-mass of the system in any direction by any value, i.e. the spectrum of the `center-of-mass' position operator is \(\rr\). The discrete energy levels are due to the angular momentum about the center-of-mass. We thus introduce
 	\begin{align*}
-		y &\coloneq \frac{m_1 x^{(1)} + m_2 x^{(2)}}{m_1 + m_2},\\
-	    r &\coloneq x^{(1)} - x^{(2)},\\
+		\yvec &\coloneq \frac{m_1 \xone + m_2 \xtwo}{m_1 + m_2},\\
+	    \rvec &\coloneq \xone - \xtwo,\\
 		\mu &\coloneq \frac{m_1 m_2}{m_1 + m_2}.
 	\end{align*}
 	The Hamiltonian then takes the form
 	\begin{align*}
-		H \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_y - \frac{\hbar^2}{2\mu}\lap_r + V(\norm{r}).
+		H \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_{\yvec} - \frac{\hbar^2}{2\mu}\lap_{\rvec} + V(\norm{\rvec}).
 	\end{align*}
-	The wave function of the system \(\psi\left(x^{(1)}, x^{(2)}\right)\) expressed in the new co-ordinates becomes
+	The wave function of the system \(\psi\left(\xone, \xtwo\right)\) expressed in the new co-ordinates becomes
 	\begin{align*}
-	    \phi(y, r) \coloneq \psi\left(x^{(1)}(y, r), x^{(2)}(y,r)\right).
+	    \phi(\yvec, \rvec) \coloneq \psi\left(\xone(\yvec, \rvec), \xtwo(\yvec,\rvec)\right).
 	\end{align*}
 	The Hamiltonian $H$ can be separated into two parts, $H_\text{free}$ describing the movement of the center-of-mass and $H_\text{rel}$, describing the movement of the particles around the center-of-mass. We have
 	\begin{align*}
-		H_\text{free} \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_y \qquad \text{ and } \qquad H_\text{rel} \coloneq - \frac{\hbar^2}{2\mu}\lap_r + V(\norm{r}).
+		H_\text{free} \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_{\yvec} \qquad \text{ and } \qquad H_\text{rel} \coloneq - \frac{\hbar^2}{2\mu}\lap_{\rvec} + V(\norm{\rvec}).
 	\end{align*}
-	We know that $\spec{(H_\text{free})} = \rr_{\geq 0}$, so the task that remains is to find $\spec{(H_\text{rel})}$.
+	We know that $\spec{(H_\text{free})} = \rr_{\geq 0}$, so the task that remains is to find $\spec{(H_\text{rel})}$. We see that $H_\text{rel}$ is spherically symmetric. Thus, we shall move to the spherical co-ordinates to separate the angular and radial dependencies. This shall reduce our three-dimensional problem to a one-dimensional one.
+
+	\begin{figure}
+		\centering\mathversion{sans}
+		\begin{tikzpicture}[scale=4,tdplot_main_coords]
+			\coordinate (O) at (0,0,0);
+			\draw[thick,-Straight Barb] (0,0,0) -- (0.7,0,0) node[anchor=north east]{$x$};
+			\draw[thick,-Straight Barb] (0,0,0) -- (0,0.7,0) node[anchor=north west]{$y$};
+			\draw[thick,-Straight Barb] (0,0,0) -- (0,0,0.7) node[anchor=south]{$z$};
+			\tdplotsetcoord{P}{\rlength}{\thetavec}{\phivec}
+
+			\draw[dashed, thick] (O) -- (Pxy);
+			\draw[dashed, thick] (P) -- (Pxy);
+			\tdplotdrawarc[thick]{(O)}{0.2}{0}{\phivec}{anchor=north}{$\phi$}
+			\tdplotsetthetaplanecoords{\phivec}
+			\tdplotdrawarc[thick, tdplot_rotated_coords]{(0,0,0)}{0.5}{0}%
+			{\thetavec}{anchor=south west}{$\theta$}
+			\draw[-Straight Barb,color=red, thick] (O) -- (P) node[above right] {$\rvec$};
+			\node (r) at (0,0.15,0.2) {\(r\)};
+		\end{tikzpicture}
+		\caption*{\textsf{Spherical co-ordinates}}\label{fig:sphericalcoordinates}
+		\mathversion{base}
+	\end{figure}
+
+	Expressed in spherical co-ordinates, we have the wave-function as
+	\begin{align*}
+	    F(r, \theta, \phi) \coloneq \psi(\rvec(r, \theta, \phi)),
+	\end{align*}
+	where
+	\begin{align*}
+		r_1 &= r \cos{\phi} \sin{\theta},\\
+		r_2 &= r \sin{\phi} \sin{\theta},\\
+		r_3 &= r \cos{\theta},
+	\end{align*}
+	and $r_1$, $r_2$ and $r_3$ denote the $x$-, $y$- and $z$- components of $\rvec$ respectively. We now express the angular momentum operators in spherical co-ordinates as well.
+	\begin{align*}
+		\angsone &\coloneq \i \cos{\phi}\cot{\theta}\frac{\partial}{\partial\phi} + \i \sin{\phi}\frac{\partial}{\partial\theta},\\
+		\angstwo &\coloneq \i \sin{\phi}\cot{\theta}\frac{\partial}{\partial\phi} - \i \cos{\phi}\frac{\partial}{\partial\theta},\\
+		\angsthree &\coloneq -\i \frac{\partial}{\partial\phi}.
+	\end{align*}
+	These can be derived by the application of the chain rule. If $L_a$ denotes $a^{\text{th}}$ angular momentum operator in Cartesian co-ordinates, then we have
+	\begin{align*}
+		(\tilde{L}_a F) (r, \theta, \phi) = (L_a \psi)(\rvec(r, \theta, \phi)).
+	\end{align*}
+
+
+
+
 
 
 
