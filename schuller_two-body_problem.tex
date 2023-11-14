@@ -116,9 +116,10 @@
 \newcommand{\distr}{\dist(\rr)}
 \newcommand{\distar}{\schwartz^*(\rr)}
 \newcommand{\anti}{\overline{\distr}}
-\renewcommand*{\hbar}{\mathrm{^^^^0127}}
+% \renewcommand*{\hbar}{\mathrm{^^^^0127}}
 \renewcommand{\i}{\mathrm{i}}
 \newcommand{\e}{\mathrm{e}}
+\renewcommand{\pi}{\muppi}
 \newcommand{\cinfinity}{\mathrm{C}^\infty}
 \newcommand{\family}{\mathcal{F}}
 \newcommand{\lift}{\hat{D}}
@@ -136,9 +137,14 @@
 \newcommand{\angsone}{\tilde{L}_1}
 \newcommand{\angstwo}{\tilde{L}_2}
 \newcommand{\angsthree}{\tilde{L}_3}
+\newcommand{\lvecsquare}{\symbfit{L}\kern-1pt^2}
+\newcommand{\parr}{\frac{\partial}{\partial r}}
+\newcommand{\partheta}{\frac{\partial}{\partial \theta}}
+\newcommand{\parphi}{\frac{\partial}{\partial \phi}}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
 \newcommand{\der}{\operatorname{d\!}{}}
 \usepackage{mleftright}
 
@@ -300,9 +306,7 @@
 
 	We also have the finite wall potential $V_{\text{finite wall}}(r) \coloneq a \upTheta(r - r_0)$ and the isotropic harmonic oscillator $V_{\text{ihc}} (r) \coloneq a r^2$.
 
-
-
-	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\) which is naturally isomorphic to \(\ltworsix\). This can be seen from Theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\).
+	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). This can be seen from Theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\).
 
 	The Hamiltonian for our quantum-mechanical two-body system is
 	\begin{align*}
@@ -329,6 +333,8 @@
 		H_\text{free} \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_{\yvec} \qquad \text{ and } \qquad H_\text{rel} \coloneq - \frac{\hbar^2}{2\mu}\lap_{\rvec} + V(\norm{\rvec}).
 	\end{align*}
 	We know that $\spec{(H_\text{free})} = \rr_{\geq 0}$, so the task that remains is to find $\spec{(H_\text{rel})}$. We see that $H_\text{rel}$ is spherically symmetric. Thus, we shall move to the spherical co-ordinates to separate the angular and radial dependencies. This shall reduce our three-dimensional problem to a one-dimensional one.
+
+	\section{Moving to spherical co-ordinates}
 
 	\begin{figure}
 		\centering\mathversion{sans}
@@ -362,16 +368,60 @@
 		r_2 &= r \sin{\phi} \sin{\theta},\\
 		r_3 &= r \cos{\theta},
 	\end{align*}
-	and $r_1$, $r_2$ and $r_3$ denote the $x$-, $y$- and $z$- components of $\rvec$ respectively. We now express the angular momentum operators in spherical co-ordinates as well.
+	and $r_1$, $r_2$ and $r_3$ denote the $x$-, $y$- and $z$-components of $\rvec$ respectively. We now express the angular momentum operators in spherical co-ordinates as well.
 	\begin{align*}
 		\angsone &\coloneq \i \cos{\phi}\cot{\theta}\frac{\partial}{\partial\phi} + \i \sin{\phi}\frac{\partial}{\partial\theta},\\
 		\angstwo &\coloneq \i \sin{\phi}\cot{\theta}\frac{\partial}{\partial\phi} - \i \cos{\phi}\frac{\partial}{\partial\theta},\\
 		\angsthree &\coloneq -\i \frac{\partial}{\partial\phi}.
 	\end{align*}
-	These can be derived by the application of the chain rule. If $L_a$ denotes $a^{\text{th}}$ angular momentum operator in Cartesian co-ordinates, then we have
+	These can be derived by the application of the chain rule. If $L_a$ denotes $a^{\text{th}}$ ($a \in \{1,2,3\}$) angular momentum operator in Cartesian co-ordinates, then we have
 	\begin{align*}
 		(\tilde{L}_a F) (r, \theta, \phi) = (L_a \psi)(\rvec(r, \theta, \phi)).
 	\end{align*}
+	We shall use the same letter for operators in Cartesian co-ordinates and spherical co-ordinates now on. We also have
+	\begin{align*}
+		\lvecsquare F = -\frac{1}{\sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial}{\partial\theta}F\right) -\frac{1}{\sin{\theta}}\frac{\partial}{\partial\phi}\left(\frac{1}{\sin{\theta}}\frac{\partial}{\partial\theta}F\right)
+	\end{align*}
+	and
+	\begin{align*}
+		H_\text{rel} F = -\frac{\hbar^2}{2\mu}\left(\frac{1}{r}\left(\frac{\partial}{\partial r}\right)^2 (rF) - \frac{\lvecsquare}{r^2}F\right) + V(r)F.
+	\end{align*}
+	In order to fully determine $\spec(H_\text{rel})$, along with the continuous spectrum, i.e.\@ the part containing the generalised eigenvalues, we would need to lift the eigenvalue equation to the distribution space and solve it.\footnote{\,This can be achieved using Gelfand's rigged Hilbert space formalism, which was introduced in an earlier lecture. The lecture itself can be found on this link: \url{https://www.youtube.com/watch?v=FNJOyxOp3Ik&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=8}. The notes for this lecture can be found here: \url{https://github.com/apoorvpotnis/schuller_rigged_hilbert_spaces/blob/main/schuller_rigged_hilbert_spaces.pdf}.} However, we already know from experiments that the hydrogen atom has discrete lines in its observed spectrum. Thus, we shall first solve for the point spectrum
+	\begin{align*}
+		\spec_{\text{p}}(H_\text{rel}) = \set{E \in \rr \given H_\text{rel} F = E F},
+	\end{align*}
+	which was historically a major validation for the quantum theory.
+
+	\section{Simultaneous eigenvectors}
+
+	We shall find it using a technique which was employed earlier as well. We considered the simultaneous eigenvectors and eigenvalues of $\lvecsquare$ and $L_a$, as they commute with each other. We thus consider the simultaneous eigenvalues of $H_\text{rel}$, $\lvecsquare$ and $L_3$ in the hope that this will give us more equations to work with and make the job easier. It can be seen that all three operators commute with each other pairwise.
+
+	We know that the common eigenvectors of $\lvecsquare$ and $L_3$ come as families $\psi\kern0.5pt_l^m$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
+	\begin{align*}
+	    \lvecsquare \psi\kern0.5pt_l^m &= l(l+1)\psi\kern0.5pt_l^m,\\
+		L_3 \psi\kern0.5pt_l^m &= m \psi\kern0.5pt_l^m.
+	\end{align*}
+	Note that $l$ can take only integer values, not half-integer values as we are dealing with the orbital angular momentum operator. Also recall the raising and lowering operators $L_+ \coloneq L_1 + i L_2$ and $L_- \coloneq L_1 - iL_2$. We have
+	\begin{align*}
+		L_\pm \psi\kern0.5pt_l^m = \sqrt{l(l+1) - m(m\pm 1)} \psi\kern0.5pt_l^m.
+	\end{align*}
+	In spherical co-ordinates, it turns out that the solutions $\psi\kern0.5pt_l^m$ are given by
+	\begin{align*}
+		\psi\kern0.5pt_l^m (\symbfit{x} (r, \theta, \phi)) = k \cdot Y^m_l (\theta, \phi) \cdot f(r),
+	\end{align*}
+	where
+	\begin{align*}
+		Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\pi (l+m)!}\right)^{\frac{1}{2}}\e^{\i m\phi} (\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!(\cos^2{\theta} -1)^l.
+	\end{align*}
+	These $Y_l^m$'s are called as \textit{spherical harmonic functions}. Since the operators $\lvecsquare$ and $L_3$ act only on the angular components and not the radial components when expressed in spherical co-ordinates, we have that
+	\begin{align*}
+	    \lvecsquare Y_l^m &= l(l+1) Y_l^m,\\
+		L_3 Y_l^m &= m Y_l^m,
+	\end{align*}
+	i.e.\@ the spherical harmonic functions are eigenvectors of $\lvecsquare$ and $L_3$. These actually form an orthonormal basis of the Hilbert space $\mathrm{L}\kern-0.7pt^2(\mathbb{S}^2)$ consisting of complex square-integrable functions defined on the 2-sphere.
+
+
+
 
 
 
