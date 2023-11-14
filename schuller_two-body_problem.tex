@@ -306,7 +306,7 @@
 
 	We also have the finite wall potential $V_{\text{finite wall}}(r) \coloneq a \upTheta(r - r_0)$ and the isotropic harmonic oscillator $V_{\text{ihc}} (r) \coloneq a r^2$.
 
-	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). This can be seen from Theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\).
+	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). This can be seen from theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\).
 
 	The Hamiltonian for our quantum-mechanical two-body system is
 	\begin{align*}
@@ -368,17 +368,18 @@
 		r_2 &= r \sin{\phi} \sin{\theta},\\
 		r_3 &= r \cos{\theta},
 	\end{align*}
-	and $r_1$, $r_2$ and $r_3$ denote the $x$-, $y$- and $z$-components of $\rvec$ respectively. We now express the angular momentum operators in spherical co-ordinates as well.
+	and $r_1$, $r_2$ and $r_3$ denote the $x$-, $y$- and $z$-components of $\rvec$ respectively. We now express the angular momentum operators in spherical co-ordinates as well. If $L_a$ denotes $a^{\text{th}}$ ($a \in \{1,2,3\}$) angular momentum operator in Cartesian co-ordinates, then we have
+	\begin{align*}
+		(\tilde{L}_a F) (r, \theta, \phi) = (L_a \psi)(\rvec(r, \theta, \phi)),
+	\end{align*}
+	where $\tilde{L}_a$ denotes the angular momentum operator in spherical co-ordinates.
+	Applying chain rule, we get
 	\begin{align*}
 		\angsone &\coloneq \i \cos{\phi}\cot{\theta}\frac{\partial}{\partial\phi} + \i \sin{\phi}\frac{\partial}{\partial\theta},\\
 		\angstwo &\coloneq \i \sin{\phi}\cot{\theta}\frac{\partial}{\partial\phi} - \i \cos{\phi}\frac{\partial}{\partial\theta},\\
 		\angsthree &\coloneq -\i \frac{\partial}{\partial\phi}.
 	\end{align*}
-	These can be derived by the application of the chain rule. If $L_a$ denotes $a^{\text{th}}$ ($a \in \{1,2,3\}$) angular momentum operator in Cartesian co-ordinates, then we have
-	\begin{align*}
-		(\tilde{L}_a F) (r, \theta, \phi) = (L_a \psi)(\rvec(r, \theta, \phi)).
-	\end{align*}
-	We shall use the same letter for operators in Cartesian co-ordinates and spherical co-ordinates now on. We also have
+	We provide a derivation of the above operators in the last section of these notes. We shall use the same letter for operators in Cartesian co-ordinates and spherical co-ordinates now on. We also have
 	\begin{align*}
 		\lvecsquare F = -\frac{1}{\sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial}{\partial\theta}F\right) -\frac{1}{\sin{\theta}}\frac{\partial}{\partial\phi}\left(\frac{1}{\sin{\theta}}\frac{\partial}{\partial\theta}F\right)
 	\end{align*}
@@ -392,9 +393,9 @@
 	\end{align*}
 	which was historically a major validation for the quantum theory.
 
-	\section{Simultaneous eigenvectors}
+	\section{Spherical Harmonics}
 
-	We shall find it using a technique which was employed earlier as well. We considered the simultaneous eigenvectors and eigenvalues of $\lvecsquare$ and $L_a$, as they commute with each other. We thus consider the simultaneous eigenvalues of $H_\text{rel}$, $\lvecsquare$ and $L_3$ in the hope that this will give us more equations to work with and make the job easier. It can be seen that all three operators commute with each other pairwise.
+	In the previous lectures, we have already discussed the simultaneous eigenvectors and eigenvalues of $\lvecsquare$ and $L_a$, as they commute with each other. We thus consider the simultaneous eigenvalues of $H_\text{rel}$, $\lvecsquare$ and $L_3$ in the hope that this will give us more equations to work with and make the job easier. It can be seen that all three operators commute with each other pairwise.
 
 	We know that the common eigenvectors of $\lvecsquare$ and $L_3$ come as families $\psi\kern0.5pt_l^m$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
 	\begin{align*}
@@ -411,14 +412,23 @@
 	\end{align*}
 	where
 	\begin{align*}
-		Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\pi (l+m)!}\right)^{\frac{1}{2}}\e^{\i m\phi} (\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!(\cos^2{\theta} -1)^l.
+		Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\pi (l+m)!}\right)^{\frac{1}{2}}\!\!\cdot\e^{\i m\phi}\cdot(\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!\!(\cos^2{\theta} -1)^l.
 	\end{align*}
 	These $Y_l^m$'s are called as \textit{spherical harmonic functions}. Since the operators $\lvecsquare$ and $L_3$ act only on the angular components and not the radial components when expressed in spherical co-ordinates, we have that
 	\begin{align*}
 	    \lvecsquare Y_l^m &= l(l+1) Y_l^m,\\
 		L_3 Y_l^m &= m Y_l^m,
 	\end{align*}
-	i.e.\@ the spherical harmonic functions are eigenvectors of $\lvecsquare$ and $L_3$. These actually form an orthonormal basis of the Hilbert space $\mathrm{L}\kern-0.7pt^2(\mathbb{S}^2)$ consisting of complex square-integrable functions defined on the 2-sphere.
+	i.e.\@ the spherical harmonic functions are eigenvectors of $\lvecsquare$ and $L_3$. These functions actually form an orthonormal basis of the Hilbert space $\mathrm{L}\kern-0.7pt^2(\mathbb{S}^2)$ consisting of complex square-integrable functions defined on the 2-sphere.
+	\begin{align*}
+		\langle Y_l^m , Y_{l'}^{m'} \rangle = \delta\kern0.5pt_{l, l'}\cdot\delta\kern0.4pt_{m, m'}.
+	\end{align*}
+	We request that the reader consult section 14.2 of the book of Bowers for a derivation of these spherical harmonic functions~\cite[p.~200]{Bowers}.
+
+	\section{Spectrum of the Hamiltonian operator}
+
+	\section{Angular momentum in spherical co-ordinates}\label{angmomentumsph}
+
 
 
 
