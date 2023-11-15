@@ -111,6 +111,7 @@
 \newcommand{\schwartz}{\mathcal{S}}
 % \newcommand{\schwartz}{\mathcal{S}}
 \newcommand{\schwartzr}{\schwartz(\rr)}
+\newcommand{\schwartzrthree}{\schwartz(\rr^3)}
 \newcommand{\dist}{\schwartz^\times}
 % \newcommand{\dist}{\schwartz^\times}
 \newcommand{\distr}{\dist(\rr)}
@@ -141,6 +142,7 @@
 \newcommand{\parr}{\frac{\partial}{\partial r}}
 \newcommand{\partheta}{\frac{\partial}{\partial \theta}}
 \newcommand{\parphi}{\frac{\partial}{\partial \phi}}
+\newcommand{\levi}{\epsilon_{ijk}}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -358,6 +360,158 @@
 		\mathversion{base}
 	\end{figure}
 
+	Now we know that the angular momentum operators are self-adjoint and defined on their Stone domains. We shall instead consider the restrictions of the angular momentum operators on the Schwartz space to avoid running into technical issues. The Schwartz space is dense in the Stone domains and $\ltworthree$. These restrictions are essentially self-adjoint. We shall now on not distinguish between the angular momentum operators and their essentially self-adjoint restrictions on the Schwartz space. Let $i \in \{1,2,3\}$. We thus have the Cartesian angular momentum operators
+	\begin{align*}
+	    L_i &\colon \schwartzrthree \rightarrow \schwartzrthree,\\
+		L_i &\colon \psi \mapsto \levi\position_j\momentum_k\psi,
+	\end{align*}
+	where $\position_j$ and $\momentum_k$ denote the $j^\text{th}$ and $k^\text{th}$ position and momentum operators respectively. The indices run over 1, 2 and 3.
+	We thus have
+	\begin{align*}
+	    L_1 &= -\i\hbar(y\partial_z - z\partial_y)\\
+		L_2 &= -\i\hbar(z\partial_x - x\partial_z)\\
+		L_3 &= -\i\hbar(z\partial_y - y\partial_x).
+	\end{align*}
+	Let
+	\begin{align*}
+	    A = [0, +\infty) \times [0,\pi] \times [0,2\pi).
+	\end{align*}
+	Let $T$ be defined as
+	\begin{align*}
+		T &\colon A \rightarrow \rthree,\\
+		T &\colon (r, \theta, \phi) \mapsto (x, y, z),
+	\end{align*}
+	where
+	\begin{align*}
+		x &= r \cos{\phi} \sin{\theta},\\
+		y &= r \sin{\phi} \sin{\theta},\\
+		z &= r \cos{\theta}.
+	\end{align*}
+	Thus,
+	\begin{align*}
+	    T(r, \theta, \phi) \coloneq (r \cos{\phi} \sin{\theta}, \sin{\phi} \sin{\theta}, \cos{\theta}).
+	\end{align*}
+	If $\tilde{\psi} \in \schwartz(A)$ corresponds to $\psi$ in spherical co-ordinates\footnote{\,Prof.\@ Schuller uses $F$ to denote $\tilde{\psi}$. Note that even though $T$ is only surjective and not injective, $T^{-1}(\psi)$ is a measure zero set for any $\psi \in \schwartzrthree$. Thus, we don't need to make any further identifications in $\schwartz(A)$.}, we have
+	\begin{align*}
+		\tilde{\psi} = \psi \cdot T
+	\end{align*}
+	and the chain rule gives us
+	\begin{align*}
+	    \tilde{\psi}'(r, \theta, \phi) = \psi'(x,y,z) \cdot T'(r, \theta, \phi),
+	\end{align*}
+	where $(x,y,z) = T(r, \theta, \phi)$. We thus have
+	\begin{align*}
+	    \partial_\phi = (\partial_\phi x)\partial_x + (\partial_\phi y)\partial_y + (\partial_\phi z)\partial_z.
+	\end{align*}
+	Substituting $x = r \cos{\phi} \sin{\theta}$, $y = r \sin{\phi} \sin{\theta}$ and $z = r \cos{\theta}$, we get
+	\begin{align*}
+		\partial_\phi &= -(r \sin{\theta} \sin{\phi})\partial_x + (r \sin{\theta} \cos{\phi})\partial_y\\
+		\partial_\phi &= x\partial_2 - y\partial_1.
+	\end{align*}
+
+
+
+	\begin{align*}
+		(\partial_\phi \tilde{\psi})(r, \theta, \phi) &= \partial_x (\psi(x, y, z)) \partial_\phi(T(r, \theta, \phi))\\
+		&= \partial_x (\psi(x, y, z)) \partial_\phi(r\cos{\phi}\sin{\theta})\\
+	\end{align*}
+
+
+
+
+	Let $D_r$ denote the partial derivative operator with respect to $\phi$.
+	\begin{align*}
+	    D_r &\colon \schwartz(A) \rightarrow \schwartz(A),\\
+		D_r &\colon \tilde{\psi} \mapsto D_r\tilde{\psi}.
+	\end{align*}
+	We similarly define $D_\phi$ and $D_\theta$. Let $D_i$ denote the partial derivative operator with respect to $i \in {1, 2, 3}$.
+	\begin{align*}
+		D_i &\colon \schwartzrthree \rightarrow \schwartzrthree\\
+		D_i &\colon \psi \mapsto D_i\psi.
+	\end{align*}
+	Expressing the chain rule in terms of partial derivatives, we have
+
+
+
+
+
+
+
+	Let $\tilde{T}$ denote the operator
+	\begin{align*}
+		\tilde{T} \schwartz(A) \
+	\end{align*}
+
+
+
+
+
+	Now, if $\tilde{\psi} \in \schwartz(A)$, then we have the co-ordinate transformation function $B$ as
+	\begin{align*}
+	    B &\colon \schwartz(A) \rightarrow \schwartzrthree,\\
+		B &\colon \tilde{\psi} \mapsto B\tilde{\psi} = \psi,
+	\end{align*}
+	given by
+	\begin{align*}
+		(B\tilde{\psi})(x, y, z) = \psi(x,y,z) \coloneq \tilde{\psi}\bigg(\sqrt{x^2 + y^2 + z^2}, \frac{x}{\sqrt{x^2 + y^2}}, \frac{z}{\sqrt{x^2 + y^2 + z^2}}\bigg),
+	\end{align*}
+	when $\sqrt{x^2 + y^2 + z^2}$ and $\sqrt{x^2 + y^2}$ do not vanish. When they vanish, we define then using their limits, which vanish identically.
+
+
+
+
+	We consider the spherical angular momentum operators
+	\begin{align*}
+		\tilde{L_i} &\colon \schwartz(A) \rightarrow \schwartz(A),\\
+		\tilde{L_i} &\colon \tilde{\psi} \rightarrow \tilde{L_i}\tilde{\psi},
+	\end{align*}
+	given by
+	\begin{align*}
+		\tilde{L_i}\tilde{\psi} \coloneq L_iB\tilde{\psi} = L_i\psi.
+	\end{align*}
+	Since $\tilde{L_i} = L_iB$, we have
+	\begin{align*}
+		\tilde{L_i} = -\i\hbar\levi\position_jD_kB,
+	\end{align*}
+	where $D_k$ denotes the $k^\text{th}$ partial derivative.
+	Consider $L_3$, i.e.\@ let $i = 3$. We have
+
+
+
+
+
+
+
+
+
+	\begin{align*}
+	    L_i
+	\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	Expressed in spherical co-ordinates, we have the wave-function as
 	\begin{align*}
 	    F(r, \theta, \phi) \coloneq \psi(\rvec(r, \theta, \phi)),
@@ -372,8 +526,34 @@
 	\begin{align*}
 		(\tilde{L}_a F) (r, \theta, \phi) = (L_a \psi)(\rvec(r, \theta, \phi)),
 	\end{align*}
-	where $\tilde{L}_a$ denotes the angular momentum operator in spherical co-ordinates.
+	where $\tilde{L}_a$ denotes the angular momentum operator in spherical co-ordinates. We have
+	\begin{align*}
+	    L_a &\colon \ltworthree \rightarrow \ltworthree,\\
+		L_a &\colon \psi(\rvec) = \psi(r_1, r_2, r_3) \mapsto L_a(\psi(r_1, r_2, r_3)),
+	\end{align*}
+	and
+	\begin{align*}
+		\tilde{L}_a &\colon \mathrm{L}^{\kern-0.7pt 2} ( [0,+\infty ) \times [0,\pi] \times [0,2\pi ) ) \rightarrow \mathrm{L}^{\kern-0.7pt 2}  ( [0,+\infty ) \times [0,\pi ] \times [0,2\pi ) )\\
+		\tilde{L}_a &\colon \tilde{\psi}(r, \theta, \phi) \rightarrow \tilde{L}_a(\tilde{\psi}(r, \theta, \phi)).
+	\end{align*}
+	If $C$ is the function which transforms co-ordinates, then we have
+	\begin{align*}
+		C &\colon [0,+\infty ) \times [0,\pi] \times [0,2\pi ) \rightarrow \rthree\\
+		C &\colon []
+	\end{align*}
+
+
+% 	\tilde{L}_a \colon L^\kern-0.7pt2([0,+\infty) \times [0,\pi] \times [0,2\pi)) \rightarrow L^\kern-0.7pt2([0,+\infty) \times [0,\pi] \times [0,2\pi))
 	Applying chain rule, we get
+	\begin{align*}
+d
+	\end{align*}
+
+
+
+
+
+
 	\begin{align*}
 		\angsone &\coloneq \i \cos{\phi}\cot{\theta}\frac{\partial}{\partial\phi} + \i \sin{\phi}\frac{\partial}{\partial\theta},\\
 		\angstwo &\coloneq \i \sin{\phi}\cot{\theta}\frac{\partial}{\partial\phi} - \i \cos{\phi}\frac{\partial}{\partial\theta},\\
@@ -412,7 +592,7 @@
 	\end{align*}
 	where
 	\begin{align*}
-		Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\pi (l+m)!}\right)^{\frac{1}{2}}\!\!\cdot\e^{\i m\phi}\cdot(\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!\!(\cos^2{\theta} -1)^l.
+		Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\pi (l+m)!}\right)^{\frac{1}{2}}\!\cdot\e^{\i m\phi}\cdot\!(\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!\!(\cos^2{\theta} -1)^l.
 	\end{align*}
 	These $Y_l^m$'s are called as \textit{spherical harmonic functions}. Since the operators $\lvecsquare$ and $L_3$ act only on the angular components and not the radial components when expressed in spherical co-ordinates, we have that
 	\begin{align*}
