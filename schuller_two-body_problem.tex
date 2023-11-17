@@ -399,7 +399,7 @@
 	\end{align*}
 	If $F \in \schwartz(A)$ corresponds to $\psi$ in spherical co-ordinates\footnote{\,Note that even though $T$ is only surjective and not injective, $T^{-1}(\psi)$ is a measure zero set for any $\psi \in \schwartzrthree$. Thus, we don't need to make any further identifications in $\schwartz(A)$.}, we have
 	\begin{align*}
-		F = \psi \cdot T,
+		F = \psi \circ T,
 	\end{align*}
 	and the chain rule gives us
 	\begin{align*}
@@ -419,13 +419,19 @@
 		\tilde{L}_3 = -\i\hbar\partial_\phi,
 	\end{align*}
 	where $\tilde{L}_3 \colon \schwartz(A) \rightarrow \schwartz(A)$ denotes the angular momentum operator in spherical co-ordinates.
-	We now restrict the domain of $T$ suitably\footnote{\,More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\pi) \times (0,2\pi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions.} such that it becomes injective and $T^{-1}$ becomes a well defined function. Thus, applying chain rule to $\psi = FT^{-1}$ gives us
+	We now restrict the domain of $T$ suitably such that it becomes injective and $T^{-1}$ becomes a well defined function. More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\pi) \times (0,2\pi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions. If we define $\tilde{\rthree}$ as $\rthree$ excluding the axes, we have $T^{-1} \colon \tilde{\rthree} \rightarrow \tilde{A}$ as
+	\begin{align*}
+		r      &= \sqrt{x^2 + y^2 + z^2},\\
+		\theta &= \cos^{-1}{\left(\frac{z}{\sqrt{x^2 + y^2 + z^2}}\right)},\\
+		\phi   &= \cos^{-1}{\left(\frac{x}{\sqrt{x^2 + y^2}}\right)}.
+	\end{align*}
+	Applying chain rule to $\psi = F \circ T^{-1}$ gives us
 	\begin{align*}
 	    \partial_x &= (\partial_x r)\partial_r + (\partial_x \theta)\partial_\theta + (\partial_x \phi)\partial_\phi,\\
 		\partial_y &= (\partial_y r)\partial_r + (\partial_y \theta)\partial_\theta + (\partial_y \phi)\partial_\phi,\\
 		\partial_z &= (\partial_z r)\partial_r + (\partial_z \theta)\partial_\theta + (\partial_z \phi)\partial_\phi.
 	\end{align*}
-	Substituting the above in $L_1 = -\i\hbar(y\partial_z - z\partial_y)$ and $L_2 = -\i\hbar(z\partial_x - x\partial_z)$ and calculating the partial derivatives finally gives us
+	Calculating the partial derivatives and substituting the above in $L_1 = -\i\hbar(y\partial_z - z\partial_y)$ and $L_2 = -\i\hbar(z\partial_x - x\partial_z)$ finally gives us
 	\begin{align*}
 		\angsone &\coloneq \i\hbar\left(\cos{\phi}\cot{\theta}\frac{\partial}{\partial\phi} + \sin{\phi}\frac{\partial}{\partial\theta}\right),\\
 		\angstwo &\coloneq \i\hbar\left(-\sin{\phi}\cot{\theta}\frac{\partial}{\partial\phi} + \cos{\phi}\frac{\partial}{\partial\theta}\right),\\
