@@ -320,7 +320,7 @@
 	\begin{align*}
 		H \coloneq -\frac{\hbar^2}{2m_1}\lap_{(1)} - \frac{\hbar^2}{2m_2}\lap_{(2)} + V\left(\norm{\xone - \xtwo}\right),
 	\end{align*}
-	where \(\lap_{(i)}\) is the Laplacian operator which acts on the Hilbert space \(\ltworthree\) of the particle \(i\), and \(\symbfit{x}^{(i)} \in \rthree\) denotes the position vector of the \(i^\text{th}\) particle. We are interested in finding out the spectrum of this Hamiltonian.
+	where \(\lap_{(i)}\) is the Laplacian operator which acts on the Hilbert space \(\ltworthree\) of the particle \(i\), and \(\symbfit{x}^{(i)} \in \rthree\) denotes the position vector of the \(i^\text{th}\) particle. Assuming that this Hamiltonian is self-adjoint, we are interested in finding out its spectrum.
 
 	As is the case in classical mechanics, we shall move to the center-of-mass co-ordinates. We can move the center-of-mass of the system in any direction by any value, i.e. the spectrum of the `center-of-mass' position operator is \(\rr\). The discrete energy levels are due to the angular momentum about the center-of-mass. We thus introduce
 	\begin{align*}
@@ -340,7 +340,7 @@
 	\begin{align*}
 		H_\text{free} \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_{\yvec} \qquad \text{ and } \qquad H_\text{rel} \coloneq - \frac{\hbar^2}{2\mu}\lap_{\rvec} + V(\norm{\rvec}).
 	\end{align*}
-	We know that $\spec{(H_\text{free})} = \rr_{\geq 0}$, so the task that remains is to find $\spec{(H_\text{rel})}$. We see that $H_\text{rel}$ is spherically symmetric. Thus, we shall move to the spherical co-ordinates to separate the angular and radial dependencies. This shall reduce our three-dimensional problem to a one-dimensional one.
+	We know that $\spec{(H_\text{free})} = \rr_{\geq 0}$, so the task that remains is to find $\spec{(H_\text{rel})}$, provided that $H_\text{rel}$ is self-adjoint, depending on $V(\norm{\rvec})$. We see that $H_\text{rel}$ is spherically symmetric. Thus, we shall move to the spherical co-ordinates to separate the angular and radial dependencies. This shall reduce our three-dimensional problem to a one-dimensional one.
 
 	\section{Moving to spherical co-ordinates}
 
@@ -366,7 +366,9 @@
 		\mathversion{base}
 	\end{figure}
 
-	Now we know that the angular momentum operators are self-adjoint and defined on their Stone domains. We shall instead consider the restrictions of the angular momentum operators on the Schwartz space to avoid running into technical issues. The Schwartz space is dense in the Stone domains and $\ltworthree$. These restrictions are essentially self-adjoint. We shall now on not distinguish between the angular momentum operators and their essentially self-adjoint restrictions on the Schwartz space. Let $i \in \{1,2,3\}$. We thus have the Cartesian angular momentum operators
+	We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They were defined as the generators of rotation about an axis. We shall instead consider the restrictions of the these operators on the Schwartz space to avoid running into technical issues. The Schwartz space is dense in the Stone domains and $\ltworthree$ and the operators are essentially self-adjoint on the Schwartz space. We shall now on not distinguish between the orbital angular momentum operators and their essentially self-adjoint restrictions on the Schwartz space. This machinery has been explained in the twelfth lecture `Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}. It was also seen that the spectrum of these operators is contained in the integers.
+
+	Let $i \in \{1,2,3\}$. We thus have the Cartesian angular momentum operators
 	\begin{align*}
 	    L_i &\colon \schwartzrthree \rightarrow \schwartzrthree,\\
 		L_i &\colon \psi \mapsto \levi\position_j\momentum_k\psi,
@@ -419,7 +421,7 @@
 		\tilde{L}_3 = -\i\hbar\partial_\phi,
 	\end{align*}
 	where $\tilde{L}_3 \colon \schwartz(A) \rightarrow \schwartz(A)$ denotes the angular momentum operator in spherical co-ordinates.
-	We now restrict the domain of $T$ suitably such that it becomes injective and $T^{-1}$ becomes a well defined function. More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\pi) \times (0,2\pi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions. If we define $\tilde{\rthree}$ as $\rthree$ excluding the axes, we have $T^{-1} \colon \tilde{\rthree} \rightarrow \tilde{A}$ as
+	We now restrict the domain of $T$ suitably such that it becomes injective and $T^{-1}$ becomes a well defined function. More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\pi) \times (0,2\pi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions. If we define $\tilde{\rthree}$ as $\rthree$ excluding the axes, we have $T^{-1} \colon \tilde{\rthree} \rightarrow \tilde{A}$, $T^{-1} \colon (x, y, z) \mapsto (r, \theta, \phi)$ as
 	\begin{align*}
 		r      &= \sqrt{x^2 + y^2 + z^2},\\
 		\theta &= \cos^{-1}{\left(\frac{z}{\sqrt{x^2 + y^2 + z^2}}\right)},\\
@@ -427,9 +429,7 @@
 	\end{align*}
 	Applying chain rule to $\psi = F \circ T^{-1}$ gives us
 	\begin{align*}
-	    \partial_x &= (\partial_x r)\partial_r + (\partial_x \theta)\partial_\theta + (\partial_x \phi)\partial_\phi,\\
-		\partial_y &= (\partial_y r)\partial_r + (\partial_y \theta)\partial_\theta + (\partial_y \phi)\partial_\phi,\\
-		\partial_z &= (\partial_z r)\partial_r + (\partial_z \theta)\partial_\theta + (\partial_z \phi)\partial_\phi.
+	    \partial_i &= (\partial_i r)\partial_r + (\partial_i \theta)\partial_\theta + (\partial_i \phi)\partial_\phi.
 	\end{align*}
 	Calculating the partial derivatives and substituting the above in $L_1 = -\i\hbar(y\partial_z - z\partial_y)$ and $L_2 = -\i\hbar(z\partial_x - x\partial_z)$ finally gives us
 	\begin{align*}
@@ -445,7 +445,45 @@
 	\begin{align*}
 		\tilde{H}_\text{rel} F = -\frac{\hbar^2}{2\mu}\left(\frac{1}{r}\left(\frac{\partial}{\partial r}\right)^2 (rF) - \frac{\lvecsquare}{r^2}F\right) + V(r)F.
 	\end{align*}
-	In order to fully determine $\spec(H_\text{rel})$, along with the continuous spectrum, i.e.\@ the part containing the generalised eigenvalues, we would need to lift the eigenvalue equation to the distribution space and solve it.\footnote{\,This can be achieved using Gelfand's rigged Hilbert space formalism, which was introduced in an earlier lecture. The lecture itself can be found on this link: \url{https://www.youtube.com/watch?v=FNJOyxOp3Ik&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=8}. The notes for this lecture can be found here: \url{https://github.com/apoorvpotnis/schuller_rigged_hilbert_spaces/blob/main/schuller_rigged_hilbert_spaces.pdf}.} However, we already know from experiments that the hydrogen atom has discrete lines in its observed spectrum. Thus, we shall first solve for the point spectrum
+
+	We now observe that $\lvecsquare F$ is dependent only on the angular part of $F$. So, if we multiply $F$ by a function $f(r)$ of $r$ alone, without any dependencies on $\theta$ and $\phi$, then we have that $\lvecsquare(f\cdot F) = f \cdot \lvecsquare F$. Because of this observation, we attempt to decompose the the Hilbert space into radial and angular parts.
+
+	We know that \[\rthree = \mathbb{S}^2 \times [0, +\infty)\] as sets. The standard Lebesgue measure on $\rthree$ can be seen as the tensor product of the measures on $\mathbb{S}^2$ and $[0, \infty)$. Let $\mathcal{B}(\mathbb{S}^2)$ be the Borel $\sigma$-algebra on $\mathbb{S}^2$, generated by the standard induced subset topology on $\mathbb{S}^2$, and let $\mathcal{B}([0,+\infty))$ be the Borel $\sigma$-algebra on $[0, +\infty)$ generated by the standard induced subset topology on $[0, +\infty)$. We know that $\mathbb{S}^2 = [0, \pi] \times [0, 2\pi),$ as sets. Every element of $\mathcal{B}(\mathbb{S}^2)$, i.e.\@ every measurable set of $\mathbb{S}^2$, can be expressed as a countable union of sets $\Theta \times \Phi$, where $\Theta \coloneq (\theta_1, \theta_2)$ and $\Phi \coloneq (\phi_1, \phi_2)$ are open sets in $[0, \pi]$ and $[0, 2\pi)$. Let
+	\begin{align*}
+		\nu \colon \mathcal{B}(\mathbb{S}^2) \rightarrow \rr
+	\end{align*}
+	be the measure defined on $\mathbb{S}^2$ by
+	\begin{align*}
+	    \nu((\Theta, \Phi)) \coloneq (\phi_2 - \phi_1) \int_{\theta_1}^{\theta_2}\sin{\theta}\der \theta.
+	\end{align*}
+	$\nu$ is known as the standard spherical measure on $\mathbb{S}^2$. It can be easily seen that $\nu((\Theta, \Phi))$ is nothing but the area of a surface element on the sphere which subtends the angles $\Theta$ and $\Phi$ at the origin in the polar and azimuthal directions respectively. We define the measure
+	\begin{align*}
+		\xi \colon \mathcal{B}([0, +\infty)) \rightarrow \rr
+	\end{align*}
+	on $[0, +\infty)$ by
+	\begin{align*}
+		\xi((a, b)) \coloneq \int_a^b r^2\! \der r,
+	\end{align*}
+	with $a, b \in (0, +\infty)$. Note that in both the cases, we have defined the measure on open sets. Every element of the Borel $\sigma$-algebra can be expressed as a countable union or a countable intersection of the open sets. The standard Lebesgue measure $\mu$ on $\rthree$ can be expressed as
+	\begin{align*}
+		\mu = \nu \otimes \xi.
+	\end{align*}
+	Applying theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed} again, we see that
+	\begin{align}
+		\ltwo(\rthree, \mu) = \ltwo(\mathbb{S}^2, \nu) \otimes \ltwo([0, +\infty), \xi).
+	\end{align}
+	We define the operators $\lvecsquare_{\,\mathbb{S}^2} \colon C^\infty(\mathbb{S}^2, \nu) \rightarrow C^\infty(\mathbb{S}^2, \nu)$ and $\tilde{L}_{3, \mathbb{S}^2} \colon C^\infty(\mathbb{S}^2, \nu) \rightarrow C^\infty(\mathbb{S}^2, \nu)$. These are simply the angular parts of the $\lvecsquare$ and $\tilde{L}_3$ operators, which anyway act on $C^\infty(\mathbb{S}^2, \nu)$ since they did not have any radial dependence.
+	\begin{align*}
+	    \lvecsquare_{\,\mathbb{S}^2} &= -\i\hbar\partial_\phi,\\
+		\tilde{L}_{3, \mathbb{S}^2}  &= -\frac{1}{\sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial}{\partial\theta}\right) -\frac{1}{\sin{\theta}}\frac{\partial}{\partial\phi}\left(\frac{1}{\sin{\theta}}\frac{\partial}{\partial\theta}\right).
+	\end{align*}
+	We use the fact that $C^\infty(\mathbb{S}^2, \nu)$ is dense in $\ltwo(\mathbb{S}^2, \nu)$. It can be seen that these operators are symmetric.
+
+
+
+
+
+	We need the fact that $\lvecsquare$ is essentially self-adjoint on $\mathrm{C}^\infty(\mathbb{S}^2)$ \cite{MorettiDomain}. In order to fully determine $\spec(H_\text{rel})$, along with the continuous spectrum, i.e.\@ the part containing the generalised eigenvalues, we would need to lift the eigenvalue equation to the distribution space and solve it.\footnote{\,This can be in principle be achieved using Gelfand's rigged Hilbert space formalism, which was introduced in an earlier lecture. The lecture itself can be found on this link: \url{https://www.youtube.com/watch?v=FNJOyxOp3Ik&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=8}. The notes for this lecture can be found here: \url{https://github.com/apoorvpotnis/schuller_rigged_hilbert_spaces/blob/main/schuller_rigged_hilbert_spaces.pdf}.} However, we already know from experiments that the hydrogen atom has discrete lines in its observed spectrum. Thus, we shall first solve for the point spectrum
 	\begin{align*}
 		\spec_{\text{p}}(H_\text{rel}) = \set{E \in \rr \given H_\text{rel} F = E F},
 	\end{align*}
@@ -453,18 +491,14 @@
 
 	\section{Spherical Harmonics}
 
-	In the previous lectures, we have already discussed the simultaneous eigenvectors and eigenvalues of $\symbfit{L}\kern-1pt^2$ and $L_a$, as they commute with each other. We thus consider the simultaneous eigenvalues of $H_\text{rel}$, $\symbfit{L}\kern-1pt^2$ and $L_3$ in the hope that this will give us more equations to work with and make the job easier. It can be seen that all three operators commute with each other pairwise. Up to isomorphism, the eigenvectors and eigenvalues of an operator are not affected by co-ordinate changes, as $\schwartzrthree$, $\schwartz(\tilde{\rthree})$, $\schwartz(A)$ and $\schwartz(\tilde{A})$ are all isomorphic to each other.
+	In the previous lectures, we have already discussed the simultaneous eigenvectors and eigenvalues of $\symbfit{L}\kern-1pt^2$ and $L_a$, as they commute with each other. We thus consider the simultaneous eigenvalues of $H_\text{rel}$, $\symbfit{L}\kern-1pt^2$ and $L_3$ in the hope that this will give us more equations to work with and make the job easier. It can be seen that all three operators commute with each other pairwise. Up to isomorphism, the eigenvectors and eigenvalues of an operator are not affected by co-ordinate changes, as $\schwartzrthree$, $\schwartz(\tilde{\rthree})$, $\schwartz(A)$ and $\schwartz(\tilde{A})$ are all isomorphic to each other. The self-adjointness is unaffected by the co-ordinate changes as well.
 
 	We know that the common eigenvectors of $\lvecsquare$ and $\tilde{L}_3$ come as families $\psi\kern0.5pt_l^m \in \schwartz(\tilde{A})$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
 	\begin{align*}
 	    \lvecsquare \psi\kern0.5pt_l^m &= l(l+1)\psi\kern0.5pt_l^m,\\
 		\tilde{L}_3 \psi\kern0.5pt_l^m &= m \psi\kern0.5pt_l^m.
 	\end{align*}
-	Note that $l$ can take only integer values, not half-integer values as we are dealing with the orbital angular momentum operator. Also recall the raising and lowering operators $\tilde{L}_+ \coloneq \tilde{L}_1 + i \tilde{L}_2$ and $\tilde{L}_- \coloneq \tilde{L}_1 - i\tilde{L}_2$. We have
-	\begin{align*}
-		\tilde{L}_\pm \psi\kern0.5pt_l^m = \sqrt{l(l+1) - m(m\pm 1)} \psi\kern0.5pt_l^m.
-	\end{align*}
-	In spherical co-ordinates, it turns out that the solutions $\psi\kern0.5pt_l^m$ are given by
+	Note that $l$ can take only integer values, not half-integer values as we are dealing with the orbital angular momentum operator. In spherical co-ordinates, it turns out that the solutions $\psi\kern0.5pt_l^m$ are given by
 	\begin{align*}
 		\psi\kern0.5pt_l^m (\tilde{\symbfit{x}} (r, \theta, \phi)) = k \cdot Y^m_l (\theta, \phi) \cdot f(r),
 	\end{align*}
@@ -484,6 +518,8 @@
 	We request that the reader consult section 14.2 of the book of Bowers for a derivation of these spherical harmonic functions~\cite[p.~200]{Bowers}.
 
 	\section{Spectrum of the Hamiltonian operator}
+
+	Since $\lvecsquare$, $\tilde{L}_3$ and $H_\text{rel}$ are self-adjoint operators which commute pair-wise, and $\lvecsquare$ and $\tilde{L}_3$ have a pure point spectrum, there exists a family of simultaneous eigenbasis of the Hilbert space.
 
 % 	\section{Angular momentum in spherical co-ordinates}\label{angmomentumsph}
 
@@ -663,3 +699,8 @@ Applying chain rule, we get
 % 		\tilde{L_1} &= -\i\hbar\left(r\sin{\theta}\sin{\phi}(\cos{\theta}\partial_r -r\sin{\theta}\partial_\theta) - r\cos{\theta}(\sin{\phi}\sin{\theta}\partial_r + r\sin{\phi}\cos{\theta}\partial_\theta + r\cos{\theta}\sin{\theta}\partial_\phi)\right),\\
 % 		& = -\i\hbar\left((-r^2\sin^2{\theta}\sin{\phi} - r^2 \cos^2{\theta}\sin{\phi})\partial_\theta + (-r^2\cos^2{\theta}\sin{\phi})\partial_\phi\right)
 % 	\end{align*}
+
+Also recall the raising and lowering operators $\tilde{L}_+ \coloneq \tilde{L}_1 + i \tilde{L}_2$ and $\tilde{L}_- \coloneq \tilde{L}_1 - i\tilde{L}_2$. We have
+\begin{align*}
+	\tilde{L}_\pm \psi\kern0.5pt_l^m = \sqrt{l(l+1) - m(m\pm 1)} \psi\kern0.5pt_l^m.
+\end{align*}
