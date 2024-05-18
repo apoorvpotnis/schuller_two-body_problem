@@ -314,7 +314,9 @@
 
 	We also have the finite wall potential $V_{\text{finite wall}}(r) \coloneq a \upTheta(r - r_0)$ and the isotropic harmonic oscillator $V_{\text{ihc}} (r) \coloneq a r^2$.
 
-	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). This can be seen from theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\).
+	\section{Moving to center-of-mass co-ordinates}
+
+	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). This can be seen from theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\), where \(f g\) denotes the point-wise product: \((fg)(\symbfit{x}, \symbfit{y}) \coloneq f(\symbfit{x}) g(\symbfit{y})\).
 
 	The Hamiltonian for our quantum-mechanical two-body system is
 	\begin{align*}
@@ -366,7 +368,7 @@
 		\mathversion{base}
 	\end{figure}
 
-	We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They were defined as the generators of rotation about an axis. We shall instead consider the restrictions of the these operators on the Schwartz space to avoid running into technical issues. The Schwartz space is dense in the Stone domains and $\ltworthree$ and the operators are essentially self-adjoint on the Schwartz space. We shall now on not distinguish between the orbital angular momentum operators and their essentially self-adjoint restrictions on the Schwartz space. This machinery has been explained in the twelfth lecture `Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}. It was also seen that the spectrum of these operators is contained in the integers.
+	We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They were defined as the generators of rotation about an axis. We shall instead consider the restrictions of the these operators on the common core, the Schwartz space, to avoid running into technical issues. The Schwartz space is dense in the Stone domains and $\ltworthree$ and the operators are essentially self-adjoint on the Schwartz space. We shall now on not distinguish between the orbital angular momentum operators and their essentially self-adjoint restrictions on the Schwartz space. This machinery has been explained in the twelfth lecture `Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
 
 	Let $i \in \{1,2,3\}$. We thus have the Cartesian angular momentum operators
 	\begin{align*}
@@ -376,10 +378,21 @@
 	where $\position_j$ and $\momentum_k$ denote the $j^\text{th}$ and $k^\text{th}$ position and momentum operators respectively. The indices run over 1, 2 and 3.
 	We thus have
 	\begin{align*}
-	    L_1 &= -\i\hbar(y\partial_z - z\partial_y)\\
-		L_2 &= -\i\hbar(z\partial_x - x\partial_z)\\
+	    L_1 &= -\i\hbar(y\partial_z - z\partial_y),\\
+		L_2 &= -\i\hbar(z\partial_x - x\partial_z),\\
 		L_3 &= -\i\hbar(z\partial_y - y\partial_x).
 	\end{align*}
+
+	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a Hilbert space and the Lie bracket is given by the commutator. Furthermore, let
+	\begin{enumerate}
+	    \item \(J_i\)'s be essentially self-adjoint on a common core.
+		\item \(J^2\) is also essentially self-adjoint on the same core, with \(J^2 \coloneq \sum_i J_i \circ J_i\).
+		\item \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\).
+	\end{enumerate}
+	Then, using the theorems of Nelson and Peter--Weyl, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $J^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $J^2$ and $m$ is associated to $J_3$ with $j \in \mathbb{N}_0/2$.
+
+	The above theorem simply states that the purely algebraic analysis for the spin operators that people do, in order to derive their spectrum, using ladder operators, is valid for operators on infinite-dimensional operators as well, albeit with some more conditions.
+
 	Let
 	\begin{align*}
 	    A \coloneq [0, +\infty) \times [0,\pi] \times [0,2\pi).
