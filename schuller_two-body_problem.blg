@@ -1,0 +1,15 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[1] Config.pm:311> INFO - Logfile is 'schuller_two-body_problem.blg'
+[81] biber:340> INFO - === Sat Jul 27, 2024, 06:24:02
+[97] Biber.pm:420> INFO - Reading 'schuller_two-body_problem.bcf'
+[162] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[175] Biber.pm:4463> INFO - Processing section 0
+[186] Biber.pm:4654> INFO - Looking for bibtex file 'schuller_two-body_problem.bib' for section 0
+[187] bibtex.pm:1713> INFO - LaTeX decoding ...
+[196] bibtex.pm:1519> INFO - Found BibTeX data source 'schuller_two-body_problem.bib'
+[284] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[285] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[285] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[285] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[293] bbl.pm:676> INFO - Writing 'schuller_two-body_problem.bbl' with encoding 'UTF-8'
+[297] bbl.pm:779> INFO - Output to schuller_two-body_problem.bbl

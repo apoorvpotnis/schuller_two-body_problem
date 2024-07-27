@@ -149,6 +149,9 @@
 \newcommand{\partheta}{\frac{\partial}{\partial \theta}}
 \newcommand{\parphi}{\frac{\partial}{\partial \phi}}
 \newcommand{\levi}{\epsilon_{ijk}}
+\DeclareMathOperator{\spann}{span}
+\newcommand{\sutwo}{\mathfrak{su}(2)}
+\newcommand{\sltwoc}{\mathfrak{sl}(2,\cc)}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -363,14 +366,13 @@
 
 	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces in question are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Prof. Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of \textit{finite-dimensional} sub-spaces of the Schwartz space, each of which are individually invariant under the action of the group corresponding to rotations along one axis.\footnote{Let \(D_j(\alpha) \colon \rthree \rightarrow \rthree\) be the operator which describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(\{D_j(\alpha)\} \mid \alpha \in [0, 2\pi)\}\).} Our treatment here is based on an answer of Prof.\ Valter Moretti~\cite{MorettiPeter}.
 
-	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a Hilbert space and the Lie bracket is given by the commutator. Furthermore, the following conditions are satisfied.
+	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a Hilbert space \(\hilbert\) and the Lie bracket is given by the commutator. Furthermore, the following conditions are satisfied.
 	\begin{enumerate}
 		\item Each \(J_i\) is essentially self-adjoint on a common core.
 		\item \(J^2\) is also essentially self-adjoint on the same core, with \(J^2 \coloneq \sum_i J_i \circ J_i\).
 		\item \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\).
 	\end{enumerate}
-
-	We need to show that each \(J_i\) has a pure point spectrum.
+	We denote the Lie algebra by \(\mathcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a pure point spectrum.
 
 	We now state a theorem of Edward Nelson, as stated in a book of Moretti~\cite[p.~291]{MorettiFundamental}.
 	\begin{thm}[Nelson]
@@ -387,7 +389,9 @@
 		on \(\hilbert\) of the unique connected, simply-connected Lie group \(G_V\) with the Lie algebra \(V\).
 		\(U\) is uniquely determined by the fact that the closures \(\overline{S}\), for every \(-\i S \in V\), are the self-adjoint generators of the representations of the one-parameter subgroups of \(G_V\). In particular, the symmetric operators \(S\) are essentially self-adjoint on \(\domain\).
 	\end{thm}
-	A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}.
+	A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}. In our case, we see that the conditions of the Nelson's theorem are satisfied, with the real algebra \(V = \spann_{\rr}\{-\i J_1, -\i J_2, -\i J_3\}\), the Hilbert space being \(\ltworthree\), and the common domain or core  being the Schwartz space \(\schwartzrthree\). \(V\) is isomorphic to \(\sutwo = \spann_{\rr}\{\i\sigma_1, \i\sigma_2, \i\sigma_3\}\), where \(\sigma_i\) denote the Pauli matrices. This is seen by associating \(-\i J_i\) to \(i\sigma_i\), and noting that \([-\i J_i, -\i J_j] = \epsilon_{ijk}(-\i J_k)\) and \([\i\sigma_i, \i\sigma_j] = \epsilon_{ijk}\i\sigma_k\). \(\sutwo\) is the Lie algebra of both \(\operatorname{SU}(2)\) and \(\operatorname{SO}(3)\). Since \(\sutwo + \i \sutwo = \sltwoc\), we have that \(\mathcal{A} = V + \i V\).
+
+
 
 	Then, using the theorems of Nelson and Peter--Weyl, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $J^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $J^2$ and $m$ is associated to $J_3$ with $j \in \mathbb{N}_0/2$.
 
