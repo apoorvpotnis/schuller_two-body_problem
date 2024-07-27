@@ -1,9 +1,6 @@
 \documentclass[12pt, a4 paper]{article}
 \usepackage{geometry}
 
-\usepackage{embedall}
-\embedfile{schuller_two-body_problem.bib}
-
 \usepackage[ngerman,english]{babel}
 \PassOptionsToPackage{math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright, warnings-off={mathtools-colon,mathtools-overbracket}}{unicode-math}
 % \PassOptionsToPackage{warnings-off={mathtools-colon,mathtools-overbracket}}{unicode-math}
@@ -16,6 +13,188 @@
 % \setmathfontface\itcal{NewCMMath-Book}[FakeSlant=-0.25]
 % \usepackage[math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright, warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 \usepackage{kpfonts-otf}
+% \setmonofont[%
+% ItalicFont=NewCMMono10-Italic.otf,%
+% BoldFont=NewCMMono10-Bold.otf,%
+% BoldItalicFont=NewCMMono10-BoldOblique.otf,%
+% SlantedFont=NewCMMono10-Regular.otf,%
+% SlantedFeatures={FakeSlant=0.25},
+% BoldSlantedFont=NewCMMono10-Bold.otf,%
+% BoldSlantedFeatures={FakeSlant=0.25},
+% SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
+% \setsansfont[%
+% SizeFeatures={%
+% 	{Size= -8, Font=NewCMSans08-Regular.otf,%
+% 		ItalicFont=NewCMSans08-Oblique.otf,%
+% 		BoldFont=NewCMSans10-Bold.otf,%
+% 		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+% 		SmallCapsFeatures={Numbers=OldStyle},%
+% 	},
+% 	{Size= 8, Font=NewCMSans08-Regular.otf,%
+% 		ItalicFont=NewCMSans08-Oblique.otf,%
+% 		BoldFont=NewCMSans10-Bold.otf,%
+% 		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+% 		SmallCapsFeatures={Numbers=OldStyle},%
+% 	},
+% 	{Size= 9-, Font=NewCMSans10-Regular.otf,%
+% 		ItalicFont=NewCMSans10-Oblique.otf,%
+% 		BoldFont=NewCMSans10-Bold.otf,%
+% 		BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+% 		SmallCapsFeatures={Numbers=OldStyle},%
+% 	}},
+% ItalicFont=NewCMSans10-Oblique.otf,%
+% BoldFont=NewCMSans10-Bold.otf,%
+% BoldItalicFont=NewCMSans10-BoldOblique.otf,%
+% SmallCapsFeatures={Numbers=OldStyle},%
+% SlantedFont=NewCMSans10-Oblique.otf,%
+% BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
+% ]{NewCMSans10-Regular.otf}
+% %% math (upright) sans Greek
+% \renewcommand*{\msansAlpha}{\char"E000}
+% \renewcommand*{\msansBeta}{\char"E001}
+% \renewcommand*{\msansGamma}{\char"E002}
+% \renewcommand*{\msansDelta}{\char"E003}
+% \renewcommand*{\msansEpsilon}{\char"E004}
+% \renewcommand*{\msansZeta}{\char"E005}
+% \renewcommand*{\msansEta}{\char"E006}
+% \renewcommand*{\msansTheta}{\char"E007}
+% \renewcommand*{\msansIota}{\char"E008}
+% \renewcommand*{\msansKappa}{\char"E009}
+% \renewcommand*{\msansLambda}{\char"E00A}
+% \renewcommand*{\msansMu}{\char"E00B}
+% \renewcommand*{\msansNu}{\char"E00C}
+% \renewcommand*{\msansXi}{\char"E00D}
+% \renewcommand*{\msansOmicron}{\char"E00E}
+% \renewcommand*{\msansPi}{\char"E00F}
+% \renewcommand*{\msansRho}{\char"E010}
+% \renewcommand*{\msansSigma}{\char"E011}
+% \renewcommand*{\msansTau}{\char"E012}
+% \renewcommand*{\msansUpsilon}{\char"E013}
+% \renewcommand*{\msansPhi}{\char"E014}
+% \renewcommand*{\msansChi}{\char"E015}
+% \renewcommand*{\msansPsi}{\char"E016}
+% \renewcommand*{\msansOmega}{\char"E017}
+% \renewcommand*{\msansalpha}{\char"E018}
+% \renewcommand*{\msansbeta}{\char"E019}
+% \renewcommand*{\msansgamma}{\char"E01A}
+% \renewcommand*{\msansdelta}{\char"E01B}
+% \renewcommand*{\msansepsilon}{\char"E01C}
+% \renewcommand*{\msanszeta}{\char"E01D}
+% \renewcommand*{\msanseta}{\char"E01E}
+% \renewcommand*{\msanstheta}{\char"E01F}
+% \renewcommand*{\msansiota}{\char"E020}
+% \renewcommand*{\msanskappa}{\char"E021}
+% \renewcommand*{\msanslambda}{\char"E022}
+% \renewcommand*{\msansmu}{\char"E023}
+% \renewcommand*{\msansnu}{\char"E024}
+% \renewcommand*{\msansxi}{\char"E025}
+% \renewcommand*{\msansomicron}{\char"E026}
+% \renewcommand*{\msanspi}{\char"E027}
+% \renewcommand*{\msansrho}{\char"E028}
+% \renewcommand*{\msansvarsigma}{\char"E029}
+% \renewcommand*{\msanssigma}{\char"E02A}
+% \renewcommand*{\msanstau}{\char"E02B}
+% \renewcommand*{\msansupsilon}{\char"E02C}
+% \renewcommand*{\msansphi}{\char"E02D}
+% \renewcommand*{\msanschi}{\char"E02E}
+% \renewcommand*{\msanspsi}{\char"E02F}
+% \renewcommand*{\msansomega}{\char"E030}
+% \renewcommand*{\msansvarepsilon}{\char"E031}
+% % math italic sans Greek
+% \renewcommand*{\mitsansAlpha}{\char"E041}
+% \renewcommand*{\mitsansBeta}{\char"E042}
+% \renewcommand*{\mitsansGamma}{\char"E043}
+% \renewcommand*{\mitsansDelta}{\char"E044}
+% \renewcommand*{\mitsansEpsilon}{\char"E045}
+% \renewcommand*{\mitsansZeta}{\char"E046}
+% \renewcommand*{\mitsansEta}{\char"E047}
+% \renewcommand*{\mitsansTheta}{\char"E048}
+% \renewcommand*{\mitsansIota}{\char"E049}
+% \renewcommand*{\mitsansKappa}{\char"E04A}
+% \renewcommand*{\mitsansLambda}{\char"E04B}
+% \renewcommand*{\mitsansMu}{\char"E04C}
+% \renewcommand*{\mitsansNu}{\char"E04D}
+% \renewcommand*{\mitsansXi}{\char"E04E}
+% \renewcommand*{\mitsansOmicron}{\char"E04F}
+% \renewcommand*{\mitsansPi}{\char"E050}
+% \renewcommand*{\mitsansRho}{\char"E051}
+% \renewcommand*{\mitsansSigma}{\char"E052}
+% \renewcommand*{\mitsansTau}{\char"E053}
+% \renewcommand*{\mitsansUpsilon}{\char"E054}
+% \renewcommand*{\mitsansPhi}{\char"E055}
+% \renewcommand*{\mitsansChi}{\char"E056}
+% \renewcommand*{\mitsansPsi}{\char"E057}
+% \renewcommand*{\mitsansOmega}{\char"E058}
+% \renewcommand*{\mitsansalpha}{\char"E059}
+% \renewcommand*{\mitsansbeta}{\char"E05A}
+% \renewcommand*{\mitsansgamma}{\char"E05B}
+% \renewcommand*{\mitsansdelta}{\char"E05C}
+% \renewcommand*{\mitsansepsilon}{\char"E05D}
+% \renewcommand*{\mitsanszeta}{\char"E05E}
+% \renewcommand*{\mitsanseta}{\char"E05F}
+% \renewcommand*{\mitsanstheta}{\char"E060}
+% \renewcommand*{\mitsansiota}{\char"E061}
+% \renewcommand*{\mitsanskappa}{\char"E062}
+% \renewcommand*{\mitsanslambda}{\char"E063}
+% \renewcommand*{\mitsansmu}{\char"E064}
+% \renewcommand*{\mitsansnu}{\char"E065}
+% \renewcommand*{\mitsansxi}{\char"E066}
+% \renewcommand*{\mitsansomicron}{\char"E067}
+% \renewcommand*{\mitsanspi}{\char"E068}
+% \renewcommand*{\mitsansrho}{\char"E069}
+% \renewcommand*{\mitsansvarsigma}{\char"E06A}
+% \renewcommand*{\mitsanssigma}{\char"E06B}
+% \renewcommand*{\mitsanstau}{\char"E06C}
+% \renewcommand*{\mitsansupsilon}{\char"E06D}
+% \renewcommand*{\mitsansphi}{\char"E06E}
+% \renewcommand*{\mitsanschi}{\char"E06F}
+% \renewcommand*{\mitsanspsi}{\char"E070}
+% \renewcommand*{\mitsansomega}{\char"E071}
+% \renewcommand*{\mitsansvarepsilon}{\char"E072}
+% \setmathfont[range={\mathfrak,\mathbffrak}]{NewCMMath-Regular.otf}
+% \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+% \DeclareFontFamily{U}{mathc}{}
+% \DeclareFontShape{U}{mathc}{m}{it}%
+% {<->s*[1.03] mathc10}{}
+% \DeclareMathAlphabet{\cmmathcal}{U}{mathc}{m}{it}
+% \renewcommand{\mathcal}{\cmmathcal}
+% \setmathfont[range=bfsfit/{greek}]{Latin Modern Math}
+% \DeclareRobustCommand{\msf}[1]{%
+% 	\ifcat\noexpand#1\relax\msfgreek{#1}\else\mathsf{#1}\fi
+% }
+% \makeatletter
+% \newcommand{\msfgreek}[1]{\csname s\expandafter\@gobble\string#1\endcsname}
+% \makeatother
+% \DeclareSymbolFont{sfletters}{OML}{cmbrm}{m}{it}
+% \DeclareMathSymbol{\salpha}{\mathord}{sfletters}{"0B}
+% \DeclareMathSymbol{\sbeta}{\mathord}{sfletters}{"0C}
+% \DeclareMathSymbol{\sgamma}{\mathord}{sfletters}{"0D}
+% \DeclareMathSymbol{\sdelta}{\mathord}{sfletters}{"0E}
+% \DeclareMathSymbol{\sepsilon}{\mathord}{sfletters}{"0F}
+% \DeclareMathSymbol{\szeta}{\mathord}{sfletters}{"10}
+% \DeclareMathSymbol{\seta}{\mathord}{sfletters}{"11}
+% \DeclareMathSymbol{\stheta}{\mathord}{sfletters}{"12}
+% \DeclareMathSymbol{\siota}{\mathord}{sfletters}{"13}
+% \DeclareMathSymbol{\skappa}{\mathord}{sfletters}{"14}
+% \DeclareMathSymbol{\slambda}{\mathord}{sfletters}{"15}
+% \DeclareMathSymbol{\smu}{\mathord}{sfletters}{"16}
+% \DeclareMathSymbol{\snu}{\mathord}{sfletters}{"17}
+% \DeclareMathSymbol{\sxi}{\mathord}{sfletters}{"18}
+% \DeclareMathSymbol{\spi}{\mathord}{sfletters}{"19}
+% \DeclareMathSymbol{\srho}{\mathord}{sfletters}{"1A}
+% \DeclareMathSymbol{\ssigma}{\mathord}{sfletters}{"1B}
+% \DeclareMathSymbol{\stau}{\mathord}{sfletters}{"1C}
+% \DeclareMathSymbol{\supsilon}{\mathord}{sfletters}{"1D}
+% \DeclareMathSymbol{\sphi}{\mathord}{sfletters}{"1E}
+% \DeclareMathSymbol{\schi}{\mathord}{sfletters}{"1F}
+% \DeclareMathSymbol{\spsi}{\mathord}{sfletters}{"20}
+% \DeclareMathSymbol{\somega}{\mathord}{sfletters}{"21}
+% \DeclareMathSymbol{\svarepsilon}{\mathord}{sfletters}{"22}
+% \DeclareMathSymbol{\svartheta}{\mathord}{sfletters}{"23}
+% \DeclareMathSymbol{\svarpi}{\mathord}{sfletters}{"24}
+% \DeclareMathSymbol{\svarrho}{\mathord}{sfletters}{"25}
+% \DeclareMathSymbol{\svarsigma}{\mathord}{sfletters}{"26}
+% \DeclareMathSymbol{\svarphi}{\mathord}{sfletters}{"27}
 % \setmathfont{KpMath-Regular}
 % \setmathfont{KpMath-Regular}[range={cal,bfcal},StylisticSet=1]
 % \setmathfont{KpMath-Regular}[range={cal,bfcal},StylisticSet=1]
@@ -59,10 +238,98 @@
 \author{}
 \date{\vspace{-5ex}}
 
+\begin{filecontents}{schuller_two-body_problem.bib}
+	@comment{x-kbibtex-encoding=utf-8}
+
+	@unpublished{Schuller,
+		author = {Schuller, Frederic and Rea, Simon and Dadhley, Richie},
+		institution = {\selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg, Institut für Theoretische Physik III\selectlanguage{english}},
+		title = {Lectures on Quantum Theory},
+		url = {https://docs.wixstatic.com/ugd/6b203f_a94140db21404ae69fd8b367d9fcd360.pdf},
+		year = {2019},
+		note = {Lecture notes in \texttt{.pdf} format. Lecturer: Prof.\@ Frederic Paul Schuller}
+	}
+
+	@misc{SchullerVideos,
+		author = {Schuller, Frederic},
+		title = {Lectures on Quantum Theory},
+		url = {https://youtube.com/playlist?list=PLPH7f_7ZlzxQVx5jRjbfRGEzWY_upS5K6},
+		year = {2015},
+		note = {Video lectures on YouTube.}
+	}
+
+	@book{Bowers,
+		author = {Bowers, Philip},
+		isbn = {978-1-108-42976-4},
+		publisher = {Cambridge University Press, Cambridge},
+		title = {Lectures on Quantum Mechanics},
+		year = {2020}
+	}
+
+	@book{Reed,
+		author = {Reed, Michael and Simon, Barry},
+		isbn = {978-0-080-57048-8},
+		publisher = {Academic Press, Inc. London},
+		title = {Methods of Modern Mathematical Analysis I: Functional Analysis},
+		edition = {Revised and Enlarged editon},
+		year = {1980},
+		volume = 1,
+	}
+
+	@misc{MorettiDomain,
+		author = {Valter Moretti (\url{https://physics.stackexchange.com/users/35354/valter-moretti})},
+		howpublished = {Physics Stack Exchange (\url{https://physics.stackexchange.com})},
+		note = {(version: 2014-07-23 00:40:35Z)},
+		title = {Answer to the question `What are the proper domains of the position and squared angular momentum operator?'},
+		url = {https://physics.stackexchange.com/a/127629/81224}
+	}
+
+	@misc{MorettiPeter,
+		author = {Valter Moretti (\url{https://physics.stackexchange.com/users/35354/valter-moretti})},
+		howpublished = {Physics Stack Exchange (\url{https://physics.stackexchange.com})},
+		note = {(version: 2024-05-17 21:03:48Z)},
+		title = {Answer to the question `Angular momentum Lie algebra for infinite-dimensional Hilbert spaces'},
+		url = {https://physics.stackexchange.com/a/814882/81224}
+	}
+
+	@book{MorettiSpectral,
+		author = {Moretti, Valter},
+		isbn = {978-3-319-70705-1},
+		publisher = {Springer Nature Switzerland AG},
+		title = {Spectral Theory and Quantum Mechanics: Mathematical Foundations of Quantum Theories, Symmetries and Introduction to the Algebraic Formulation},
+		edition = {2},
+		year = {2018},
+		addendum = {Translated from Italian by Simon G.\ Choissi.}
+	}
+
+	@book{MorettiFundamental,
+		author = {Moretti, Valter},
+		isbn = {978-3-030-18345-5},
+		publisher = {Springer Nature Switzerland AG},
+		title = {Fundamental Mathematical Structures of Quantum Theory: Spectral Theory, Foundational Issues, Symmetries, Algebraic Formulation},
+		year = {20189}
+	}
+
+	@book{Nelson,
+		author = {Nelson, Edward},
+		doi = {https://doi.org/10.2307/1970331},
+		journal = {Annals of Mathematics},
+		number = {3},
+		pages = {572--615},
+		publisher = {Annals of Mathematics, Trustees of Princeton University on Behalf of the Annals of Mathematics, Mathematics Department, Princeton University},
+		title = {Analytic Vectors},
+		volume = {70},
+		year = {1959}
+	}
+\end{filecontents}
+
 \usepackage[sorting=none, hyperref, backref]{biblatex}
 \addbibresource{schuller_two-body_problem.bib}
+\usepackage{bibentry}
+\usepackage{embedall}
+\embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
 \usepackage{hyperref}
-\hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-body Problem – Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Two-body Problem, Kepler problem}}
+\hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-body Problem in Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Two-body Problem, Kepler problem}}
 % \hypersetup{linktoc=all, citecolor=black, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=black, breaklinks=true, urlcolor=black, pdftitle={Schuller – Rigged Hilbert Spaces}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Rigged Hilbert Spaces – Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Rigged Hilbert Spaces, Quantum Mechanics, Mathematical Physics, Lecture Notes, Bras, Kets}}
 \usepackage{caption, cleveref, xurl, bookmark}
 
@@ -151,7 +418,7 @@
 \newcommand{\levi}{\epsilon_{ijk}}
 \DeclareMathOperator{\spann}{span}
 \newcommand{\sutwo}{\mathfrak{su}(2)}
-\newcommand{\sltwoc}{\mathfrak{sl}(2,\cc)}
+\newcommand{\sltwoc}{\mathfrak{sl}(2;\cc)}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -159,28 +426,28 @@
 \newcommand{\der}{\operatorname{d\!}{}}
 \usepackage{mleftright}
 
-\usepackage{luatex85}
-\newsavebox{\foobox}
-\newcommand{\slantbox}[2][.5]
-{%
-	\mbox
-	{%
-		\sbox{\foobox}{#2}%
-		\hskip\wd\foobox
-		\pdfsave
-		\pdfsetmatrix{1 0 #1 1}%
-		\llap{\usebox{\foobox}}%
-		\pdfrestore
-	}%
-}
+% \usepackage{luatex85}
+% \newsavebox{\foobox}
+% \newcommand{\slantbox}[2][.5]
+% {%
+% 	\mbox
+% 	{%
+% 		\sbox{\foobox}{#2}%
+% 		\hskip\wd\foobox
+% 		\pdfsave
+% 		\pdfsetmatrix{1 0 #1 1}%
+% 		\llap{\usebox{\foobox}}%
+% 		\pdfrestore
+% 	}%
+% }
 
 \usepackage{etoolbox}
 \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
 \emergencystretch=1em
 
-\makeatletter
-\g@addto@macro\bfseries{\boldmath}
-\makeatother
+% \makeatletter
+% \g@addto@macro\bfseries{\boldmath}
+% \makeatother
 
 \usepackage{tikz, tkz-euclide, pgfplots}
 \pgfplotsset{compat=1.18}
@@ -272,8 +539,8 @@
 				ticks=none,
 				width=0.5\textwidth,
 % 				height=5cm,
-				xlabel={$r$},
-				ylabel={$V(r)$},
+				xlabel={$\mathsfit{r}$},
+				ylabel={$\mathsfit{V(r)}$},
 				x axis line style={thick, -{Straight Barb[bend]}},
 				y axis line style={thick, {Straight Barb[bend]}-{Straight Barb[bend]}},
 				y label style={anchor=south},
@@ -391,6 +658,10 @@
 	\end{thm}
 	A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}. In our case, we see that the conditions of the Nelson's theorem are satisfied, with the real algebra \(V = \spann_{\rr}\{-\i J_1, -\i J_2, -\i J_3\}\), the Hilbert space being \(\ltworthree\), and the common domain or core  being the Schwartz space \(\schwartzrthree\). \(V\) is isomorphic to \(\sutwo = \spann_{\rr}\{\i\sigma_1, \i\sigma_2, \i\sigma_3\}\), where \(\sigma_i\) denote the Pauli matrices. This is seen by associating \(-\i J_i\) to \(i\sigma_i\), and noting that \([-\i J_i, -\i J_j] = \epsilon_{ijk}(-\i J_k)\) and \([\i\sigma_i, \i\sigma_j] = \epsilon_{ijk}\i\sigma_k\). \(\sutwo\) is the Lie algebra of both \(\operatorname{SU}(2)\) and \(\operatorname{SO}(3)\). Since \(\sutwo + \i \sutwo = \sltwoc\), we have that \(\mathcal{A} = V + \i V\).
 
+	The closures of \(J_i\)'s are thus generators of a unique strongly continuous representation of \(\operatorname{SU}(2)\) in \(\ltwor\). \(\operatorname{SU(2)}\) is a compact group.
+
+
+
 
 
 	Then, using the theorems of Nelson and Peter--Weyl, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $J^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $J^2$ and $m$ is associated to $J_3$ with $j \in \mathbb{N}_0/2$.
@@ -400,7 +671,8 @@
 	\section{Moving to spherical co-ordinates}
 
 	\begin{figure}
-		\centering\mathversion{sans}
+		\centering
+		\mathversion{sans}
 		\begin{tikzpicture}[scale=4,tdplot_main_coords]
 			\coordinate (O) at (0,0,0);
 			\draw[thick,-Straight Barb] (0,0,0) -- (0.7,0,0) node[anchor=north east]{$x$};
