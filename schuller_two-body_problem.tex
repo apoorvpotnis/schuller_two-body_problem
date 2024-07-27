@@ -1,5 +1,5 @@
-% \DocumentMetadata{pdfstandard=A-3b}
 \documentclass[12pt, a4 paper]{article}
+\usepackage{geometry}
 
 \usepackage{embedall}
 \embedfile{schuller_two-body_problem.bib}
@@ -11,13 +11,13 @@
 \usepackage{setspace}
 \usepackage[style=british]{csquotes}
 % \usepackage{unicode-math}
-% \usepackage{fontsetup}
+% \usepackage[newcmbb]{fontsetup}
 % \usepackage[mathscr]{eucal}
 % \setmathfontface\itcal{NewCMMath-Book}[FakeSlant=-0.25]
 % \usepackage[math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright, warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 \usepackage{kpfonts-otf}
-\setmathfont{KpMath-Regular}
-\setmathfont{KpMath-Regular}[range={cal,bfcal},StylisticSet=1]
+% \setmathfont{KpMath-Regular}
+% \setmathfont{KpMath-Regular}[range={cal,bfcal},StylisticSet=1]
 % \setmathfont{KpMath-Regular}[range={cal,bfcal},StylisticSet=1]
 % \setmainfont[Ligatures=Required]{KpRoman}
 % \setmathfont{KpMath-Bold.otf}[version=bold]
@@ -59,7 +59,7 @@
 \author{}
 \date{\vspace{-5ex}}
 
-\usepackage[sorting=none]{biblatex}
+\usepackage[sorting=none, hyperref, backref]{biblatex}
 \addbibresource{schuller_two-body_problem.bib}
 \usepackage{hyperref}
 \hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-body Problem – Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Two-body Problem, Kepler problem}}
@@ -210,7 +210,7 @@
 
 	\maketitle
 
-	These are lecture notes by Apoorv Potnis of the lecture `\selectlanguage{ngerman}Quantenmechanisches Zweikörperproblem\selectlanguage{english}' or `The Quantum Mechanical Two-body Problem', given by \textbf{Prof.\@ Frederic Paul Schuller}, as the seventeenth lecture in the course `\selectlanguage{ngerman}Theoretische Physik 2: Theoretische Quantenmechanik\selectlanguage{english}' in 2014/15 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. While the original lecture is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The lecture is available at \url{https://www.youtube.com/watch?v=mcM4S3IMMvI&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=17} and at \url{https://www.fau.tv/clip/id/44891}.
+	These are lecture notes by Apoorv Potnis of the lecture `\selectlanguage{ngerman}Quantenmechanisches Zweikörperproblem\selectlanguage{english}' or `The Quantum Mechanical Two-body Problem', given by \textbf{Prof.\@ Frederic Paul Schuller}, as the seventeenth lecture in the course `\selectlanguage{ngerman}Theoretische Physik 2: Theoretische Quantenmechanik\selectlanguage{english}' in 2014/15 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. While the original lecture is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The lecture is available at \url{https://www.youtube.com/watch?v=mcM4S3IMMvI&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=17} and at \url{https://www.fau.tv/clip/id/4489}.
 
 	\tableofcontents
 
@@ -292,7 +292,7 @@
 % 			\draw[domain=0.24:4.5, samples=500, variable=\r, thick, red] plot ({\r},{-exp(-\r)/(\r)});
 
 			% Dashed
-% 			\draw[dashed] (2/3,0) -- +(0,-0.65) node[pos=0, above] {$r_o$};
+	% 			\draw[dashed] (2/3,0) -- +(0,-0.65) node[pos=0, above] {$r_o$};
 % 			\draw[dashed] (2/3,-0.68) -- (0,-0.68);
 
 			% Nodes
@@ -304,24 +304,24 @@
 		\mathversion{base}
 	\end{figure}
 	An example of a potential as described above would be the \textit{Yukawa potential}, defined as
-	\begin{align*}
+	\[
 		V_{\text{Yukawa}}(r) \coloneq a \frac{\exp({-kmr})}{r},
-	\end{align*}
+	\]
 	where $k$, $m$ and $a$ are constants. $a \in \rr \setminus \{0\}$, $m \geq 0$. According to quantum field theory, very roughly speaking, interaction between particles takes place via a `mediating particle'. If the interaction is mediated by a `scalar field'\footnote{Whatever that means}, then the mass associated to the particle of that scalar field is the mass $m$ appearing in the Yukawa potential. If we plot a graph of the Yukawa potential for a massive scalar field, then we see that the magnitude of the potential becomes very close to zero after a certain distance. Thus, these interactions are short-ranged. If instead we have $m = 0$, corresponding to a photon, then we get the familiar long-range Coulomb potential
-	\begin{align*}
+	\[
 		V_{\text{Coulomb}}(r) \coloneq a \frac{1}{r}.
-	\end{align*}
+	\]
 
 	We also have the finite wall potential $V_{\text{finite wall}}(r) \coloneq a \upTheta(r - r_0)$ and the isotropic harmonic oscillator $V_{\text{ihc}} (r) \coloneq a r^2$.
 
 	\section{Moving to center-of-mass co-ordinates}
 
-	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). This can be seen from theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\), where \(f g\) denotes the point-wise product: \((fg)(\symbfit{x}, \symbfit{y}) \coloneq f(\symbfit{x}) g(\symbfit{y})\).
+	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). Tensor products of Hilbert spaces have been discussed in the fourteenth lecture `14: Composite Systems' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}. This can be seen from theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\), where \(f g\) denotes the point-wise product: \((fg)(\symbfit{x}, \symbfit{y}) \coloneq f(\symbfit{x}) g(\symbfit{y})\).
 
 	The Hamiltonian for our quantum-mechanical two-body system is
-	\begin{align*}
+	\[
 		H \coloneq -\frac{\hbar^2}{2m_1}\lap_{(1)} - \frac{\hbar^2}{2m_2}\lap_{(2)} + V\left(\norm{\xone - \xtwo}\right),
-	\end{align*}
+	\]
 	where \(\lap_{(i)}\) is the Laplacian operator which acts on the Hilbert space \(\ltworthree\) of the particle \(i\), and \(\symbfit{x}^{(i)} \in \rthree\) denotes the position vector of the \(i^\text{th}\) particle. Assuming that this Hamiltonian is self-adjoint, we are interested in finding out its spectrum.
 
 	As is the case in classical mechanics, we shall move to the center-of-mass co-ordinates. We can move the center-of-mass of the system in any direction by any value, i.e. the spectrum of the `center-of-mass' position operator is \(\rr\). The discrete energy levels are due to the angular momentum about the center-of-mass. We thus introduce
@@ -331,18 +331,67 @@
 		\mu &\coloneq \frac{m_1 m_2}{m_1 + m_2}.
 	\end{align*}
 	The Hamiltonian then takes the form
-	\begin{align*}
+	\[
 		H \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_{\yvec} - \frac{\hbar^2}{2\mu}\lap_{\rvec} + V(\norm{\rvec}).
-	\end{align*}
+	\]
 	The wave function of the system \(\psi\left(\xone, \xtwo\right)\) expressed in the new co-ordinates becomes
-	\begin{align*}
+	\[
 	    \phi(\yvec, \rvec) \coloneq \psi\left(\xone(\yvec, \rvec), \xtwo(\yvec,\rvec)\right).
-	\end{align*}
+	\]
 	The Hamiltonian $H$ can be separated into two parts, $H_\text{free}$ describing the movement of the center-of-mass and $H_\text{rel}$, describing the movement of the particles around the center-of-mass. We have
-	\begin{align*}
+	\[
 		H_\text{free} \coloneq -\frac{\hbar^2}{2(m_1 + m_2)}\lap_{\yvec} \qquad \text{ and } \qquad H_\text{rel} \coloneq - \frac{\hbar^2}{2\mu}\lap_{\rvec} + V(\norm{\rvec}).
+	\]
+	We know that $\spec{(H_\text{free})} = \rr_{\geq 0}$, so the task that remains is to find $\spec{(H_\text{rel})}$, provided that $H_\text{rel}$ is self-adjoint, depending on $V(\norm{\rvec})$. We see that $H_\text{rel}$ is spherically symmetric. Thus, we shall shortly move on to the spherical co-ordinates to separate the angular and radial dependencies. This shall reduce our three-dimensional problem to a one-dimensional one.
+
+	\section{Spectrum of angular momentum operators}
+
+	We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They were defined as the generators of a rotation about an axis. We shall instead consider the restrictions of the these operators on the common core, the Schwartz space, to avoid running into technical issues. The Schwartz space is dense in the Stone domains and $\ltworthree$ and the operators are essentially self-adjoint on the Schwartz space. This machinery has been explained in the twelfth lecture `12: Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
+
+	Let $i \in \{1,2,3\}$. We thus have the Cartesian angular momentum operators
+	\begin{align*}
+		L_i &\colon \schwartzrthree \rightarrow \schwartzrthree,\\
+		L_i &\colon \psi \mapsto \levi\position_j\momentum_k\psi,
 	\end{align*}
-	We know that $\spec{(H_\text{free})} = \rr_{\geq 0}$, so the task that remains is to find $\spec{(H_\text{rel})}$, provided that $H_\text{rel}$ is self-adjoint, depending on $V(\norm{\rvec})$. We see that $H_\text{rel}$ is spherically symmetric. Thus, we shall move to the spherical co-ordinates to separate the angular and radial dependencies. This shall reduce our three-dimensional problem to a one-dimensional one.
+	where $\position_j$ and $\momentum_k$ denote the $j^\text{th}$ and $k^\text{th}$ position and momentum operators respectively. The indices run over 1, 2 and 3.
+	We thus have
+	\begin{align*}
+		L_1 &= -\i\hbar(y\partial_z - z\partial_y),\\
+		L_2 &= -\i\hbar(z\partial_x - x\partial_z),\\
+		L_3 &= -\i\hbar(z\partial_y - y\partial_x).
+	\end{align*}
+
+	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces in question are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Prof. Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of \textit{finite-dimensional} sub-spaces of the Schwartz space, each of which are individually invariant under the action of the group corresponding to rotations along one axis.\footnote{Let \(D_j(\alpha) \colon \rthree \rightarrow \rthree\) be the operator which describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(\{D_j(\alpha)\} \mid \alpha \in [0, 2\pi)\}\).} Our treatment here is based on an answer of Prof.\ Valter Moretti~\cite{MorettiPeter}.
+
+	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a Hilbert space and the Lie bracket is given by the commutator. Furthermore, the following conditions are satisfied.
+	\begin{enumerate}
+		\item Each \(J_i\) is essentially self-adjoint on a common core.
+		\item \(J^2\) is also essentially self-adjoint on the same core, with \(J^2 \coloneq \sum_i J_i \circ J_i\).
+		\item \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\).
+	\end{enumerate}
+
+	We need to show that each \(J_i\) has a pure point spectrum.
+
+	We now state a theorem of Edward Nelson, as stated in a book of Moretti~\cite[p.~291]{MorettiFundamental}.
+	\begin{thm}[Nelson]
+		Consider a real \(n\)-dimensional Lie algebra \(V\) of operators \(-\i S_1\), \ldots, \(-\i S_n\), where each \(S_i\) with \(i \in \{1, \ldots, n\}\) is symmetric on the Hilbert space \(\hilbert\), defined on a common invariant and dense subspace \(\domain \subset \hilbert\), with the usual commutator as the Lie bracket.
+		Let \(-\i S_1, \ldots, -\i S_n \in V\) be a basis of \(V\) and define Nelson's operator with domain \(\domain\) as
+		\[
+			\Delta_{\mathrm{N}} \coloneq \sum_{k=1}^{n} S_k^2.
+		\]
+		If \(\Delta_{\mathrm{N}}\) is essentially self-adjoint, then there exists a strongly-continuous unitary representation
+		\begin{align*}
+		    \Sigma &\colon G_V \rightarrow V,\\
+			\Sigma &\colon g \mapsto U_g
+		\end{align*}
+		on \(\hilbert\) of the unique connected, simply-connected Lie group \(G_V\) with the Lie algebra \(V\).
+		\(U\) is uniquely determined by the fact that the closures \(\overline{S}\), for every \(-\i S \in V\), are the self-adjoint generators of the representations of the one-parameter subgroups of \(G_V\). In particular, the symmetric operators \(S\) are essentially self-adjoint on \(\domain\).
+	\end{thm}
+	A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}.
+
+	Then, using the theorems of Nelson and Peter--Weyl, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $J^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $J^2$ and $m$ is associated to $J_3$ with $j \in \mathbb{N}_0/2$.
+
+	The above theorem simply states that the purely algebraic analysis for the spin operators that people do, in order to derive their spectrum, using ladder operators, is valid for operators on infinite-dimensional operators as well, albeit with some more conditions.
 
 	\section{Moving to spherical co-ordinates}
 
@@ -368,35 +417,10 @@
 		\mathversion{base}
 	\end{figure}
 
-	We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They were defined as the generators of rotation about an axis. We shall instead consider the restrictions of the these operators on the common core, the Schwartz space, to avoid running into technical issues. The Schwartz space is dense in the Stone domains and $\ltworthree$ and the operators are essentially self-adjoint on the Schwartz space. We shall now on not distinguish between the orbital angular momentum operators and their essentially self-adjoint restrictions on the Schwartz space. This machinery has been explained in the twelfth lecture `Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
-
-	Let $i \in \{1,2,3\}$. We thus have the Cartesian angular momentum operators
-	\begin{align*}
-	    L_i &\colon \schwartzrthree \rightarrow \schwartzrthree,\\
-		L_i &\colon \psi \mapsto \levi\position_j\momentum_k\psi,
-	\end{align*}
-	where $\position_j$ and $\momentum_k$ denote the $j^\text{th}$ and $k^\text{th}$ position and momentum operators respectively. The indices run over 1, 2 and 3.
-	We thus have
-	\begin{align*}
-	    L_1 &= -\i\hbar(y\partial_z - z\partial_y),\\
-		L_2 &= -\i\hbar(z\partial_x - x\partial_z),\\
-		L_3 &= -\i\hbar(z\partial_y - y\partial_x).
-	\end{align*}
-
-	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a Hilbert space and the Lie bracket is given by the commutator. Furthermore, let
-	\begin{enumerate}
-	    \item \(J_i\)'s be essentially self-adjoint on a common core.
-		\item \(J^2\) is also essentially self-adjoint on the same core, with \(J^2 \coloneq \sum_i J_i \circ J_i\).
-		\item \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\).
-	\end{enumerate}
-	Then, using the theorems of Nelson and Peter--Weyl, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $J^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $J^2$ and $m$ is associated to $J_3$ with $j \in \mathbb{N}_0/2$.
-
-	The above theorem simply states that the purely algebraic analysis for the spin operators that people do, in order to derive their spectrum, using ladder operators, is valid for operators on infinite-dimensional operators as well, albeit with some more conditions.
-
 	Let
-	\begin{align*}
+	\[
 	    A \coloneq [0, +\infty) \times [0,\pi] \times [0,2\pi).
-	\end{align*}
+	\]
 	Let $T$ be defined as
 	\begin{align*}
 		T &\colon A \rightarrow \rthree,\\
@@ -409,30 +433,30 @@
 		z &= r \cos{\theta}.
 	\end{align*}
 	Thus,
-	\begin{align*}
+	\[
 	    T(r, \theta, \phi) \coloneq (r \cos{\phi} \sin{\theta}, \sin{\phi} \sin{\theta}, \cos{\theta}).
-	\end{align*}
+	\]
 	If $F \in \schwartz(A)$ corresponds to $\psi$ in spherical co-ordinates\footnote{\,Note that even though $T$ is only surjective and not injective, $T^{-1}(\psi)$ is a measure zero set for any $\psi \in \schwartzrthree$. Thus, we don't need to make any further identifications in $\schwartz(A)$.}, we have
-	\begin{align*}
+	\[
 		F = \psi \circ T,
-	\end{align*}
+	\]
 	and the chain rule gives us
-	\begin{align*}
+	\[
 	    F'(r, \theta, \phi) = \psi'(x,y,z) \cdot T'(r, \theta, \phi),
-	\end{align*}
+	\]
 	where $(x,y,z) = T(r, \theta, \phi)$. We thus have
-	\begin{align*}
+	\[
 	    \partial_\phi = (\partial_\phi x)\partial_x + (\partial_\phi y)\partial_y + (\partial_\phi z)\partial_z.
-	\end{align*}
+	\]
 	Substituting $x = r \cos{\phi} \sin{\theta}$, $y = r \sin{\phi} \sin{\theta}$ and $z = r \cos{\theta}$, we get
 	\begin{align*}
 		\partial_\phi &= -(r \sin{\theta} \sin{\phi})\partial_x + (r \sin{\theta} \cos{\phi})\partial_y\\
 		\partial_\phi &= x\partial_2 - y\partial_1.
 	\end{align*}
 	Thus, as expected on physical grounds, we get
-	\begin{align*}
+	\[
 		\tilde{L}_3 = -\i\hbar\partial_\phi,
-	\end{align*}
+	\]
 	where $\tilde{L}_3 \colon \schwartz(A) \rightarrow \schwartz(A)$ denotes the angular momentum operator in spherical co-ordinates.
 	We now restrict the domain of $T$ suitably such that it becomes injective and $T^{-1}$ becomes a well defined function. More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\pi) \times (0,2\pi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions. If we define $\tilde{\rthree}$ as $\rthree$ excluding the axes, we have $T^{-1} \colon \tilde{\rthree} \rightarrow \tilde{A}$, $T^{-1} \colon (x, y, z) \mapsto (r, \theta, \phi)$ as
 	\begin{align*}
@@ -441,9 +465,9 @@
 		\phi   &= \cos^{-1}{\left(\frac{x}{\sqrt{x^2 + y^2}}\right)}.
 	\end{align*}
 	Applying chain rule to $\psi = F \circ T^{-1}$ gives us
-	\begin{align*}
-	    \partial_i &= (\partial_i r)\partial_r + (\partial_i \theta)\partial_\theta + (\partial_i \phi)\partial_\phi.
-	\end{align*}
+	\[
+	    \partial_i = (\partial_i r)\partial_r + (\partial_i \theta)\partial_\theta + (\partial_i \phi)\partial_\phi.
+	\]
 	Calculating the partial derivatives and substituting the above in $L_1 = -\i\hbar(y\partial_z - z\partial_y)$ and $L_2 = -\i\hbar(z\partial_x - x\partial_z)$ finally gives us
 	\begin{align*}
 		\angsone &\coloneq \i\hbar\left(\cos{\phi}\cot{\theta}\frac{\partial}{\partial\phi} + \sin{\phi}\frac{\partial}{\partial\theta}\right),\\
@@ -451,36 +475,36 @@
 		\angsthree &\coloneq -\i\hbar \frac{\partial}{\partial\phi}.
 	\end{align*}
 	We also have
-	\begin{align*}
-		\lvecsquare F &= -\frac{1}{\sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial}{\partial\theta}F\right) -\frac{1}{\sin{\theta}}\frac{\partial}{\partial\phi}\left(\frac{1}{\sin{\theta}}\frac{\partial}{\partial\theta}F\right),
-	\end{align*}
+	\[
+		\lvecsquare F = -\frac{1}{\sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial}{\partial\theta}F\right) -\frac{1}{\sin{\theta}}\frac{\partial}{\partial\phi}\left(\frac{1}{\sin{\theta}}\frac{\partial}{\partial\theta}F\right),
+	\]
 	and
-	\begin{align*}
+	\[
 		\tilde{H}_\text{rel} F = -\frac{\hbar^2}{2\mu}\left(\frac{1}{r}\left(\frac{\partial}{\partial r}\right)^2 (rF) - \frac{\lvecsquare}{r^2}F\right) + V(r)F.
-	\end{align*}
+	\]
 
 	We now observe that $\lvecsquare F$ is dependent only on the angular part of $F$. So, if we multiply $F$ by a function $f(r)$ of $r$ alone, without any dependencies on $\theta$ and $\phi$, then we have that $\lvecsquare(f\cdot F) = f \cdot \lvecsquare F$. Because of this observation, we attempt to decompose the the Hilbert space into radial and angular parts.
 
 	We know that \[\rthree = \mathbb{S}^2 \times [0, +\infty)\] as sets. The standard Lebesgue measure on $\rthree$ can be seen as the tensor product of the measures on $\mathbb{S}^2$ and $[0, \infty)$. Let $\mathcal{B}(\mathbb{S}^2)$ be the Borel $\sigma$-algebra on $\mathbb{S}^2$, generated by the standard induced subset topology on $\mathbb{S}^2$, and let $\mathcal{B}([0,+\infty))$ be the Borel $\sigma$-algebra on $[0, +\infty)$ generated by the standard induced subset topology on $[0, +\infty)$. We know that $\mathbb{S}^2 = [0, \pi] \times [0, 2\pi),$ as sets. Every element of $\mathcal{B}(\mathbb{S}^2)$, i.e.\@ every measurable set of $\mathbb{S}^2$, can be expressed as a countable union of sets $\Theta \times \Phi$, where $\Theta \coloneq (\theta_1, \theta_2)$ and $\Phi \coloneq (\phi_1, \phi_2)$ are open sets in $[0, \pi]$ and $[0, 2\pi)$. Let
-	\begin{align*}
+	\[
 		\nu \colon \mathcal{B}(\mathbb{S}^2) \rightarrow \rr
-	\end{align*}
+	\]
 	be the measure defined on $\mathbb{S}^2$ by
-	\begin{align*}
+	\[
 	    \nu((\Theta, \Phi)) \coloneq (\phi_2 - \phi_1) \int_{\theta_1}^{\theta_2}\sin{\theta}\der \theta.
-	\end{align*}
+	\]
 	$\nu$ is known as the standard spherical measure on $\mathbb{S}^2$. It can be easily seen that $\nu((\Theta, \Phi))$ is nothing but the area of a surface element on the sphere which subtends the angles $\Theta$ and $\Phi$ at the origin in the polar and azimuthal directions respectively. We define the measure
-	\begin{align*}
+	\[
 		\xi \colon \mathcal{B}([0, +\infty)) \rightarrow \rr
-	\end{align*}
+	\]
 	on $[0, +\infty)$ by
-	\begin{align*}
+	\[
 		\xi((a, b)) \coloneq \int_a^b r^2\! \der r,
-	\end{align*}
+	\]
 	with $a, b \in (0, +\infty)$. Note that in both the cases, we have defined the measure on open sets. Every element of the Borel $\sigma$-algebra can be expressed as a countable union or a countable intersection of the open sets. The standard Lebesgue measure $\mu$ on $\rthree$ can be expressed as
-	\begin{align*}
+	\[
 		\mu = \nu \otimes \xi.
-	\end{align*}
+	\]
 	Applying theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed} again, we see that
 	\begin{align}
 		\ltwo(\rthree, \mu) = \ltwo(\mathbb{S}^2, \nu) \otimes \ltwo([0, +\infty), \xi).
@@ -497,9 +521,9 @@
 
 
 	We need the fact that $\lvecsquare$ is essentially self-adjoint on $\mathrm{C}^\infty(\mathbb{S}^2)$ \cite{MorettiDomain}. In order to fully determine $\spec(H_\text{rel})$, along with the continuous spectrum, i.e.\@ the part containing the generalised eigenvalues, we would need to lift the eigenvalue equation to the distribution space and solve it.\footnote{\,This can be in principle be achieved using Gelfand's rigged Hilbert space formalism, which was introduced in an earlier lecture. The lecture itself can be found on this link: \url{https://www.youtube.com/watch?v=FNJOyxOp3Ik&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=8}. The notes for this lecture can be found here: \url{https://github.com/apoorvpotnis/schuller_rigged_hilbert_spaces/blob/main/schuller_rigged_hilbert_spaces.pdf}.} However, we already know from experiments that the hydrogen atom has discrete lines in its observed spectrum. Thus, we shall first solve for the point spectrum
-	\begin{align*}
+	\[
 		\spec_{\text{p}}(H_\text{rel}) = \set{E \in \rr \given H_\text{rel} F = E F},
-	\end{align*}
+	\]
 	which was historically a major validation for the quantum theory.
 
 	\section{Spherical Harmonics}
@@ -512,22 +536,22 @@
 		\tilde{L}_3 \psi\kern0.5pt_l^m &= m \psi\kern0.5pt_l^m.
 	\end{align*}
 	Note that $l$ can take only integer values, not half-integer values as we are dealing with the orbital angular momentum operator. In spherical co-ordinates, it turns out that the solutions $\psi\kern0.5pt_l^m$ are given by
-	\begin{align*}
+	\[
 		\psi\kern0.5pt_l^m (\tilde{\symbfit{x}} (r, \theta, \phi)) = k \cdot Y^m_l (\theta, \phi) \cdot f(r),
-	\end{align*}
+	\]
 	where
-	\begin{align*}
+	\[
 		Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\pi (l+m)!}\right)^{\frac{1}{2}}\!\cdot\e^{\i m\phi}\cdot\!(\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!\!(\cos^2{\theta} -1)^l
-	\end{align*}
+	\]
 	and $\tilde{\symbfit{x}} = T^{-1}(\symbfit{x})$. These $Y_l^m$'s are called as \textit{spherical harmonic functions}. Since the operators $\lvecsquare$ and $\tilde{L}_3$ act only on the angular components and not the radial components when expressed in spherical co-ordinates, we have that
 	\begin{align*}
 	    \lvecsquare Y_l^m &= l(l+1) Y_l^m,\\
 		\tilde{L}_3 Y_l^m &= m Y_l^m,
 	\end{align*}
 	i.e.\@ the spherical harmonic functions are eigenvectors of $\lvecsquare$ and $\tilde{L}_3$. These functions actually form an orthonormal basis of the Hilbert space $\mathrm{L}\kern-0.7pt^2(\mathbb{S}^2)$ consisting of complex square-integrable functions defined on the 2-sphere.
-	\begin{align*}
+	\[
 		\langle Y_l^m , Y_{l'}^{m'} \rangle = \delta\kern0.5pt_{l, l'}\cdot\delta\kern0.4pt_{m, m'}.
-	\end{align*}
+	\]
 	We request that the reader consult section 14.2 of the book of Bowers for a derivation of these spherical harmonic functions~\cite[p.~200]{Bowers}.
 
 	\section{Spectrum of the Hamiltonian operator}
@@ -587,9 +611,9 @@ Expressing the chain rule in terms of partial derivatives, we have
 
 
 Let $\tilde{T}$ denote the operator
-\begin{align*}
+\[
 	\tilde{T} \schwartz(A) \
-\end{align*}
+\]
 
 
 
@@ -601,9 +625,9 @@ Now, if $F \in \schwartz(A)$, then we have the co-ordinate transformation functi
 	B &\colon F \mapsto BF = \psi,
 \end{align*}
 given by
-\begin{align*}
+\[
 	(BF)(x, y, z) = \psi(x,y,z) \coloneq F\bigg(\sqrt{x^2 + y^2 + z^2}, \frac{x}{\sqrt{x^2 + y^2}}, \frac{z}{\sqrt{x^2 + y^2 + z^2}}\bigg),
-\end{align*}
+\]
 when $\sqrt{x^2 + y^2 + z^2}$ and $\sqrt{x^2 + y^2}$ do not vanish. When they vanish, we define then using their limits, which vanish identically.
 
 
@@ -615,13 +639,13 @@ We consider the spherical angular momentum operators
 	\tilde{L_i} &\colon F \rightarrow \tilde{L_i}F,
 \end{align*}
 given by
-\begin{align*}
+\[
 	\tilde{L_i}F \coloneq L_iBF = L_i\psi.
-\end{align*}
+\]
 Since $\tilde{L_i} = L_iB$, we have
-\begin{align*}
+\[
 	\tilde{L_i} = -\i\hbar\levi\position_jD_kB,
-\end{align*}
+\]
 where $D_k$ denotes the $k^\text{th}$ partial derivative.
 Consider $L_3$, i.e.\@ let $i = 3$. We have
 
@@ -633,9 +657,9 @@ Consider $L_3$, i.e.\@ let $i = 3$. We have
 
 
 
-\begin{align*}
+\[
 	L_i
-\end{align*}
+\]
 
 
 
@@ -662,9 +686,9 @@ Consider $L_3$, i.e.\@ let $i = 3$. We have
 
 
 Expressed in spherical co-ordinates, we have the wave-function as
-\begin{align*}
+\[
 	F(r, \theta, \phi) \coloneq \psi(\rvec(r, \theta, \phi)),
-\end{align*}
+\]
 where
 \begin{align*}
 	r_1 &= r \cos{\phi} \sin{\theta},\\
@@ -672,9 +696,9 @@ where
 	r_3 &= r \cos{\theta},
 \end{align*}
 and $r_1$, $r_2$ and $r_3$ denote the $x$-, $y$- and $z$-components of $\rvec$ respectively. We now express the angular momentum operators in spherical co-ordinates as well. If $L_a$ denotes $a^{\text{th}}$ ($a \in \{1,2,3\}$) angular momentum operator in Cartesian co-ordinates, then we have
-\begin{align*}
+\[
 	(\tilde{L}_a F) (r, \theta, \phi) = (L_a \psi)(\rvec(r, \theta, \phi)),
-\end{align*}
+\]
 where $\tilde{L}_a$ denotes the angular momentum operator in spherical co-ordinates. We have
 \begin{align*}
 	L_a &\colon \ltworthree \rightarrow \ltworthree,\\
@@ -694,15 +718,15 @@ If $C$ is the function which transforms co-ordinates, then we have
 
 % 	\tilde{L}_a \colon L^\kern-0.7pt2([0,+\infty) \times [0,\pi] \times [0,2\pi)) \rightarrow L^\kern-0.7pt2([0,+\infty) \times [0,\pi] \times [0,2\pi))
 Applying chain rule, we get
-\begin{align*}
+\[
 	d
-\end{align*}
+\]
 
-% 	\begin{align*}
+% 	\[
 % 		\tilde{L}_1 = -\i\hbar\left(y ( (\partial_z r)\partial_r + (\partial_z \theta)\partial_\theta + (\partial_z \phi)\partial_\phi ) - z((\partial_y r)\partial_r + (\partial_y \theta)\partial_\theta + (\partial_y \phi)\partial_\phi)\right).
 % 	\end{align*}
 % 	From the expressions for $x$, $y$ and $z$ given before, we see that
-% 	\begin{align*}
+% 	\[
 % 		\partial_z r &= \cos{\theta}, & \partial_y r &= \sin{\phi}\sin{\theta},\\
 % 		\partial_z \theta &= -r\sin{\theta}, & \partial_y \theta &= r\sin{\phi}\cos{\theta},\\
 % 		\partial_z \phi &= 0,  & \partial_y \phi &= r\cos{\theta}\sin{\theta}.
@@ -714,6 +738,6 @@ Applying chain rule, we get
 % 	\end{align*}
 
 Also recall the raising and lowering operators $\tilde{L}_+ \coloneq \tilde{L}_1 + i \tilde{L}_2$ and $\tilde{L}_- \coloneq \tilde{L}_1 - i\tilde{L}_2$. We have
-\begin{align*}
+\[
 	\tilde{L}_\pm \psi\kern0.5pt_l^m = \sqrt{l(l+1) - m(m\pm 1)} \psi\kern0.5pt_l^m.
-\end{align*}
+\]
