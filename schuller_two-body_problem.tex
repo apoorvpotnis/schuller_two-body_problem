@@ -604,7 +604,7 @@
 
 	\section{Moving to center-of-mass co-ordinates}
 
-	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). Tensor products of Hilbert spaces have been discussed in the fourteenth lecture `14: Composite Systems' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}. This can be seen from theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\), where \(f g\) denotes the point-wise product: \((fg)(\symbfit{x}, \symbfit{y}) \coloneq f(\symbfit{x}) g(\symbfit{y})\).
+	The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). This can be seen from theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism \(\ltworthree \otimes \ltworthree \rightarrow \ltworsix\) by \(f \otimes g \mapsto fg \in \ltworsix\), where \(f g\) denotes the point-wise product: \((fg)(\symbfit{x}, \symbfit{y}) \coloneq f(\symbfit{x}) g(\symbfit{y})\). Tensor products of Hilbert spaces have been discussed in the fourteenth lecture `14: Composite Systems' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
 
 	The Hamiltonian for our quantum-mechanical two-body system is
 	\[
@@ -668,8 +668,8 @@
 		\]
 		If \(\Delta_{\mathrm{N}}\) is essentially self-adjoint, then there exists a strongly-continuous unitary representation
 		\begin{align*}
-		    \Sigma &\colon G_V \rightarrow V,\\
-			\Sigma &\colon g \mapsto U_g
+		    U &\colon G_V \rightarrow V,\\
+			U &\colon g \mapsto U_g
 		\end{align*}
 		on \(\hilbert\) of the unique connected, simply-connected Lie group \(G_V\) with the Lie algebra \(V\).
 		\(U\) is uniquely determined by the fact that the closures \(\overline{S}\), for every \(-\i S \in V\), are the self-adjoint generators of the representations of the one-parameter subgroups of \(G_V\). In particular, the symmetric operators \(S\) are essentially self-adjoint on \(\domain\).
@@ -714,7 +714,7 @@
 	\[
 	    \sigma(p(L_i)) = p(\sigma(L_i)).
 	\]
-	If we take \(p(x) = x^2)\), then we get that \(\sigma(L_i^2) \in \zz\), as \(\sigma(L_i) \in \zz\). We have a further result that if two operators have a pure point spectrum and they commute, then there exists a common Schauder eigenbasis of both the operators. This justifies the assumption of considering simultaneous eigenvectors of \(L_i^2\) and \(L_i\) in the procedure using ladder operators.
+	If we take \(p(x) = x^2\), then we get that \(\sigma(L_i^2) \in \zz\), as \(\sigma(L_i) \in \zz\). We have a further result that if two operators have a pure point spectrum and they commute, then there exists a common Schauder eigenbasis of both the operators. This justifies the assumption of considering simultaneous eigenvectors of \(L_i^2\) and \(L_i\) in the procedure using ladder operators.
 
 	\section{Moving to spherical co-ordinates}
 
@@ -833,12 +833,12 @@
 	\begin{align}
 		\ltwo(\rthree, \mu) = \ltwo(\mathbb{S}^2, \nu) \otimes \ltwo([0, +\infty), \xi).
 	\end{align}
-	We define the operators $\lvecsquare_{\,\mathbb{S}^2} \colon C^\infty(\mathbb{S}^2, \nu) \rightarrow C^\infty(\mathbb{S}^2, \nu)$ and $\tilde{L}_{3, \mathbb{S}^2} \colon C^\infty(\mathbb{S}^2, \nu) \rightarrow C^\infty(\mathbb{S}^2, \nu)$. These are simply the angular parts of the $\lvecsquare$ and $\tilde{L}_3$ operators, which anyway act on $C^\infty(\mathbb{S}^2, \nu)$ since they did not have any radial dependence.
+	We define the operators $\lvecsquare_{\,\mathbb{S}^2} \colon \mathrm{C}^\infty(\mathbb{S}^2, \nu) \rightarrow \mathrm{C}^\infty(\mathbb{S}^2, \nu)$ and $\tilde{L}_{3, \mathbb{S}^2} \colon \mathrm{C}^\infty(\mathbb{S}^2, \nu) \rightarrow \mathrm{C}^\infty(\mathbb{S}^2, \nu)$. These are simply the angular parts of the $\lvecsquare$ and $\tilde{L}_3$ operators, which anyway act on $\mathrm{C}^\infty(\mathbb{S}^2, \nu)$ since they did not have any radial dependence.
 	\begin{align*}
 	    \lvecsquare_{\,\mathbb{S}^2} &= -\i\hbar\partial_\phi,\\
 		\tilde{L}_{3, \mathbb{S}^2}  &= -\frac{1}{\sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial}{\partial\theta}\right) -\frac{1}{\sin{\theta}}\frac{\partial}{\partial\phi}\left(\frac{1}{\sin{\theta}}\frac{\partial}{\partial\theta}\right).
 	\end{align*}
-	We use the fact that $C^\infty(\mathbb{S}^2, \nu)$ is dense in $\ltwo(\mathbb{S}^2, \nu)$. It can be seen that these operators are symmetric.
+	We use the fact that $\mathrm{C}^\infty(\mathbb{S}^2, \nu)$ is dense in $\ltwo(\mathbb{S}^2, \nu)$. It can be seen that these operators are symmetric.
 
 
 
