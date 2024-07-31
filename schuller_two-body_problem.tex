@@ -258,6 +258,23 @@
 		note = {Video lectures on YouTube.}
 	}
 
+	@misc{Schuller_geometric_notes,
+		author = {Schuller, Frederic and Rea, Simon and Dadhley, Richie},
+		institution = {\selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg, Institut für Theoretische Physik III\selectlanguage{english}},
+		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
+		url = {https://drive.google.com/file/d/1nchF1fRGSY3R3rP1QmjUg7fe28tAS428/view},
+		year = {2017},
+		note = {Lecture notes in \texttt{.pdf} format. Lecturer: Prof.\@ Frederic Paul Schuller}
+	}
+
+	@misc{Schuller_geometric_videos,
+		author = {Schuller, Frederic},
+		title = {Lectures on the Geometric Anatomy of Theoretical Physics},
+		url = {https://www.youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic},
+		year = {2016},
+		note = {Video lectures on YouTube.}
+	}
+
 	@book{Bowers,
 		author = {Bowers, Philip},
 		isbn = {978-1-108-42976-4},
@@ -375,6 +392,7 @@
 \newcommand{\rr}{\mathbb{R}}
 \newcommand{\cc}{\mathbb{C}}
 \newcommand{\nn}{\mathbb{N}_0}
+\newcommand{\zz}{\mathbb{Z}}
 \newcommand{\dirac}{\delta}
 % \newcommand{\hilbert}{\itcal{ℋ}\kern-0.7pt}
 \newcommand{\hilbert}{\mathcal{H}}
@@ -616,7 +634,7 @@
 
 	\section{Spectrum of angular momentum operators}
 
-	We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They were defined as the generators of a rotation about an axis. We shall instead consider the restrictions of the these operators on the common core, the Schwartz space, to avoid running into technical issues. The Schwartz space is dense in the Stone domains and $\ltworthree$ and the operators are essentially self-adjoint on the Schwartz space. This machinery has been explained in the twelfth lecture `12: Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
+	We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They were defined as the generators of a rotation about an axis. We shall instead consider the restrictions of the these operators on a common core, the Schwartz space, to avoid running into technical issues. The Schwartz space is dense in the Stone domains, in $\ltworthree$, and the operators are essentially self-adjoint on the Schwartz space. This machinery has been explained in the twelfth lecture `12: Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
 
 	Let $i \in \{1,2,3\}$. We thus have the Cartesian angular momentum operators
 	\begin{align*}
@@ -631,7 +649,7 @@
 		L_3 &= -\i\hbar(z\partial_y - y\partial_x).
 	\end{align*}
 
-	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces in question are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Prof. Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of \textit{finite-dimensional} sub-spaces of the Schwartz space, each of which are individually invariant under the action of the group corresponding to rotations along one axis.\footnote{Let \(D_j(\alpha) \colon \rthree \rightarrow \rthree\) be the operator which describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(\{D_j(\alpha)\} \mid \alpha \in [0, 2\pi)\}\).} Our treatment here is based on an answer of Prof.\ Valter Moretti~\cite{MorettiPeter}.
+	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces in question are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Prof. Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of \textit{finite-dimensional} sub-spaces of the Schwartz space, each of which are individually invariant under the action of the group corresponding to rotations along one axis.\footnote{Let \(D_j(\alpha) \colon \rthree \rightarrow \rthree\) be the operator which describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(\{D_j(\alpha) \mid \alpha \in [0, 2\pi)\}\).} Our treatment here is based on an answer of Prof.\ Valter Moretti~\cite{MorettiPeter}. The following discussion for this section requires some rudimentary definitions from representation theory; the reader unfamiliar with the basics of representation theory is referred to `The Geometrical Anatomy of Physics' lectures on Prof.\ Frederic Schuller~\cite{Schuller_geometric_videos, Schuller_geometric_videos}.
 
 	Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a Hilbert space \(\hilbert\) and the Lie bracket is given by the commutator. Furthermore, the following conditions are satisfied.
 	\begin{enumerate}
@@ -658,23 +676,45 @@
 	\end{thm}
 	A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}. In our case, we see that the conditions of the Nelson's theorem are satisfied, with the real algebra \(V = \spann_{\rr}\{-\i J_1, -\i J_2, -\i J_3\}\), the Hilbert space being \(\ltworthree\), and the common domain or core  being the Schwartz space \(\schwartzrthree\). \(V\) is isomorphic to \(\sutwo = \spann_{\rr}\{\i\sigma_1, \i\sigma_2, \i\sigma_3\}\), where \(\sigma_i\) denote the Pauli matrices. This is seen by associating \(-\i J_i\) to \(i\sigma_i\), and noting that \([-\i J_i, -\i J_j] = \epsilon_{ijk}(-\i J_k)\) and \([\i\sigma_i, \i\sigma_j] = \epsilon_{ijk}\i\sigma_k\). \(\sutwo\) is the Lie algebra of both \(\operatorname{SU}(2)\) and \(\operatorname{SO}(3)\). Since \(\sutwo + \i \sutwo = \sltwoc\), we have that \(\mathcal{A} = V + \i V\).
 
-	The closures of \(J_i\)'s are thus generators of a unique strongly continuous representation of \(\operatorname{SU}(2)\) in \(\ltwor\). \(\operatorname{SU(2)}\) is a compact group. We now state a version of the Peter--Weyl theorem from Moretti~\cite[p.~287]{MorettiFundamental}.
+	The closures of \(J_i\)'s are thus generators of a unique strongly continuous representation of \(\operatorname{SU}(2)\) in \(\ltwor\). We now state a version of the Peter--Weyl theorem from Moretti~\cite[p.~287]{MorettiFundamental}.
 
 	\begin{thm}[Peter--Weyl]
 	    Let \(G\) be a compact Hausdorff group, a compact Lie group in particular, and let
 		\begin{align*}
-			\Gamma &\colon G \rightarrow B(\hilbert),\\
-			\Gamma &\colon g \mapsto U_g
+			U &\colon G \rightarrow B(\hilbert),\\
+			U &\colon g \mapsto U_g,
 		\end{align*}
+		be a strongly-continuous unitary representation of $G$ on the Hilbert space $\hilbert \neq 0$, with $B(\hilbert)$ denoting the set of all bounded linear functions on $\hilbert$. The following statements then hold.
+		\begin{enumerate}
+		    \item If a \(U\) is irreducible, then \(\hilbert\) is finite.
+			\item If \(U\) is not irreducible, then the orthogonal Hilbert decomposition
+			\[
+				\hilbert = \bigoplus_{k\in K} \hilbert_k
+			\]
+			holds, where \(\hilbert_k\) are pairwise orthogonal non-trivial closed subspaces of finite dimension, all invariant under \(U\). \(K\) is a possibly infinite subset of the natural numbers.
+			\item Every map \(U\restriction_{\hilbert_k} \colon \hilbert_k \rightarrow \hilbert_k\) is an irreducible representation of \(G\).
+		\end{enumerate}
 	\end{thm}
 
+	\(\operatorname{SU(2)}\) is a compact group. And thus, strongly-continuous unitary representations of \(\operatorname{SU}(2)\) on \(\ltwor\) decompose \(\ltworthree\) into finite-dim subspaces, the \(\ltworthree_k\). Thus,
+	\[
+		\ltworthree = \bigoplus_{n \in \nn} \ltworthree_n.
+	\]
+	Define \(\schwartzrthree_n \coloneq \schwartzrthree \cap \ltworthree_n\), for all \(n \in \nn\). Thus,
+	\[
+	\schwartzrthree = \bigoplus_{n \in \nn} \schwartzrthree_n.
+	\]
+	\(\schwartzrthree_n\) is invariant under the action of \(J_i\)'s for all \(n\). This was the procedure Prof. Schuller briefly mentioned. Now, since \(J_i\restriction_{\schwartzrthree_n} \colon \schwartzrthree_n \rightarrow \schwartzrthree_n\) acts on finite dimensional spaces, it spectrum consists of only eigenvalues, i.e.\ each \(J_i\restriction_{\schwartzrthree_n}\) has a pure-point spectrum. The spectrum of \(J_i\)'s just the union of these individual eigenvalues, i.e.\
+	\[
+		\sigma(J_i) = \bigcup_{n \in \nn} \sigma(J_i\restriction_{\schwartzrthree_n}).
+	\]
+	Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $J^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $J^2$ and $m$ is associated to $J_3$ with $j \in \mathbb{N}_0/2$.
 
-
-
-
-	Then, using the theorems of Nelson and Peter--Weyl, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $J^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $J^2$ and $m$ is associated to $J_3$ with $j \in \mathbb{N}_0/2$.
-
-	The above theorem simply states that the purely algebraic analysis for the spin operators that people do, in order to derive their spectrum, using ladder operators, is valid for operators on infinite-dimensional operators as well, albeit with some more conditions.
+	Actually, as we only discuss the orbital angular momentum operators, i.e.\ \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that each \(L_i\) has a pure point spectrum contained within the integers. By applying the spectral mapping theorem, we get that polynomials in \(L_i\), defined using spectral calculus, have the same spectrum as \(L_i\), i.e.\ if \(p\) is a polynomial, then
+	\[
+	    \sigma(p(L_i)) = p(\sigma(L_i)).
+	\]
+	If we take \(p(x) = x^2)\), then we get that \(\sigma(L_i^2) \in \zz\), as \(\sigma(L_i) \in \zz\). We have a further result that if two operators have a pure point spectrum and they commute, then there exists a common Schauder eigenbasis of both the operators. This justifies the assumption of considering simultaneous eigenvectors of \(L_i^2\) and \(L_i\) in the procedure using ladder operators.
 
 	\section{Moving to spherical co-ordinates}
 
