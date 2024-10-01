@@ -506,7 +506,9 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         L_3 &= -\i\hbar(z\partial_y - y\partial_x).
     \end{align*}
 
-    Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces in question are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of finite-dimensional subspaces of the Schwartz space, each of which is invariant under the action of the group corresponding to rotations along an axis.\footnote{Let \(D_j(\alpha) \colon \rthree \rightarrow \rthree\) be the operator which describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(\{D_j(\alpha) \mid \alpha \in [0, 2\pi)\}\) with the group operation being executing the rotations about the axis one after other.} Our treatment here is based on an answer of Valter Moretti~\cite{MorettiPeter}. The following discussion for this section requires some rudimentary definitions from representation theory; the reader unfamiliar with the basics of representation theory is referred to `The Geometrical Anatomy of Physics' lectures of Frederic Schuller~\cite{Schuller_geometric_videos, Schuller_geometric_notes}.
+    Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces in question are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of finite-dimensional subspaces of the Schwartz space, each of which is invariant under the action of the group corresponding to rotations along an axis.\footnote{Let \(D_j(\alpha) \colon \rthree \rightarrow \rthree\) be the operator which describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(\{D_j(\alpha) \mid \alpha \in [0, 2\pi)\}\) with the group operation being executing the rotations about the axis one after other.} Our treatment here is based on an answer of Valter Moretti~\cite{MorettiPeter}. The following discussion for this section requires some rudimentary definitions from topology and representation theory; the reader unfamiliar with these is referred to `The Geometrical Anatomy of Physics' lectures of Frederic Schuller~\cite{Schuller_geometric_videos, Schuller_geometric_notes}.\footnote{More precisely, one needs to know the following notions and concepts. Topological: Hausdorffness, compactness and simple connectedness. Representation theory: Irreducible unitary representations, the Lie groups \(\operatorname{SU}(2)\), \(\operatorname{SO}(3)\) and \(\operatorname{SL}(2;\cc)\), and the Lie algebras \(\symfrak{s\kern-0.5ptu}(2)\) and \(\symfrak{s\kern-0.8ptl}(2;\cc)\).}
+
+    \subsection{Justification of simultaneous eigenvectors}
 
     Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a Hilbert space \(\hilbert\) and the Lie bracket is given by the commutator. Furthermore, we assume that the following conditions are satisfied.
     \begin{enumerate}
@@ -528,7 +530,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
             U &\colon G_V \rightarrow V,\\
             U &\colon g \mapsto U_g
         \end{align*}
-        on \(\hilbert\) of the unique connected, simply-connected Lie group \(G_V\) with the Lie algebra \(V\).
+        on \(\hilbert\) of the unique simply-connected Lie group \(G_V\) with the Lie algebra \(V\).
         \(U\) is uniquely determined by the fact that the closures \(\overline{S}\), for every \(-\i S \in V\), are the self-adjoint generators of the representations of the one-parameter subgroups of \(G_V\). In particular, the symmetric operators \(S\) are essentially self-adjoint on \(\domain\).
     \end{thm}
     A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}. In our case, we see that the conditions of Nelson's theorem are satisfied, with the real Lie algebra \(V = \spann_{\rr}\{-\i J_1, -\i J_2, -\i J_3\}\), with the commutator relation \[[-\i J_i, -\i J_j] = \epsilon_{ijk}(-\i J_k),\] the Hilbert space being \(\ltworthree\), and the common domain or core  being the Schwartz space \(\schwartzrthree\). \(V\) is isomorphic to \[\displaystyle\sutwo = \spann_{\rr}\left\{\-\frac{i\sigma_1}{2}, -\frac{\i\sigma_2}{2}, -\frac{\i\sigma_3}{2}\right\}\] as a Lie algebra, where \(\sigma_i\) denote the Pauli matrices, with the commutator relation \[\displaystyle\left[-\frac{i\sigma_i}{2}, -\frac{i\sigma_j}{2}\right] = \epsilon_{ijk}\left(-\frac{\i\sigma_k}{2}\right).\] \(\sutwo\) is the Lie algebra of both \(\operatorname{SU}(2)\) and \(\operatorname{SO}(3)\). Since \(\sutwo + \i\,\sutwo = \sltwoc\), we have that \(\symcal{A} = V + \i V\). \(\symcal{A}\) is isomorphic to \(\sltwoc\) as a Lie algebra.
@@ -543,7 +545,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \end{align*}
         be a strongly-continuous unitary representation of $G$ on the Hilbert space $\hilbert \neq 0$, with $B(\hilbert)$ denoting the set of all bounded linear functions on $\hilbert$. The following statements then hold.
         \begin{enumerate}
-            \item If a \(U\) is irreducible, then \(\hilbert\) is finite.
+            \item If \(U\) is irreducible, then \(\hilbert\) is finite.
             \item If \(U\) is not irreducible, then the orthogonal Hilbert decomposition
             \[
                 \hilbert = \bigoplus_{k\in K} \hilbert_k
@@ -565,7 +567,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \[
         \spec(J_i) = \bigcup_{n \in \nn} \spec\left(\restr{J_i}{\schwartzrthree_n}\right).
     \]
-    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $J^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $J^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
+    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
     Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that each \(L_i\) has a pure point spectrum contained within the integers, i.e.\ for all \(i\),
     \[
@@ -573,19 +575,23 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \]
     We state a version of the spectral mapping theorem, referring to theorem~3.17 of the book of Teschl~\cite[p.~118]{Teschl}.
     \begin{thm}[Spectral Mapping]
-        Let \(A\) be a self-adjoint operator on a Hilbert space \(\hilbert\), and let \(f \colon \rr \rightarrow \cc\) be a continuous function. Then
+        Let \(\Xi\) be a self-adjoint operator on a Hilbert space \(\hilbert\), and let \(f \colon \rr \rightarrow \cc\) be a continuous function. Then
         \[
-            \spec((f(A)) = f(\spec(A)),
+            \spec((f(\Xi)) = f(\spec(\Xi)),
         \]
         if \(\abs{f(\lambda)} \rightarrow \infty\) as \(\abs{\lambda} \rightarrow \infty\).
     \end{thm}
-    Here, \(f(A)\) is defined using the spectral calculus. By applying the spectral mapping theorem, we get that complex polynomials in \(L_i\) have the same spectrum as \(L_i\), i.e.\ if \(p\) is a complex polynomial, then
+    Here, \(f(\Xi)\) is defined using the spectral calculus. By applying the spectral mapping theorem, we get that complex polynomials in \(L_i\) have the same spectrum as \(L_i\), i.e.\ if \(p\) is a complex polynomial, then
     \[
         \spec(p(L_i)) = p(\spec(L_i)).
     \]
-    If we take \(p(x) = x^2\), then we get that \[\spec(L_i^2) \in \zz,\] as \(\spec(L_i) \in \zz\). We have a further result that if two self-adjoint operators on a complex Hilbert space have a pure point spectrum, and they commute, then there exists a common orthonormal eigenbasis of both the operators. This result is asked as problem~4.5 in the book of Teschl~\cite[p.~138]{Teschl}. This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_1^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators.
+    If we take \(p(x) = x^2\), then we get that \[\spec(L_i^2) \subseteq \zz,\] as \(\spec(L_i) \subseteq \zz\). We now need the following result
+    \begin{thm}
+        Tf two commuting self-adjoint operators on a complex Hilbert space have a pure point spectrum, then there exists a common orthonormal eigenbasis of both the operators.
+    \end{thm}
+    This result has been asked as problem~4.5 in the book of Teschl~\cite[p.~138]{Teschl}. This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_1^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators.
 
-    \section{Moving to spherical co-ordinates}
+    \subsection{Moving to spherical co-ordinates}
 
     \begin{figure}
         \centering
@@ -707,17 +713,15 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \end{align*}
     We use the fact that $\symrm{C}^\infty(\symbb{S}^2, \nu)$ is dense in $\ltwo(\symbb{S}^2, \nu)$. It can be seen that these operators are symmetric.
 
-
-
-    We need the fact that $\lvecsquare$ is essentially self-adjoint on $\symrm{C}^\infty(\symbb{S}^2)$ \cite{MorettiDomain}. In order to fully determine $\spec(H_\text{rel})$, along with the continuous spectrum, i.e.\@ the part containing the generalised eigenvalues, we would need to lift the eigenvalue equation to the distribution space and solve it.\footnote{\,This can be in principle be achieved using Gelfand's rigged Hilbert space formalism, which was introduced in an earlier lecture. The lecture itself can be found on this link: \url{https://www.youtube.com/watch?v=FNJOyxOp3Ik&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=8}. The notes for this lecture can be found here: \url{https://github.com/apoorvpotnis/schuller_rigged_hilbert_spaces/blob/main/schuller_rigged_hilbert_spaces.pdf}.} However, we already know from experiments that the hydrogen atom has discrete lines in its observed spectrum. Thus, we shall first solve for the point spectrum
+    We need the fact that $\lvecsquare$ is essentially self-adjoint on $\symrm{C}^\infty(\symbb{S}^2)$ \cite{MorettiDomain}. In order to fully determine $\spec(H_\text{rel})$, along with the continuous spectrum, i.e.\@ the part containing the generalised eigenvalues, we would need to lift the eigenvalue equation to the distribution space and solve it.\footnote{\,This can be in principle be achieved using Gelfand's rigged Hilbert space formalism, which was introduced in an earlier lecture. The lecture itself can be found on this link: \url{https://www.youtube.com/watch?v=FNJOyxOp3Ik&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=8}. The notes for this lecture can be found here: \url{https://github.com/apoorvpotnis/schuller_rigged_hilbert_spaces/blob/main/schuller_rigged_hilbert_spaces.pdf}.} However, we already know from experiments that the hydrogen atom has discrete lines in its observed spectrum. Thus, we shall first try to find the point spectrum
     \[
         \spec_{\text{p}}(H_\text{rel}) = \set{E \in \rr \given H_\text{rel} F = E F},
     \]
-    which was historically a major validation for the quantum theory.
+    assuming it exists, which was historically a major validation for the quantum theory.
 
-    \section{Spherical Harmonics}
+    \subsection{Spherical harmonics}
 
-    In the previous lectures, we have already discussed the simultaneous eigenvectors and eigenvalues of $\symbfit{L}\kern-1pt^2$ and $L_i$, as they commute with each other. We thus consider the simultaneous eigenvalues of $H_\text{rel}$, $\symbfit{L}\kern-1pt^2$ and $L_3$ in the hope that this will give us more equations to work with and make the job easier. It can be seen that all three operators commute with each other pairwise. Up to isomorphism, the eigenvectors and eigenvalues of an operator are not affected by co-ordinate changes, as $\schwartzrthree$, $\schwartz(\tilde{\rthree})$, $\schwartz(A)$ and $\schwartz(\tilde{A})$ are all isomorphic to each other. The self-adjointness is unaffected by the co-ordinate changes as well.
+    We know that a common orthonormal eigenbasis of $\symbfit{L}\kern-1pt^2$ and $L_i$ exists. Depending on \(H_\text{rel}\), if a common orthonormal eigenbasis of \(\symbfit{L}\kern-1pt^2\), \(L_i\), and \(H_\text{rel}\) exists, then, as all three operators commute with each other pairwise, and since the eigenvectors and eigenvalues of an operator are not affected by co-ordinate changes up to isomorphism, \(\schwartzrthree\), \(\schwartz(\tilde{\rthree})\), \(\schwartz(A)\), and \(\schwartz(\tilde{A})\) are all isomorphic to each other. The self-adjointness is unaffected by the co-ordinate changes as well.
 
     We know that the common eigenvectors of $\lvecsquare$ and $\tilde{L}_3$ come as families $\psi\kern0.5pt_l^m \in \schwartz(\tilde{A})$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
     \begin{align*}
