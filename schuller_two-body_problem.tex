@@ -313,6 +313,8 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \DeclareMathOperator{\spann}{span}
 \newcommand{\sutwo}{\symfrak{su}(2)}
 \newcommand{\sltwoc}{\symfrak{sl}(2;\cc)}
+\newcommand{\hrel}{\tilde{H}_\text{rel}}
+\newcommand{\lthree}{\tilde{L}_3}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -747,7 +749,14 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     \section{Spectrum of the Hamiltonian}
 
-    Depending on \(H_\text{rel}\), a common orthonormal eigenbasis of \(\symbfit{L}\kern-1pt^2\), \(L_i\), and \(H_\text{rel}\) can possibly exist, as all three operators commute with each other pairwise. We for the moment \textit{assume} that this holds.\footnote{Clarify this later.}
+    Depending on \(H_\text{rel}\), a common orthonormal eigenbasis of \(\symbfit{L}\kern-1pt^2\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist, as all three operators commute with each other pairwise. We for the moment \textit{assume} that this holds.\footnote{Clarify this later.} Thus, we have the following equations.
+    \begin{align*}
+        \hrel F^m_{l, E} &= E F^m_{l, E},\\
+        \lvecsquare F^m_{l, E} &= l(l+1) F^m_{l, E},\\
+        \lthree F^m_{l, E} &= m F^m_{l, E}.
+    \end{align*}
+    Here, \(F^m_{l,E}\) is the simultaneous eigenvector of \(\hrel\), \(\lvecsquare\) and \(\lthree\), indexed by \(l\), \(m\) and \(E\). \(E\) is the energy of \(F^m_{l,E}\).
+
 
     \nocite{*}
     \printbibliography[heading=bibintoc]
