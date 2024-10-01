@@ -305,7 +305,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newcommand{\angsone}{\tilde{L}_1}
 \newcommand{\angstwo}{\tilde{L}_2}
 \newcommand{\angsthree}{\tilde{L}_3}
-\newcommand{\lvecsquare}{\tilde{\symbfit{L}}\kern-1pt^2}
+\newcommand{\lvecsquare}{\tilde{\symbfit{L}}^2}
 \newcommand{\parr}{\frac{\partial}{\partial r}}
 \newcommand{\partheta}{\frac{\partial}{\partial \theta}}
 \newcommand{\parphi}{\frac{\partial}{\partial \phi}}
@@ -569,7 +569,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \]
     Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
-    Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that each \(L_i\) has a pure point spectrum contained within the integers, i.e.\ for all \(i\),
+    Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i\),
     \[
         \spec(L_i) \subseteq \zz.
     \]
@@ -587,9 +587,9 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \]
     If we take \(p(x) = x^2\), then we get that \[\spec(L_i^2) \subseteq \zz,\] as \(\spec(L_i) \subseteq \zz\). We now need the following result
     \begin{thm}
-        Tf two commuting self-adjoint operators on a complex Hilbert space have a pure point spectrum, then there exists a common orthonormal eigenbasis of both the operators.
+        If two commuting self-adjoint operators on a complex Hilbert space have a pure point spectrum, then there exists a common orthonormal eigenbasis of both the operators.
     \end{thm}
-    This result has been asked as problem~4.5 in the book of Teschl~\cite[p.~138]{Teschl}. This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_1^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators.
+    This result has been asked as problem~4.5 in the book of Teschl~\cite[p.~138]{Teschl}. This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_2^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators.
 
     \subsection{Moving to spherical co-ordinates}
 
@@ -721,9 +721,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     \subsection{Spherical harmonics}
 
-    We know that a common orthonormal eigenbasis of $\symbfit{L}\kern-1pt^2$ and $L_i$ exists. Depending on \(H_\text{rel}\), if a common orthonormal eigenbasis of \(\symbfit{L}\kern-1pt^2\), \(L_i\), and \(H_\text{rel}\) exists, then, as all three operators commute with each other pairwise, and since the eigenvectors and eigenvalues of an operator are not affected by co-ordinate changes up to isomorphism, \(\schwartzrthree\), \(\schwartz(\tilde{\rthree})\), \(\schwartz(A)\), and \(\schwartz(\tilde{A})\) are all isomorphic to each other. The self-adjointness is unaffected by the co-ordinate changes as well.
-
-    We know that the common eigenvectors of $\lvecsquare$ and $\tilde{L}_3$ come as families $\psi\kern0.5pt_l^m \in \schwartz(\tilde{A})$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
+    \(\schwartzrthree\), \(\schwartz(\tilde{\rthree})\), \(\schwartz(A)\), and \(\schwartz(\tilde{A})\) are all isomorphic to each other. Thus, the eigenvalues and eigenvectors of \(\symbfit{L}^2\) and \(L_i\)'s, and \(\lvecsquare\) and \(\tilde{L}_i\)'s are the same, respectively. The self-adjointness is unaffected by these co-ordinate changes as well. Thus, we know that the common eigenvectors of $\lvecsquare$ and $\tilde{L}_3$ come as families $\psi\kern0.5pt_l^m \in \schwartz(\tilde{A})$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
     \begin{align*}
         \lvecsquare \psi\kern0.5pt_l^m &= l(l+1)\psi\kern0.5pt_l^m,\\
         \tilde{L}_3 \psi\kern0.5pt_l^m &= m \psi\kern0.5pt_l^m.
@@ -746,6 +744,10 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \langle Y_l^m , Y_{l'}^{m'} \rangle = \delta\kern0.5pt_{l, l'}\cdot\delta\kern0.4pt_{m, m'}.
     \]
     We request that the reader consult section 14.2 of the book of Bowers for a derivation of these spherical harmonic functions~\cite[p.~200]{Bowers}.
+
+    \section{Spectrum of the Hamiltonian}
+
+    Depending on \(H_\text{rel}\), a common orthonormal eigenbasis of \(\symbfit{L}\kern-1pt^2\), \(L_i\), and \(H_\text{rel}\) can possibly exist, as all three operators commute with each other pairwise. We for the moment \textit{assume} that this holds.\footnote{Clarify this later.}
 
     \nocite{*}
     \printbibliography[heading=bibintoc]
