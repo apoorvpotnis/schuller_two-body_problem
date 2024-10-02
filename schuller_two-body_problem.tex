@@ -1,3 +1,13 @@
+% !TEX root = schuller_two-body_problem.tex
+% !TEX program = lualatex
+% !BIB program = biber
+
+% arara: lualatex: {shell: yes}
+% arara: biber
+% arara: makeindex
+% arara: lualatex: {shell: yes}
+% arara: lualatex: {shell: yes}
+
 \documentclass[12pt, a4 paper]{article}
 \usepackage{geometry}
 
@@ -315,6 +325,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newcommand{\sltwoc}{\symfrak{sl}(2;\cc)}
 \newcommand{\hrel}{\tilde{H}_\text{rel}}
 \newcommand{\lthree}{\tilde{L}_3}
+\newcommand{\flme}{F^m_{l,E}}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -361,7 +372,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     These are lecture notes by Apoorv Potnis of the lecture `\selectlanguage{ngerman}Quantenmechanisches Zweikörperproblem\selectlanguage{english}' or `The Quantum Mechanical Two-body Problem', given by \textbf{Prof.\@ Frederic Paul Schuller}, as the seventeenth lecture in the course `\selectlanguage{ngerman}Theoretische Physik 2: Theoretische Quantenmechanik\selectlanguage{english}' in 2014/15 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. While the original lecture is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The lecture is available at \url{https://www.youtube.com/watch?v=mcM4S3IMMvI&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=17} and at \url{https://www.fau.tv/clip/id/4489}.
 
-    The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_two-body_problem}. The source code, along with the \texttt{.bib} file is embedded in this \textsc{PDF}. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}}.
+    The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_two-body_problem}. The source code, along with some other files is embedded in this \textsc{PDF}. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}} or opened as an issue in the GitHub repository.
 
     \tableofcontents
 
@@ -454,7 +465,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \[
         V_{\text{Yukawa}}(r) \coloneq a \frac{\exp({-kmr})}{r},
     \]
-    where $k$, $m$ and $a$ are constants. $a \in \rr \setminus \{0\}$, $m \geq 0$. According to quantum field theory, very roughly speaking, interaction between particles takes place via a `mediating particle'. If the interaction is mediated by a `scalar field'\footnote{Whatever that means}, then the mass associated to the particle of that scalar field is the mass $m$ appearing in the Yukawa potential. If we plot a graph of the Yukawa potential for a massive scalar field, then we see that the magnitude of the potential becomes very close to zero after a certain distance. Thus, these interactions are short-ranged. If instead we have $m = 0$, corresponding to a photon, then we get the familiar long-range Coulomb potential
+    where $k$, $m$ and $a$ are constants. $a \in \rr \setminus \{0\}$, $m \geq 0$. According to quantum field theory, very roughly speaking, interaction between particles takes place via a `mediating particle'. If the interaction is mediated by a `scalar field'\footnote{Whatever that means.}, then the mass associated to the particle of that scalar field is the mass $m$ appearing in the Yukawa potential. If we plot a graph of the Yukawa potential for a massive scalar field, then we see that the magnitude of the potential becomes very close to zero after a certain distance. Thus, these interactions are short-ranged. If instead we have $m = 0$, corresponding to a photon, then we get the familiar long-range Coulomb potential
     \[
         V_{\text{Coulomb}}(r) \coloneq a \frac{1}{r}.
     \]
@@ -751,11 +762,11 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     Depending on \(H_\text{rel}\), a common orthonormal eigenbasis of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist, as all three operators commute with each other pairwise. We for the moment \textit{assume} that this holds.\footnote{Clarify this later.} Thus, we have the following equations.
     \begin{align*}
-        \hrel F^m_{l, E} &= E F^m_{l, E},\\
-        \lvecsquare F^m_{l, E} &= l(l+1) F^m_{l, E},\\
-        \lthree F^m_{l, E} &= m F^m_{l, E}.
+        \hrel \flme &= E \flme,\\
+        \lvecsquare \flme &= l(l+1) \flme,\\
+        \lthree \flme &= m \flme.
     \end{align*}
-    Here, \(F^m_{l,E}\) is the simultaneous eigenvector of \(\hrel\), \(\lvecsquare\) and \(\lthree\), indexed by \(l\), \(m\) and \(E\). \(E\) is the energy of \(F^m_{l,E}\).
+    Here, \(\flme\) is the simultaneous eigenvector of \(\hrel\), \(\lvecsquare\) and \(\lthree\), indexed by \(l\), \(m\) and \(E\).
 
 
     \nocite{*}
