@@ -323,11 +323,13 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newcommand{\parphi}{\frac{\partial}{\partial \phi}}
 \newcommand{\levi}{\epsilon_{ijk}}
 \DeclareMathOperator{\spann}{span}
-\newcommand{\sutwo}{\symfrak{su}(2)}
-\newcommand{\sltwoc}{\symfrak{sl}(2;\cc)}
+\newcommand{\sutwo}{\operatorname{\symfrak{su}}(2)}
+\newcommand{\sltwoc}{\operatorname{\symfrak{sl}}(2;\cc)}
 \newcommand{\hrel}{\tilde{H}_\text{rel}}
 \newcommand{\lthree}{\tilde{L}_3}
 \newcommand{\flme}{F^m_{l,E}}
+\newcommand{\SUtwo}{\operatorname{SU}(2)}
+\newcommand{\SOthree}{\operatorname{SO}(3)}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -478,7 +480,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     The Hilbert space of the individual particles is \(\ltworthree\) and the Hilbert space of the composite two-body system is \(\ltworthree \otimes \ltworthree\), which is naturally isomorphic to \(\ltworsix\). This can be seen from theorem II.10 of the book of Reed and Simon~\cite[p.~52]{Reed}. If $f, g \in \ltworthree$, then we can define an isomorphism
     \begin{align*}
-        I &\colon \ltworthree \otimes \ltworthree \rightarrow \ltworsix\\
+        I &\colon \ltworthree \otimes \ltworthree \rightarrow \ltworsix,\\
         I &\colon f \otimes g \mapsto fg \in \ltworsix,
     \end{align*}
     where \(f g\) denotes the point-wise product \[(fg)(\symbfit{x}, \symbfit{y}) \coloneq f(\symbfit{x}) g(\symbfit{y}).\] Tensor products of Hilbert spaces have been discussed in the fourteenth lecture `14: Composite Systems' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
@@ -528,7 +530,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces in question are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of finite-dimensional subspaces of the Schwartz space, each of which is invariant under the action of the group corresponding to rotations along an axis.\footnote{Let \(D_j(\alpha) \colon \rthree \rightarrow \rthree\) be the operator which describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(\{D_j(\alpha) \mid \alpha \in [0, 2\pi)\}\) with the group operation being executing the rotations about the axis one after other.} Our treatment here is based on an answer of Valter Moretti~\cite{MorettiPeter}.
 
-    The following discussion for this section requires some rudimentary definitions from topology and representation theory; more precisely, one needs to know the following notions and concepts. Topological: Hausdorffness, compactness and simple connectedness. Representation theory: Irreducible unitary representations, the Lie groups \(\operatorname{SU}(2)\), \(\operatorname{SO}(3)\) and \(\operatorname{SL}(2;\cc)\), and the Lie algebras \(\sutwo\) and \(\sltwoc\). In my (Apoorv) opinion, understanding these notions from Wikipedia is sufficient for the present purposes. One can also take a look at `The Geometrical Anatomy of Physics' lectures of Schuller~\cite{Schuller_geometric_videos, Schuller_geometric_notes} for a more detailed view of some of these concepts.
+    The following discussion for this section requires some rudimentary definitions from topology and representation theory; more precisely, one needs to know the following notions and concepts. Topological: Hausdorffness, compactness and simple connectedness. Representation theory: Irreducible unitary representations, the Lie groups \(\SUtwo\), \(\SOthree\) and \(\operatorname{SL}(2;\cc)\), and the Lie algebras \(\sutwo\) and \(\sltwoc\). In my (Apoorv) opinion, understanding these notions from Wikipedia is sufficient for the present purposes. One can also take a look at `The Geometrical Anatomy of Physics' lectures of Schuller~\cite{Schuller_geometric_videos, Schuller_geometric_notes} for a more detailed view of some of these concepts.
 
     \subsection{Justification for considering simultaneous eigenvectors}
 
@@ -545,7 +547,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         Consider a real \(n\)-dimensional Lie algebra \(V\) of operators \(-\i S_1\), \ldots, \(-\i S_n\), where each \(S_i\) with \(i \in \{1, \ldots, n\}\) is essentially self-adjoint on the Hilbert space \(\hilbert\), defined on a common invariant and dense subspace \(\domain \subset \hilbert\), with the usual commutator as the Lie bracket.
         Let \(-\i S_1, \ldots, -\i S_n \in V\) be a basis of \(V\) and define Nelson's operator with domain \(\domain\) as
         \[
-            \Delta_{\symrm{N}} \coloneq \sum_{k=1}^{n} S_k^2.
+            \Delta_{\symrm{N}} \coloneq \sum_{i=1}^{n} S_i^2.
         \]
         If \(\Delta_{\symrm{N}}\) is essentially self-adjoint, then there exists a strongly-continuous unitary representation
         \begin{align*}
@@ -555,7 +557,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         on \(\hilbert\) of the unique simply-connected Lie group \(G_V\) with the Lie algebra \(V\).
         \(U\) is uniquely determined by the fact that the closures \(\overline{S}\), for every \(-\i S \in V\), are the self-adjoint generators of the representations of the one-parameter subgroups of \(G_V\).
     \end{thm}
-    A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}. In our case, we see that the conditions of Nelson's theorem are satisfied, with the real Lie algebra \(V = \spann_{\rr}\{-\i J_1, -\i J_2, -\i J_3\}\), with the commutator relation \[[-\i J_i, -\i J_j] = \epsilon_{ijk}(-\i J_k),\] the Hilbert space being \(\ltworthree\), and the common domain or core  being the Schwartz space \(\schwartzrthree\). \(V\) is isomorphic to \[\displaystyle\sutwo = \spann_{\rr}\left\{-\frac{\i\sigma_1}{2}, -\frac{\i\sigma_2}{2}, -\frac{\i\sigma_3}{2}\right\}\] as a Lie algebra, where \(\sigma_i\) denote the Pauli matrices, with the commutator relation \[\displaystyle\left[-\frac{\i\sigma_i}{2}, -\frac{\i\sigma_j}{2}\right] = \epsilon_{ijk}\left(-\frac{\i\sigma_k}{2}\right).\] The isomorphism maps \(-\i J_i\) to \(-\i \sigma_i/2\). \(\sutwo\) is the Lie algebra of both \(\operatorname{SU}(2)\) and \(\operatorname{SO}(3)\). There is a two-to-one correspondence from \(\operatorname{SU}(2)\) to \(\operatorname{SO}(3)\). \(\operatorname{SO}(3)\) is not simply connected. The unique simply-connected associated to \(\sutwo\) is \(\operatorname{SU}(2)\). Thus, the closures of \(J_i\)'s are the self-adjoint generators of the representations of the one-parameter subgroups of \(\operatorname{SU}(2)\). These define a unique strongly continuous representation of \(\operatorname{SU}(2)\) in \(\ltwor\).\footnote{Side note: Since \(\symfrak{s\kern-0.6ptu}(2) + \i\,\symfrak{s\kern-0.6ptu}(2) = \symfrak{s\kern-0.8ptl}(2;\cc)\), we have that \(\symcal{A} = V + \i V\). \(\symcal{A}\) is isomorphic to \(\symfrak{s\kern-0.8ptl}(2;\cc)\) as a Lie algebra.} Note that this representation defines bounded linear functions on \(\ltwor\).
+    A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}. In our case, we see that the conditions of Nelson's theorem are satisfied, with the real Lie algebra \(V = \spann_{\rr}\{-\i J_1, -\i J_2, -\i J_3\}\), with the commutator relation \[[-\i J_i, -\i J_j] = \epsilon_{ijk}(-\i J_k),\] the Hilbert space being \(\ltworthree\), and the common domain or core  being the Schwartz space \(\schwartzrthree\). \(V\) is isomorphic to \[\displaystyle\sutwo = \spann_{\rr}\left\{-\frac{\i\sigma_1}{2}, -\frac{\i\sigma_2}{2}, -\frac{\i\sigma_3}{2}\right\}\] as a Lie algebra, where \(\sigma_i\) denote the Pauli matrices, with the commutator relation \[\displaystyle\left[-\frac{\i\sigma_i}{2}, -\frac{\i\sigma_j}{2}\right] = \epsilon_{ijk}\left(-\frac{\i\sigma_k}{2}\right).\] The isomorphism maps \(-\i J_i\) to \(-\i \sigma_i/2\). \(\sutwo\) is the Lie algebra of both \(\SUtwo\) and \(\SOthree\). There is a two-to-one correspondence from \(\SUtwo\) to \(\SOthree\). \(\SOthree\) is not simply connected. The unique simply-connected Lie group associated to \(\sutwo\) is \(\SUtwo\). Thus, the closures of \(J_i\)'s are the self-adjoint generators of the representations of the one-parameter subgroups of \(\SUtwo\). These define a unique strongly continuous representation of \(\SUtwo\) in \(\ltwor\).\footnote{Side note: Since \(\symfrak{s\kern-0.6ptu}(2) + \i\,\symfrak{s\kern-0.6ptu}(2) = \symfrak{s\kern-0.8ptl}(2;\cc)\), we have that \(\symcal{A} = V + \i V\). \(\symcal{A}\) is isomorphic to \(\symfrak{s\kern-0.8ptl}(2;\cc)\) as a Lie algebra.} Note that this representation defines bounded linear functions on \(\ltwor\).
 
     We now state a version of the Peter--Weyl theorem, as stated in a book of Moretti~\cite[p.~287]{MorettiFundamental}, with slight modifications.
 
@@ -570,14 +572,14 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
             \item If \(U\) is irreducible, then \(\hilbert\) is finite.
             \item If \(U\) is not irreducible, then the orthogonal Hilbert decomposition
             \[
-                \hilbert = \bigoplus_{k\in K} \hilbert_k
+                \hilbert = \bigoplus_{n\in \symcal{N}} \hilbert_n
             \]
-            holds, where \(\hilbert_k\) are pairwise orthogonal non-trivial closed subspaces of finite dimension, all invariant under \(U\). \(K\) is a possibly infinite subset of the natural numbers.
-            \item Every map \(\restr{U}{\hilbert_k} \colon \hilbert_k \rightarrow \hilbert_k\) is an irreducible representation of \(G\).
+            holds, where \(\hilbert_n\) are pairwise orthogonal non-trivial closed subspaces of finite dimension, all invariant under \(U\), and \(\symcal{N}\) is a possibly infinite subset of the natural numbers.
+            \item Every map \(\restr{U}{\hilbert_n} \colon \hilbert_n \rightarrow \hilbert_n\) is an irreducible representation of \(G\).
         \end{enumerate}
     \end{thm}
 
-    \(\operatorname{SU(2)}\) is a compact group. And thus, our strongly-continuous unitary representation of \(\operatorname{SU}(2)\) on \(\ltworthree\) decomposes \(\ltworthree\) into finite dimensional subspaces. \(\ltworthree_n\) denotes such a subspace. Thus,
+    \(\operatorname{SU(2)}\) is a compact group. And thus, our strongly-continuous unitary representation of \(\SUtwo\) on \(\ltworthree\) decomposes \(\ltworthree\) into finite dimensional subspaces. Let \(\ltworthree_n\) denote such a subspace. Since \(\ltworthree\) is an infinite dimensional Hilbert space, the number of such finite dimensional subspaces must be countably infinite. Thus,
     \[
         \ltworthree = \bigoplus_{n \in \nn} \ltworthree_n.
     \]
@@ -591,11 +593,11 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \]
     Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
-    Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i\),
+    Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i \in {1, 2, 3}\),
     \[
         \spec(L_i) \subseteq \zz.
     \]
-    We state a version of the spectral mapping theorem, referring to theorem~3.17 of the book of Teschl~\cite[p.~118]{Teschl}.
+    We now need a version of the spectral mapping theorem, which we state here, referring to theorem~3.17 of the book of Teschl~\cite[p.~118]{Teschl}.
     \begin{thm}[Spectral Mapping]
         Let \(\Xi\) be a self-adjoint operator on a Hilbert space \(\hilbert\), and let \(f \colon \rr \rightarrow \cc\) be a continuous function. Then
         \[
@@ -607,11 +609,11 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \[
         \spec(p(L_i)) = p(\spec(L_i)).
     \]
-    If we take \(p(x) = x^2\), then we get that \[\spec(L_i^2) \subseteq \zz,\] and \[\spec(L_1^2 + L_2^2 + L_3^2) \subseteq \zz,\] as \(\spec(L_i) \subseteq \zz\). We now need the following result.
+    If we take \(p(x) = x^2\), then we get that \[\spec(L_i^2) \subseteq \zz,\] and \[\spec(L_1^2 + L_2^2 + L_3^2) \subseteq \zz,\] as \(\spec(L_i) \subseteq \zz\). We now need the following result which has been asked as problem~4.5 in the book of Teschl~\cite[p.~138]{Teschl}.
     \begin{thm}
         If two commuting self-adjoint operators on a complex Hilbert space have a pure point spectrum, then there exists a common orthonormal eigenbasis of both the operators.
     \end{thm}
-    This result has been asked as problem~4.5 in the book of Teschl~\cite[p.~138]{Teschl}. This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_2^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators.
+    This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_2^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators.
 
     \subsection{Moving to spherical co-ordinates}
 
