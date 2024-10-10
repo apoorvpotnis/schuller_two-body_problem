@@ -331,6 +331,8 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newcommand{\SOthree}{\operatorname{SO}(3)}
 \newcommand{\bhilbert}{\hilbert_{\symrm{b}}}
 \newcommand{\eigen}{\operatorname{Eig}}
+\newcommand{\ltwoa}{\ltwo(\tilde{A})}
+\newcommand{\sphe}{Y_l^m}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -761,20 +763,20 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \[
         Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\pi (l+m)!}\right)^{\frac{1}{2}}\!\cdot\e^{\i m\phi}\cdot\!(\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!\!(\cos^2{\theta} -1)^l
     \]
-    and $\tilde{\symbfit{x}} = T^{-1}(\symbfit{x})$. These $Y_l^m$'s are called as \textit{spherical harmonic functions}. Since the operators $\lvecsquare$ and $\tilde{L}_3$ act only on the angular components and not the radial components when expressed in spherical co-ordinates, we have that
+    and $\tilde{\symbfit{x}} = T^{-1}(\symbfit{x})$. These $\sphe$'s are called as \textit{spherical harmonic functions}. \(\sphe \in \ltwoa\).\footnote{We have identified \(\ltworthree\) and \(\ltwoa\).} Since the operators $\lvecsquare$ and $\tilde{L}_3$ act only on the angular components and not the radial components when expressed in spherical co-ordinates, we have that
     \begin{align*}
-        \lvecsquare Y_l^m &= l(l+1) Y_l^m,\\
-        \tilde{L}_3 Y_l^m &= m Y_l^m,
+        \lvecsquare \sphe &= l(l+1) \sphe,\\
+        \tilde{L}_3 \sphe &= m \sphe,
     \end{align*}
     i.e.\@ the spherical harmonic functions are eigenvectors of $\lvecsquare$ and $\tilde{L}_3$. These functions actually form an orthonormal basis of the Hilbert space $\symrm{L}\kern-0.7pt^2(\symbb{S}^2)$ consisting of complex square-integrable functions defined on the 2-sphere.
     \[
-        \langle Y_l^m , Y_{l'}^{m'} \rangle = \delta\kern0.5pt_{l, l'}\cdot\delta\kern0.4pt_{m, m'}.
+        \langle \sphe , \symrm{Y}_{l'}^{m'} \rangle = \delta\kern0.5pt_{l, l'}\cdot\delta\kern0.4pt_{m, m'}.
     \]
     We request that the reader consult section 14.2 of the book of Bowers for a derivation of these spherical harmonic functions~\cite[p.~200]{Bowers}.
 
     \section{Spectrum of the Hamiltonian}
 
-    For a wide range of potentials \(V(\norm{\rvec})\), the Hamiltonian \(\hrel\) turns out to be self-adjoint. In the case we are most interested in, the hydrogen atom, the potential is the familiar Coulomb potential. It turns out that \(\hrel\) is self-adjoint in that case. So, for the further analysis, we assume that \(\hrel\) is self-adjoint on \(\ltworthree\). Depending on the spectrum of \(H_\text{rel}\), common orthonormal eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist. Note that even though \(\lvecsquare\) and \(\tilde{L}_i\) have point spectra, \(\hrel\) may have continuous spectra. As discussed previously, the classic application of the quantum two-body problem is the hydrogen atom, for which we know \textit{experimentally} that some of its spectrum is point. Thus, assuming \textit{a priori} that some of the spectrum of \(\hrel\) is point, we try to find it and the eigenvectors corresponding to these eigenvalues.
+    For a wide range of potentials \(V(\norm{\rvec})\), the Hamiltonian \(\hrel\) turns out to be self-adjoint. In the case we are most interested in, the hydrogen atom, the potential is the familiar Coulomb potential. It turns out that \(\hrel\) is self-adjoint in that case. So, for the further analysis, we assume that \(\hrel\) is self-adjoint on \(\ltwoa\). Depending on the spectrum of \(H_\text{rel}\), common orthonormal eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist. Note that even though \(\lvecsquare\) and \(\tilde{L}_i\) have point spectra, \(\hrel\) may have continuous spectra. As discussed previously, the classic application of the quantum two-body problem is the hydrogen atom, for which we know \textit{experimentally} that some of its spectrum is point. Thus, assuming \textit{a priori} that some of the spectrum of \(\hrel\) is point, we try to find it and the eigenvectors corresponding to these eigenvalues.
 
     Let \(\domain_P\) be the domain of an operator \(P \colon \domain_P \rightarrow \hilbert\), where \(\hilbert\) is a Hilbert space. We define the eigenspace \(\eigen_P(\lambda)\) of an eigenvalue \(\lambda \in \spec_{\symrm{p}}(P)\) to be the eigenvectors corresponding to the eigenvalue \(\lambda\). Thus,
     \[
@@ -786,7 +788,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \eigen(P) \coloneq \bigcup_{\lambda \in \spec_{\symrm{p}}(P)} \eigen_P(\lambda).
     \]
 
-    Let us restrict the Hilbert space \(\ltworthree\) to the Hilbert \(\bhilbert\) space formed by the common eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\).\footnote{We choose ``b'' as a subscript in the label \(\bhilbert\) as the space shall later turn out to the space of \textit{bound states}.} Thus,
+    Let us restrict the Hilbert space \(\ltworthree\) to the Hilbert \(\bhilbert\) space formed by the common eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\).\footnote{We choose ``b'' as a subscript in the label \(\bhilbert\) as this space shall later turn out to the space of \textit{bound states}.} Thus,
     \[
         \bhilbert \coloneq \eigen(\lvecsquare) \cap \eigen(\tilde{L}_i) \cap \eigen(\hrel).
     \]
@@ -796,7 +798,11 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \lvecsquare \flme &= l(l+1) \flme,\\
         \lthree \flme &= m \flme.
     \end{align*}
-    Here, \(\flme\) is a simultaneous eigenvector of \(\hrel\), \(\lvecsquare\) and \(\lthree\), which we assume to exist, indexed by \(l\), \(m\) and \(E\); \(\flme \in \bhilbert\).
+    Here, \(\flme \in \ltwoa\) is a simultaneous eigenvector of \(\hrel\), \(\lvecsquare\) and \(\lthree\), which we assume to exist, indexed by \(l\), \(m\) and \(E\); \(\flme \in \bhilbert\). We already know that the simultaneous eigenvectors of \(\lvecsquare\) and \(\lthree\) are spherical harmonics, and they don't have any radial dependency---they depend only on the polar and the azimuthal angles. Thus, we can write an \textit{ansatz} for \(\flme\) by multiplying the spherical harmonics by a radial function. Thus, we consider the following \textit{ansatz}.
+    \[
+        \flme(r, \theta, \phi) = \frac{u_E(r)}{r}\sphe(\theta, \phi).
+    \]
+    We have multiplied by a factor of \(1/r\), as this shall prove to be useful later.
 
     \nocite{*}
     \printbibliography[heading=bibintoc]
