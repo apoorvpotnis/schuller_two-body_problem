@@ -264,8 +264,8 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \usepackage[sorting=none, hyperref, backref]{biblatex}
 \addbibresource{schuller_two-body_problem.bib}
 \usepackage{bibentry}
-\usepackage{embedall}
-\embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
+% \usepackage{embedall}
+% \embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
 
 \usepackage{hyperref}
 \hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-body Problem in Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Two-body Problem, Kepler problem}}
@@ -305,7 +305,8 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newcommand{\domain}{\symcal{D}}
 \newcommand{\identity}{\symrm{id}}
 \newcommand{\w}{w\kern-1pt}
-\DeclareMathOperator{\spec}{spec}
+% \DeclareMathOperator{\spec}{\sigma}
+\newcommand{\spec}{\sigma}
 \newcommand{\resolvent}{\symup{\rho}}
 \newcommand{\lap}{∆}
 \newcommand{\xone}{\symbfit{x}^{(1)}}
@@ -328,10 +329,14 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newcommand{\flme}{F^m_{l,E}}
 \newcommand{\SUtwo}{\operatorname{SU}(2)}
 \newcommand{\SOthree}{\operatorname{SO}(3)}
+\newcommand{\bhilbert}{\hilbert_{\symrm{b}}}
+\newcommand{\eigen}{\operatorname{Eig}}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
+
+\DeclarePairedDelimiterX\setc[2]{\{}{\}}{\,#1 \;\delimsize\vert\; #2\,}
+
 \newcommand{\der}{\operatorname{d\!}{}}
 
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
@@ -538,7 +543,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \item \(\symbfit{J}^2\) is also essentially self-adjoint on the same core, with \(\symbfit{J}^2 \coloneq \sum_{i=1}^3 J_i \circ J_i\).
         \item \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\).
     \end{enumerate}
-    We denote the Lie algebra by \(\symcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a pure point spectrum.
+    We denote the Lie algebra by \(\symcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a point spectrum.
 
     We now state a theorem of Edward Nelson, as stated in a book of Moretti~\cite[p.~291]{MorettiFundamental}, with slight modifications.
     \begin{thm}[Nelson]
@@ -585,34 +590,34 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \[
     \schwartzrthree = \bigoplus_{n \in \nn} \schwartzrthree_n.
     \]
-    Each \(\schwartzrthree_n\) is invariant under the action of \(J_i\)'s. This was the procedure Schuller briefly mentioned. Now, since \[\restr{J_i}{\schwartzrthree_n} \colon \schwartzrthree_n \rightarrow \schwartzrthree_n\] acts on finite dimensional spaces, it spectrum consists of only eigenvalues, i.e.\ each \(\restr{J_i}{\schwartzrthree_n}\) has a pure-point spectrum. The spectrum of \(J_i\)'s just the union of these individual eigenvalues, i.e.\
+    Each \(\schwartzrthree_n\) is invariant under the action of \(J_i\)'s. This was the procedure Schuller briefly mentioned. Now, since \[\restr{J_i}{\schwartzrthree_n} \colon \schwartzrthree_n \rightarrow \schwartzrthree_n\] acts on finite dimensional spaces, it spectrum consists of only eigenvalues, i.e.\ each \(\restr{J_i}{\schwartzrthree_n}\) has a point spectrum. The spectrum of \(J_i\)'s just the union of these individual eigenvalues, i.e.\
     \[
         \spec(J_i) = \bigcup_{n \in \nn} \spec\left(\restr{J_i}{\schwartzrthree_n}\right).
     \]
-    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure-point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
+    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
-    Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i \in {1, 2, 3}\),
-    \[
-        \spec(L_i) \subseteq \zz.
-    \]
-    We now need a version of the spectral mapping theorem, which we state here, referring to theorem~3.17 of the book of Teschl~\cite[p.~118]{Teschl}.
-    \begin{thm}[Spectral Mapping]
-        Let \(\Xi\) be a self-adjoint operator on a Hilbert space \(\hilbert\), and let \(f \colon \rr \rightarrow \cc\) be a continuous function. Then
-        \[
-            \spec((f(\Xi)) = f(\spec(\Xi)),
-        \]
-        if \(\abs{f(\lambda)} \rightarrow \infty\) as \(\abs{\lambda} \rightarrow \infty\).
-    \end{thm}
-    Here, \(f(\Xi)\) is defined using the spectral calculus. By applying the spectral mapping theorem, we get that complex polynomials in \(L_i\) have the same spectrum as \(L_i\), i.e.\ if \(p\) is a complex polynomial, then
-    \[
-        \spec(p(L_i)) = p(\spec(L_i)).
-    \]
-    If we take \(p(x) = x^2\), then we get that \[\spec(L_i^2) \subseteq \zz,\] and \[\spec(L_1^2 + L_2^2 + L_3^2) \subseteq \zz,\] as \(\spec(L_i) \subseteq \zz\). We now need the following result which has been asked as problem~4.5 in the book of Teschl~\cite[p.~138]{Teschl}.
-    \begin{thm}
-        If two commuting self-adjoint operators on a complex Hilbert space have a pure point spectrum, then there exists a common orthonormal eigenbasis of both the operators.
-    \end{thm}
-    This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_2^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators.
-
+%     Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i \in {1, 2, 3}\),
+%     \[
+%         \spec(L_i) \subseteq \zz.
+%     \]
+%     We now need a version of the spectral mapping theorem, which we state here, referring to theorem~3.17 of the book of Teschl~\cite[p.~118]{Teschl}.
+%     \begin{thm}[Spectral Mapping]
+%         Let \(\Xi\) be a self-adjoint operator on a Hilbert space \(\hilbert\), and let \(f \colon \rr \rightarrow \cc\) be a continuous function. Then
+%         \[
+%             \spec((f(\Xi)) = f(\spec(\Xi)),
+%         \]
+%         if \(\abs{f(\lambda)} \rightarrow \infty\) as \(\abs{\lambda} \rightarrow \infty\).
+%     \end{thm}
+%     Here, \(f(\Xi)\) is defined using the spectral calculus. By applying the spectral mapping theorem, we get that complex polynomials in \(L_i\) have the same spectrum as \(L_i\), i.e.\ if \(p\) is a complex polynomial, then
+%     \[
+%         \spec(p(L_i)) = p(\spec(L_i)).
+%     \]
+%     If we take \(p(x) = x^2\), then we get that \[\spec(L_i^2) \subseteq \zz,\] and \[\spec(L_1^2 + L_2^2 + L_3^2) \subseteq \zz,\] as \(\spec(L_i) \subseteq \zz\). We now need the following result which has been asked as problem~4.5 in the book of Teschl~\cite[p.~138]{Teschl}.
+%     \begin{thm}
+%         If two commuting self-adjoint operators on a complex Hilbert space have a pure point spectrum, then there exists a common orthonormal eigenbasis of both the operators.
+%     \end{thm}
+%     This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_2^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators.
+%
     \subsection{Moving to spherical co-ordinates}
 
     \begin{figure}
@@ -737,7 +742,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     We need the fact that $\lvecsquare$ is essentially self-adjoint on $\symrm{C}^\infty(\symbb{S}^2)$ \cite{MorettiDomain}. In order to fully determine $\spec(H_\text{rel})$, along with the continuous spectrum, i.e.\@ the part containing the generalised eigenvalues, we would need to lift the eigenvalue equation to the distribution space and solve it.\footnote{\,This can be in principle be achieved using Gelfand's rigged Hilbert space formalism, which was introduced in an earlier lecture. The lecture itself can be found on this link: \url{https://www.youtube.com/watch?v=FNJOyxOp3Ik&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=8}. The notes for this lecture can be found here: \url{https://github.com/apoorvpotnis/schuller_rigged_hilbert_spaces/blob/main/schuller_rigged_hilbert_spaces.pdf}.} However, we already know from experiments that the hydrogen atom has discrete lines in its observed spectrum. Thus, we shall first try to find the point spectrum
     \[
-        \spec_{\text{p}}(H_\text{rel}) = \set{E \in \rr \given H_\text{rel} F = E F},
+    \spec_{\text{p}}(H_\text{rel}) = \setc*{E \in \rr}{H_\text{rel} F = E F},
     \]
     assuming it exists, which was historically a major validation for the quantum theory.
 
@@ -769,14 +774,29 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     \section{Spectrum of the Hamiltonian}
 
-    Depending on \(H_\text{rel}\), a common orthonormal eigenbasis of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist, as all three operators commute with each other pairwise. We for the moment \textit{assume} that this holds.\footnote{Clarify this later.} Thus, we have the following equations.
+    For a wide range of potentials \(V(\norm{\rvec})\), the Hamiltonian \(\hrel\) turns out to be self-adjoint. In the case we are most interested in, the hydrogen atom, the potential is the familiar Coulomb potential. It turns out that \(\hrel\) is self-adjoint in that case. So, for the further analysis, we assume that \(\hrel\) is self-adjoint on \(\ltworthree\). Depending on the spectrum of \(H_\text{rel}\), common orthonormal eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist. Note that even though \(\lvecsquare\) and \(\tilde{L}_i\) have point spectra, \(\hrel\) may have continuous spectra. As discussed previously, the classic application of the quantum two-body problem is the hydrogen atom, for which we know \textit{experimentally} that some of its spectrum is point. Thus, assuming \textit{a priori} that some of the spectrum of \(\hrel\) is point, we try to find it and the eigenvectors corresponding to these eigenvalues.
+
+    Let \(\domain_P\) be the domain of an operator \(P \colon \domain_P \rightarrow \hilbert\), where \(\hilbert\) is a Hilbert space. We define the eigenspace \(\eigen_P(\lambda)\) of an eigenvalue \(\lambda \in \spec_{\symrm{p}}(P)\) to be the eigenvectors corresponding to the eigenvalue \(\lambda\). Thus,
+    \[
+        \eigen_P(\lambda) \coloneq \setc*{\psi \in \domain_P}{\psi \in \hilbert, P\psi = \lambda\psi}.
+    \]
+    We thus define
+    \[
+        %\eigen_P(\spec_{\symrm{p}}) \coloneq \overline{\spann{\setc*{ \sum_{k \in \symcal{K}} a_k v_k}{a_k \in \cc, v_k \in \bigcup_{\lambda \in \spec_{\symrm{p}}(P)} \eigen_P(\lambda), \symcal{K} \subset \nn }}}.
+        \eigen(P) \coloneq \bigcup_{\lambda \in \spec_{\symrm{p}}(P)} \eigen_P(\lambda).
+    \]
+
+    Let us restrict the Hilbert space \(\ltworthree\) to the Hilbert \(\bhilbert\) space formed by the common eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\).\footnote{We choose ``b'' as a subscript in the label \(\bhilbert\) as the space shall later turn out to the space of \textit{bound states}.} Thus,
+    \[
+        \bhilbert \coloneq \eigen(\lvecsquare) \cap \eigen(\tilde{L}_i) \cap \eigen(\hrel).
+    \]
+    In order to find the elements of \(\bhilbert\), we consider the following equations.
     \begin{align*}
         \hrel \flme &= E \flme,\\
         \lvecsquare \flme &= l(l+1) \flme,\\
         \lthree \flme &= m \flme.
     \end{align*}
-    Here, \(\flme\) is the simultaneous eigenvector of \(\hrel\), \(\lvecsquare\) and \(\lthree\), indexed by \(l\), \(m\) and \(E\).
-
+    Here, \(\flme\) is a simultaneous eigenvector of \(\hrel\), \(\lvecsquare\) and \(\lthree\), which we assume to exist, indexed by \(l\), \(m\) and \(E\); \(\flme \in \bhilbert\).
 
     \nocite{*}
     \printbibliography[heading=bibintoc]
