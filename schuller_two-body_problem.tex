@@ -117,6 +117,9 @@ SlantedFont=NewCMSans10-Oblique.otf,%
 BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 ]{NewCMSans10-Regular.otf}
 
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\let\symcal\mathcal
+
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
@@ -276,8 +279,8 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \usepackage[sorting=none, hyperref, backref]{biblatex}
 \addbibresource{schuller_two-body_problem.bib}
 \usepackage{bibentry}
-\usepackage{embedall}
-\embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
+% \usepackage{embedall}
+% \embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
 
 \usepackage{hyperref}
 \hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-body Problem in Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Two-body Problem, Kepler problem}}
@@ -394,6 +397,8 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     These are lecture notes by Apoorv Potnis of the lecture `\selectlanguage{ngerman}Quantenmechanisches Zweikörperproblem\selectlanguage{english}' or `The Quantum Mechanical Two-body Problem', given by \textbf{Prof.\@ Frederic Paul Schuller}, as the seventeenth lecture in the course `\selectlanguage{ngerman}Theoretische Physik 2: Theoretische Quantenmechanik\selectlanguage{english}' in 2014/15 at the \selectlanguage{ngerman}Friedrich-Alexander-Universität Erlangen-Nürnberg\selectlanguage{english}. While the original lecture is in German, these notes are in English and have been prepared using YouTube's automatic subtitle translation tool. The lecture is available at \url{https://www.youtube.com/watch?v=mcM4S3IMMvI&list=PLPO5pgr_frzTeqa_thbltYjyw8F9ehw7v&index=17} and at \url{https://www.fau.tv/clip/id/4489}.
 
     The source code, updates and corrections to this document can be found on this GitHub repository: \url{https://github.com/apoorvpotnis/schuller_two-body_problem}. The source code, along with some other files is embedded in this \textsc{pdf}. Comments and corrections can be mailed at \href{mailto:apoorvpotnis@gmail.com}{\texttt{apoorvpotnis@gmail.com}} or opened as an issue in the GitHub repository.
+
+    In these notes, we assume that the reader is already familiar with all of the material covered in Schuller's lectures in his English quantum mechanics series~\cite{SchullerVideos, Schuller}. We shall make frequent use of concepts and results from these lectures without mentioning.
 
     \tableofcontents
 
@@ -557,7 +562,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \item \(\symbfit{J}^2\) is also essentially self-adjoint on the same core, with \(\symbfit{J}^2 \coloneq \sum_{i=1}^3 J_i \circ J_i\).
         \item \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\).
     \end{enumerate}
-    We denote the Lie algebra by \(\symcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a point spectrum.\footnote{Recall that the point spectrum was defined as the set of all the eigenvalues of the operator. In this case, the spectrum shall turn out to be pure point. In Schuller's definition of a pure point spectrum, the elements, i.e.\ the eigenvalues can have countably infinite multiplicities. In the case of angular momentum, the eigenvalues of the operators \(\tilde{L}_3\) and \(\lvecsquare\) shall be revealed to have infinite multiplicities.}
+    We denote the Lie algebra by \(\symcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a point spectrum.\footnote{Recall that the point spectrum was defined as the set of all the eigenvalues of the operator. In this case, the spectrum shall turn out to be pure point. In Schuller's definition of a pure point spectrum, the elements, i.e.\ the eigenvalues can have countably infinite multiplicities. In the case of angular momentum, the eigenvalues of the operators \(\tilde{L}_3\) and \(\lvecsquare\) shall be revealed to have infinite multiplicities. It seems to me (Apoorv) that the definitions of different types of spectra have slight variations in the literature. The reader is requested to check the definition a particular source is using while consulting the literature.}
 
     We now state a theorem of Edward Nelson, as stated in a book of Moretti~\cite[p.~291]{MorettiFundamental}, with slight modifications.
     \begin{thm}[Nelson]
@@ -630,7 +635,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \begin{thm}
         If two commuting self-adjoint operators on a complex Hilbert space have a pure point spectrum, then there exists a common orthonormal eigenbasis of both the operators.
     \end{thm}
-    This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_2^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators. Note that this \textit{does not} mean that the \(l\) and \(m\) specify a unique \(\psi_{l(l+1), m}\). The eigenvalues \(l\) and \(m\) are degenerate, and a choice of orthonormal vectors in each eigenspace must be made to specify an eigenbasis for the whole Hilbert space.
+    This justifies the assumption of considering simultaneous eigenvectors of \(\symbfit{L}^2 \coloneq L_1^2 + L_2^2 + L_3^2\) and \(L_3\) in the usual procedure using ladder operators. Note that this \textit{does not} mean that \(l\) and \(m\) specify a unique \(\psi_{l(l+1), m}\). The eigenvalues \(l\) and \(m\) are degenerate countably infinitely, and a choice of orthonormal vectors in each eigenspace must be made to specify an eigenbasis for the whole Hilbert space.
 
     \subsection{Moving to spherical co-ordinates}
 
@@ -824,14 +829,23 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \]
     Simplifying, we get
     \[
-        -\frac{\hbar^2}{2\mu} \lap u_E(r) + \left(\frac{\hbar^2}{2\mu} \frac{l(l+1)}{r^2} + V(r)\right) u_E = E u_E.
+        -\frac{\hbar^2}{2\mu} \lap u_E(r) + \left(\frac{\hbar^2}{2\mu} \frac{l(l+1)}{r^2} + V(r)\right) u_E = E u_E.\tag{\textasteriskcentered}\label{eigen}
     \]
     Upon observing the above equation, we notice that the first term can be interpreted as corresponding to a free particle, and the second term, in brackets as the potential the particle feels. This term can be interpreted as an effective potential;
     \[
         V^l_{\text{eff}} (r) \coloneq \frac{\hbar^2}{2\mu} \frac{l(l+1)}{r^2} + V(r).
     \]
-    The first term in the effective potential, \(\hbar^2 l(l+1)/2\mu r^2\), can be roughly viewed as arising due to the `centrifugal' force felt by the particle. The above eigenvalue equation can be thought of as the equation of a particle in the space \(\rr_{\geq}0\), with the potential \(V^l_{\text{eff}}\).
+    The first term in the effective potential, \(\hbar^2 l(l+1)/2\mu r^2\), can be roughly viewed as arising due to the `centrifugal' force felt by the particle. The eigenvalue equation \eqref{eigen} can be thought of as the equation of a particle in the space \(\rr_{\geq}0\), with the potential \(V^l_{\text{eff}}\). Thus, \(r \in [0, \infty)\).
 
+    The solutions of a differential equation such as \eqref{eigen} depend on the boundary conditions. We have already assumed that \(\hrel\) is self-adjoint on a suitable domain. For our purposes, it is sufficient to restrict our class of potentials which do not increase very rapidly at the origin. More precisely, we require that the the following condition is satisfied.
+    \[
+        \lim_{r \rightarrow 0} rV(r) = c,
+    \]
+    where \(c \in \rr\) is a constant. Note that this condition is satisfied for the case we are most interested in, the Coulomb potential. In order to have normalised solutions, we need that the solutions increase rapidly enough at the origin. More precisely, we need the following condition.
+    \[
+        \lim_{r \rightarrow 0} r^{-(l+1)} u_E(r) = c',
+    \]
+    where \(c' \in \rr\setminus\{0\}\) is a constant.
 
     \nocite{*}
     \printbibliography[heading=bibintoc]
