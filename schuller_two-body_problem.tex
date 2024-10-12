@@ -2,6 +2,13 @@
 % !TEX program = lualatex
 % !BIB program = biber
 
+% In order to compile this file, you need to run the following tools in the following sequence.
+% lualatex -> biber -> makeindex -> lualatex -> lualatex
+% You can run the following command in a terminal
+% lualatex schuller_rigged_hilbert_spaces.tex && biber schuller_rigged_hilbert_spaces && makeindex schuller_rigged_hilbert_spaces && lualatex schuller_rigged_hilbert_spaces.tex && schuller_rigged_hilbert_spaces.tex
+
+% Alternatively, you can run latexmk with the -pdflua option, or use arara as well.
+
 % arara: lualatex: {shell: yes}
 % arara: biber
 % arara: makeindex
