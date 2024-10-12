@@ -250,10 +250,19 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         isbn = {978-1-4614-7115-8}
     }
 
-    @book{Nelson,
+    @book{Gustafson,
+        author = {Gustafson, Stephen J. and Sigal, Israel Michael},
+        title = {Mathematical Concepts of Quantum Mechanics},
+        edition = {2},
+        publisher = {Springer-Verlag Berlin Heidelberg},
+        year = {2011},
+        isbn = {978-3-642-21865-1}
+    }
+
+    @article{Nelson,
         author = {Nelson, Edward},
-        doi = {https://doi.org/10.2307/1970331},
-        journal = {Annals of Mathematics},
+        doi = {10.2307/1970331},
+        journaltitle = {Annals of Mathematics},
         number = {3},
         pages = {572--615},
         publisher = {Annals of Mathematics, Trustees of Princeton University on Behalf of the Annals of Mathematics, Mathematics Department, Princeton University},
@@ -261,13 +270,14 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         volume = {70},
         year = {1959}
     }
+
 \end{filecontents}
 
 \usepackage[sorting=none, hyperref, backref]{biblatex}
 \addbibresource{schuller_two-body_problem.bib}
 \usepackage{bibentry}
-% \usepackage{embedall}
-% \embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
+\usepackage{embedall}
+\embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
 
 \usepackage{hyperref}
 \hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-body Problem in Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Two-body Problem, Kepler problem}}
@@ -547,7 +557,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \item \(\symbfit{J}^2\) is also essentially self-adjoint on the same core, with \(\symbfit{J}^2 \coloneq \sum_{i=1}^3 J_i \circ J_i\).
         \item \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\).
     \end{enumerate}
-    We denote the Lie algebra by \(\symcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a point spectrum.
+    We denote the Lie algebra by \(\symcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a point spectrum.\footnote{Recall that the point spectrum was defined as the set of all the eigenvalues of the operator. In this case, the spectrum shall turn out to be pure point. In Schuller's definition of a pure point spectrum, the elements, i.e.\ the eigenvalues can have countably infinite multiplicities. In the case of angular momentum, the eigenvalues of the operators \(\tilde{L}_3\) and \(\lvecsquare\) shall be revealed to have infinite multiplicities.}
 
     We now state a theorem of Edward Nelson, as stated in a book of Moretti~\cite[p.~291]{MorettiFundamental}, with slight modifications.
     \begin{thm}[Nelson]
@@ -686,7 +696,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \tilde{L}_3 = -\i\hbar\partial_\phi,
     \]
     where $\tilde{L}_3 \colon \schwartz(A) \rightarrow \schwartz(A)$ denotes the angular momentum operator in spherical co-ordinates.
-    We now restrict the domain of $T$ suitably such that it becomes injective and $T^{-1}$ becomes a well defined function. More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\pi) \times (0,2\pi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions. If we define $\tilde{\rthree}$ as $\rthree$ excluding the axes, we have $T^{-1} \colon \tilde{\rthree} \rightarrow \tilde{A}$, $T^{-1} \colon (x, y, z) \mapsto (r, \theta, \phi)$ as
+    We now restrict the domain of $T$ suitably such that it becomes injective and $T^{-1}$ becomes a well defined function. More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\pi) \times (0,2\pi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions. If we define $\tilde{\rr}^3$ as $\rthree$ excluding the axes, we have $T^{-1} \colon \tilde{\rr}^3 \rightarrow \tilde{A}$, $T^{-1} \colon (x, y, z) \mapsto (r, \theta, \phi)$ as
     \begin{align*}
         r      &= \sqrt{x^2 + y^2 + z^2},\\
         \theta &= \cos^{-1}{\left(\frac{z}{\sqrt{x^2 + y^2 + z^2}}\right)},\\
@@ -752,7 +762,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     \subsection{Spherical harmonics}
 
-    \(\schwartzrthree\), \(\schwartz(\tilde{\rthree})\), \(\schwartz(A)\), and \(\schwartz(\tilde{A})\) are all isomorphic to each other. Thus, the eigenvalues and eigenvectors of \(\symbfit{L}^2\) and \(L_i\)'s, and \(\lvecsquare\) and \(\tilde{L}_i\)'s are the same, respectively. The self-adjointness is unaffected by these co-ordinate changes as well. Thus, we know that the common eigenvectors of $\lvecsquare$ and $\tilde{L}_3$ come as families $\psi\kern0.5pt_l^m \in \schwartz(\tilde{A})$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
+    \(\schwartzrthree\), \(\schwartz(\tilde{\rr}^3)\), \(\schwartz(A)\), and \(\schwartz(\tilde{A})\) are all isomorphic to each other. Thus, the eigenvalues and eigenvectors of \(\symbfit{L}^2\) and \(L_i\)'s, and \(\lvecsquare\) and \(\tilde{L}_i\)'s are the same, respectively. The self-adjointness is unaffected by these co-ordinate changes as well. Thus, we know that the common eigenvectors of $\lvecsquare$ and $\tilde{L}_3$ come as families $\psi\kern0.5pt_l^m \in \schwartz(\tilde{A})$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
     \begin{align*}
         \lvecsquare \psi\kern0.5pt_l^m &= l(l+1)\psi\kern0.5pt_l^m,\\
         \tilde{L}_3 \psi\kern0.5pt_l^m &= m \psi\kern0.5pt_l^m.
@@ -772,15 +782,15 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \end{align*}
     i.e.\@ the spherical harmonic functions are eigenvectors of $\lvecsquare$ and $\tilde{L}_3$. These functions actually form an orthonormal basis of the Hilbert space $\symrm{L}\kern-0.7pt^2(\symbb{S}^2)$ consisting of complex square-integrable functions defined on the 2-sphere.
     \[
-        \langle \sphe , \symrm{Y}_{l'}^{m'} \rangle = \delta\kern0.5pt_{l, l'}\cdot\delta\kern0.4pt_{m, m'}.
+        \langle \sphe , Y_{l'}^{m'} \rangle = \delta\kern0.5pt_{l, l'}\cdot\delta\kern0.4pt_{m, m'}.
     \]
     We request that the reader consult section 14.2 of the book of Bowers for a derivation of these spherical harmonic functions~\cite[p.~200]{Bowers}.
 
     \section{Spectrum of the Hamiltonian}
 
-    For a wide range of potentials \(V(\norm{\rvec})\), the Hamiltonian \(\hrel\) turns out to be self-adjoint. In the case we are most interested in, the hydrogen atom, the potential is the familiar Coulomb potential. It turns out that \(\hrel\) is self-adjoint in that case. So, for the further analysis, we assume that \(\hrel\) is self-adjoint on \(\ltwoa\). Depending on the spectrum of \(H_\text{rel}\), common orthonormal eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist. Note that even though \(\lvecsquare\) and \(\tilde{L}_i\) have pure point spectra, \(\hrel\) may have continuous spectra. As discussed previously, the classic application of the quantum two-body problem is the hydrogen atom, for which we know \textit{experimentally} that some of its spectrum is point. Thus, assuming \textit{a priori} that some of the spectrum of \(\hrel\) is point, we try to find it and the eigenvectors corresponding to these eigenvalues.
+    For a wide range of potentials \(V(\norm{\rvec})\), the Hamiltonian \(\hrel\) turns out to be self-adjoint. In the case we are most interested in, the hydrogen atom, the potential is the familiar Coulomb potential. It turns out that \(\hrel\) is self-adjoint in that case. So, for the further analysis, we assume that \(\hrel\) is self-adjoint on \(\ltwoa\). Depending on the spectrum of \(\hrel\), common orthonormal eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist. Note that even though \(\lvecsquare\) and \(\tilde{L}_i\) have pure point spectra, \(\hrel\) may have continuous spectra. As discussed previously, the classic application of the quantum two-body problem is the hydrogen atom, for which we know \textit{experimentally} that some of its spectrum is point. Thus, assuming \textit{a priori} that some of the spectrum of \(\hrel\) is point, we try to find it and the eigenvectors corresponding to these eigenvalues.
 
-    Let \(\domain_P\) be the domain of an operator \(P \colon \domain_P \rightarrow \hilbert\), where \(\hilbert\) is a Hilbert space. We define the eigenspace \(\eigen_P(\lambda)\) of an eigenvalue \(\lambda \in \spec_{\symrm{p}}(P)\) to be the eigenvectors corresponding to the eigenvalue \(\lambda\). Thus,
+    Let \(\domain_P\) be the domain of an operator \(P \colon \domain_P \rightarrow \hilbert\), where \(\hilbert\) is a Hilbert space. We define the eigenspace \(\eigen_P(\lambda)\) of an eigenvalue \(\lambda \in \spec_{\symrm{p}}(P)\) to be the eigenvectors corresponding to the eigenvalue \(\lambda\).\footnote{Note again that the eigenvalues can have infinite multiplicities.} Thus,
     \[
         \eigen_P(\lambda) \coloneq \setc*{\psi \in \domain_P}{\psi \in \hilbert, P\psi = \lambda\psi}.
     \]
@@ -810,17 +820,17 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \]
     for an \(F \in \ltwoa\). Thus, using this expression, and the eigenvalue equations, we get that
     \[
-        -\frac{\hbar^2}{2\mu} \cdot \frac{1}{r} \cdot u_E''(r) \cdot \sphe + \frac{\hbar^2}{2\mu} \cdot \frac{l(l+1)}{r^2} \cdot \frac{u_E}{r} \cdot \sphe + V(r) \cdot \frac{u_E}{r} \cdot \sphe = E \cdot \frac{u_E}{r} \cdot \sphe.
+        -\frac{\hbar^2}{2\mu} \frac{1}{r} u_E''(r) \sphe + \frac{\hbar^2}{2\mu} \frac{l(l+1)}{r^2} \frac{u_E}{r} \sphe + V(r) \frac{u_E}{r} \sphe = E \frac{u_E}{r} \sphe.
     \]
     Simplifying, we get
     \[
-        -\frac{\hbar^2}{2\mu} \lap u_E(r) + \left(\frac{\hbar^2}{2\mu} \cdot \frac{l(l+1)}{r^2} + V(r)\right) u_E = E u_E.
+        -\frac{\hbar^2}{2\mu} \lap u_E(r) + \left(\frac{\hbar^2}{2\mu} \frac{l(l+1)}{r^2} + V(r)\right) u_E = E u_E.
     \]
-    Upon observing the above equation, we notice that the first term can be interpreted as corresponding to a free particle, and the second term in brackets as the potential the particle feels, with the first term in the brackets being interpreted as the potential arising due the the `centrifrugal' force. The term in the brackets can be termed as an effective potential;
+    Upon observing the above equation, we notice that the first term can be interpreted as corresponding to a free particle, and the second term, in brackets as the potential the particle feels. This term can be interpreted as an effective potential;
     \[
-        V^l_{\text{eff}} (r) \coloneq \frac{\hbar^2}{2\mu} \cdot \frac{l(l+1)}{r^2} + V(r).
+        V^l_{\text{eff}} (r) \coloneq \frac{\hbar^2}{2\mu} \frac{l(l+1)}{r^2} + V(r).
     \]
-    We notice that apart from two details, the simplified eigenvalue equation is the equation for a quantum particle in one dimension with a potential.
+    The first term in the effective potential, \(\hbar^2 l(l+1)/2\mu r^2\), can be roughly viewed as arising due to the `centrifugal' force felt by the particle. The above eigenvalue equation can be thought of as the equation of a particle in the space \(\rr_{\geq}0\), with the potential \(V^l_{\text{eff}}\).
 
 
     \nocite{*}
