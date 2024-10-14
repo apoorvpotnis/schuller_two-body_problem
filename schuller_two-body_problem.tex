@@ -573,7 +573,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         Let \(G\) be a topological group with the neutral element \(e\). Let \(B(\hilbert)\) denote set of all bounded linear functions on a Hilbert space \(\hilbert\). Let
         \begin{align*}
             U &\colon G \rightarrow B(\hilbert),\\
-            U &\colon g \mapsto B(\hilbert)
+            U &\colon g \mapsto U_g,
         \end{align*}
         be a unitary representation on \(\hilbert\)\footnote{Since a Hilbert space may be infinite-dimensional, as often the case in quantum mechanics, unitary representations are required to be bounded, as all unitary maps are bounded.}. Let \(\domain \subseteq \hilbert\) be dense in \(\hilbert\). We say that \(U\) is strongly continuous if for all \(\psi \in \domain\),
         \[
@@ -604,7 +604,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         If \(\Delta_{\symrm{N}}\) is essentially self-adjoint, then there exists a strongly-continuous unitary representation
         \begin{align*}
             U &\colon G_V \rightarrow B(\hilbert),\\
-            U &\colon g \mapsto U_g
+            U &\colon g \mapsto U_g,
         \end{align*}
         on \(\hilbert\) of the unique simply-connected Lie group \(G_V\) with the Lie algebra \(V\).
         \(U\) is uniquely determined by the fact that the closures \(\overline{S}\), for every \(-\i S \in V\), are the self-adjoint generators of the representations of the one-parameter subgroups of \(G_V\).
@@ -828,21 +828,20 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     For a wide range of potentials \(V(\norm{\rvec})\), the Hamiltonian \(\hrel\) turns out to be self-adjoint. For the hydrogen atom, the case we are most interested in, the potential is the familiar Coulomb potential. It turns out that \(\hrel\) is self-adjoint in that case. So, for the further analysis, we assume that \(\hrel\) is self-adjoint on \(\ltwoa\). Depending on the spectrum of \(\hrel\), common orthonormal eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist. Note that even though \(\lvecsquare\) and \(\tilde{L}_i\) have pure point spectra, \(\hrel\) may have continuous spectra. As discussed previously, the classic application of the quantum two-body problem is the hydrogen atom, for which we know \textit{experimentally} that some of its spectrum is point. Thus, assuming \textit{a priori} that some of the spectrum of \(\hrel\) is point, we try to find it and the eigenvectors corresponding to these eigenvalues.
 
-    Let \(\domain_P\) be the domain of an operator \(P \colon \domain_P \rightarrow \hilbert\), where \(\hilbert\) is a Hilbert space. We define the eigenspace \(\eigen_P(\lambda)\) of an eigenvalue \(\lambda \in \spec_{\symrm{p}}(P)\) to be the eigenvectors corresponding to the eigenvalue \(\lambda\).\footnote{Note again that the eigenvalues can have infinite multiplicities.} Thus,
+    Let \(\domain_{\Xi}\) be the domain of an operator \(\Xi \colon \domain_{\Xi} \rightarrow \hilbert\), where \(\hilbert\) is a Hilbert space. We define the eigenspace \(\eigen_{\Xi}(\lambda)\) of an eigenvalue \(\lambda \in \spec_{\symrm{p}}(\Xi)\) to be the eigenvectors corresponding to the eigenvalue \(\lambda\).\footnote{Note again that the eigenvalues can have infinite multiplicities.} Thus,
     \[
-        \eigen_P(\lambda) \coloneq \setc*{\psi \in \domain_P}{\psi \in \hilbert, P\psi = \lambda\psi}.
+        \eigen_{\Xi}(\lambda) \coloneq \setc*{\psi \in \domain_{\Xi}}{\psi \in \hilbert, \Xi\psi = \lambda\psi}.
     \]
     We thus define
     \[
         %\eigen_P(\spec_{\symrm{p}}) \coloneq \overline{\spann{\setc*{ \sum_{k \in \symcal{K}} a_k v_k}{a_k \in \cc, v_k \in \bigcup_{\lambda \in \spec_{\symrm{p}}(P)} \eigen_P(\lambda), \symcal{K} \subset \nn }}}.
-        \eigen(P) \coloneq \bigcup_{\lambda \in \spec_{\symrm{p}}(P)} \eigen_P(\lambda).
+        \eigen(\Xi) \coloneq \bigcup_{\lambda \in \spec_{\symrm{p}}(Xi)} \eigen_{\Xi}(\lambda).
     \]
-
-    Let us restrict the Hilbert space \(\ltworthree\) to the Hilbert \(\bhilbert\) space formed by the common eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\).\footnote{We choose ``b'' as a subscript in the label \(\bhilbert\) as this space shall later turn out to the space of \textit{bound states}.} Thus,
+    Let us restrict the Hilbert space \(\ltworthree\) to the Hilbert \(\bhilbert\) space spanned by the common eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\).\footnote{We choose ``b'' as a subscript in the label \(\bhilbert\) as this space shall later turn out to the space of \textit{bound states}.} Thus,
     \[
         \bhilbert \coloneq \eigen(\lvecsquare) \cap \eigen(\tilde{L}_i) \cap \eigen(\hrel).
     \]
-    In order to find the elements of \(\bhilbert\), we consider the following equations.
+    But since the spectrum of \(\lvecsquare\) and \(\tilde{L}_i\) is entirely pure point, \(\eigen(\lvecsquare) = \eigen(\tilde{L}_i) = \ltworthree\). Thus, \(\bhilbert = \eigen(\hrel)\). In order to find the elements of \(\bhilbert\), we consider the following equations.
     \begin{align*}
         \hrel \flme &= E \flme,\\
         \lvecsquare \flme &= l(l+1) \flme,\\
