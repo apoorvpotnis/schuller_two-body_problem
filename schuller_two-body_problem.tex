@@ -408,7 +408,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     \section{Introduction}
 
-    \begin{figure}
+    \begin{figure}[h]
         \centering
         \begin{tikzpicture}
 % 			\node (mone) at (0,0) {\(m_1\)};
@@ -429,7 +429,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \end{figure}
     Consider a classical system consisting of two interacting particles of masses \(m_1\) and \(m_2\), such that the interaction is completely determined by the potential $V(r)$, and the potential depends only on the distance $r$ between the particles. See \cref{fig:twobody}. Consider the central force problem, like a planet orbiting the sun, then we know that bound states correspond to \textit{all} the negative energy values, and scattering states correspond to all the positive energy values. It turns out that if we consider the system quantum-mechanically, then bound states cannot admit all the negative energy solutions. Only certain energy levels are allowed. This can be seen experimentally from the discrete lines in the spectra of atoms, demonstrating the quantised nature of energy levels. In this lecture, we shall consider the quantum-mechanical case of the two-body problem.
 
-    \begin{figure}
+    \begin{figure}[h]
         \centering
         \begin{tikzpicture}[line cap=round]
             %		%Grid
@@ -566,7 +566,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         \item \(\symbfit{J}^2\) is also essentially self-adjoint on the same core, with \(\symbfit{J}^2 \coloneq \sum_{i=1}^3 J_i \circ J_i\).
         \item \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\).
     \end{enumerate}
-    We denote the Lie algebra by \(\symcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a pure point spectrum.\footnote{Recall that the point spectrum was defined as the set of all the eigenvalues of the operator. In Schuller's definition of the pure point spectrum, the elements, i.e.\ the eigenvalues, can have countably infinite multiplicities. In the case of angular momentum, the eigenvalues of the operators \(L_3\) and \(\symbfit{L}^2\) shall be revealed to have infinite multiplicities. It seems to me (Apoorv) that the definitions of different types of spectra have slight variations in the literature. The reader is requested to check the definition a particular source is using while consulting the literature.}
+    We denote the Lie algebra by \(\symcal{A} = \spann_{\cc}\{J_1, J_2, J_3\}\). We need to show that each \(J_i\) has a pure point spectrum.\footnote{Recall that the point spectrum of a self-adjoint operator was defined as the set of all the eigenvalues of that operator. In Schuller's definition of the pure point spectrum, the elements, i.e.\ the eigenvalues, can have countably infinite multiplicities. In the case of angular momentum, the eigenvalues of the operators \(L_3\) and \(\symbfit{L}^2\) shall be revealed to have infinite multiplicities. It seems to me (Apoorv) that the definitions of different types of spectra have slight variations in the literature. The reader is requested to check the definition a particular source is using while consulting the literature.}
 
     We now state a definition adapted from proposition 7.34 from a book of Moretti.~\cite[p.~287]{MorettiFundamental}.
     \begin{defn}[Strongly continuous unitary representation]
@@ -575,7 +575,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
             U &\colon G \rightarrow B(\hilbert),\\
             U &\colon g \mapsto U_g,
         \end{align*}
-        be a unitary representation on \(\hilbert\)\footnote{Since a Hilbert space may be infinite-dimensional, as often the case in quantum mechanics, unitary representations are required to be bounded, as all unitary maps are bounded.}. Let \(\domain \subseteq \hilbert\) be dense in \(\hilbert\). We say that \(U\) is strongly continuous if for all \(\psi \in \domain\),
+        be a unitary representation on \(\hilbert\)\footnote{Since a Hilbert space may be infinite-dimensional, as is often the case in quantum mechanics, unitary representations are required to be bounded, as all unitary maps are bounded.}. Let \(\domain \subseteq \hilbert\) be dense in \(\hilbert\). We say that \(U\) is strongly continuous if for all \(\psi \in \domain\),
         \[
             \lim_{g \rightarrow e} \langle\psi, U_g\psi\rangle = \langle\psi, \psi\rangle.
         \]
@@ -828,20 +828,16 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     For a wide range of potentials \(V(\norm{\rvec})\), the Hamiltonian \(\hrel\) turns out to be self-adjoint. For the hydrogen atom, the case we are most interested in, the potential is the familiar Coulomb potential. It turns out that \(\hrel\) is self-adjoint in that case. So, for the further analysis, we assume that \(\hrel\) is self-adjoint on \(\ltwoa\). Depending on the spectrum of \(\hrel\), common orthonormal eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\) can possibly exist. Note that even though \(\lvecsquare\) and \(\tilde{L}_i\) have pure point spectra, \(\hrel\) may have continuous spectra. As discussed previously, the classic application of the quantum two-body problem is the hydrogen atom, for which we know \textit{experimentally} that some of its spectrum is point. Thus, assuming \textit{a priori} that some of the spectrum of \(\hrel\) is point, we try to find it and the eigenvectors corresponding to these eigenvalues.
 
-    Let \(\domain_{\Xi}\) be the domain of an operator \(\Xi \colon \domain_{\Xi} \rightarrow \hilbert\), where \(\hilbert\) is a Hilbert space. We define the eigenspace \(\eigen_{\Xi}(\lambda)\) of an eigenvalue \(\lambda \in \spec_{\symrm{p}}(\Xi)\) to be the eigenvectors corresponding to the eigenvalue \(\lambda\).\footnote{Note again that the eigenvalues can have infinite multiplicities.} Thus,
+    Let \(\domain_{\Xi}\) be the domain of an operator \(\Xi \colon \domain_{\Xi} \rightarrow \hilbert\), where \(\hilbert\) is a Hilbert space. We define the eigenspace \(\eigen_{\Xi}(\lambda)\) of an eigenvalue \(\lambda \in \spec_{\symrm{p}}(\Xi)\) to be the eigenvectors corresponding to the eigenvalue \(\lambda\),\footnote{Note again that the eigenvalues can have infinite multiplicities.} i.e.
     \[
         \eigen_{\Xi}(\lambda) \coloneq \setc*{\psi \in \domain_{\Xi}}{\psi \in \hilbert, \Xi\psi = \lambda\psi}.
     \]
-    We thus define
+    We also define
     \[
         %\eigen_P(\spec_{\symrm{p}}) \coloneq \overline{\spann{\setc*{ \sum_{k \in \symcal{K}} a_k v_k}{a_k \in \cc, v_k \in \bigcup_{\lambda \in \spec_{\symrm{p}}(P)} \eigen_P(\lambda), \symcal{K} \subset \nn }}}.
         \eigen(\Xi) \coloneq \bigcup_{\lambda \in \spec_{\symrm{p}}(Xi)} \eigen_{\Xi}(\lambda).
     \]
-    Let us restrict the Hilbert space \(\ltworthree\) to the Hilbert \(\bhilbert\) space spanned by the common eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\).\footnote{We choose ``b'' as a subscript in the label \(\bhilbert\) as this space shall later turn out to the space of \textit{bound states}.} Thus,
-    \[
-        \bhilbert \coloneq \eigen(\lvecsquare) \cap \eigen(\tilde{L}_i) \cap \eigen(\hrel).
-    \]
-    But since the spectrum of \(\lvecsquare\) and \(\tilde{L}_i\) is entirely pure point, \(\eigen(\lvecsquare) = \eigen(\tilde{L}_i) = \ltworthree\). Thus, \(\bhilbert = \eigen(\hrel)\). In order to find the elements of \(\bhilbert\), we consider the following equations.
+    We now restrict the Hilbert space \(\ltworthree\) to the Hilbert space \(\bhilbert\), defined as the space spanned by the common eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\),\footnote{We choose ``b'' as a subscript in the label \(\bhilbert\) as this space shall later turn out to the space of \textit{bound states}.} i.e.\ \(\bhilbert \coloneq \eigen(\lvecsquare) \cap \eigen(\tilde{L}_i) \cap \eigen(\hrel)\). But since the spectrum of \(\lvecsquare\) and \(\tilde{L}_i\) is entirely pure point, \(\eigen(\lvecsquare) = \eigen(\tilde{L}_i) = \ltworthree\). Thus, \[\bhilbert = \eigen(\hrel).\] In order to find the elements of \(\bhilbert\), we consider the following equations.
     \begin{align*}
         \hrel \flme &= E \flme,\\
         \lvecsquare \flme &= l(l+1) \flme,\\
