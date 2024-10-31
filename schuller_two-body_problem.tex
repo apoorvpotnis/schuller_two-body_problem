@@ -124,6 +124,9 @@ SlantedFont=NewCMSans10-Oblique.otf,%
 BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 ]{NewCMSans10-Regular.otf}
 
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\let\symcal\mathcal
+
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
 \makeatother
@@ -835,7 +838,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     We also define
     \[
         %\eigen_P(\spec_{\symrm{p}}) \coloneq \overline{\spann{\setc*{ \sum_{k \in \symcal{K}} a_k v_k}{a_k \in \cc, v_k \in \bigcup_{\lambda \in \spec_{\symrm{p}}(P)} \eigen_P(\lambda), \symcal{K} \subset \nn }}}.
-        \eigen(\Xi) \coloneq \bigcup_{\lambda \in \spec_{\symrm{p}}(Xi)} \eigen_{\Xi}(\lambda).
+        \eigen(\Xi) \coloneq \bigcup_{\lambda \in \spec_{\symrm{p}}(\Xi)} \eigen_{\Xi}(\lambda).
     \]
     We now restrict the Hilbert space \(\ltworthree\) to the Hilbert space \(\bhilbert\), defined as the space spanned by the common eigenvectors of \(\lvecsquare\), \(\tilde{L}_i\), and \(\hrel\),\footnote{We choose ``b'' as a subscript in the label \(\bhilbert\) as this space shall later turn out to the space of \textit{bound states}.} i.e.\ \(\bhilbert \coloneq \eigen(\lvecsquare) \cap \eigen(\tilde{L}_i) \cap \eigen(\hrel)\). But since the spectrum of \(\lvecsquare\) and \(\tilde{L}_i\) is entirely pure point, \(\eigen(\lvecsquare) = \eigen(\tilde{L}_i) = \ltworthree\). Thus, \[\bhilbert = \eigen(\hrel).\] In order to find the elements of \(\bhilbert\), we consider the following equations.
     \begin{align*}
