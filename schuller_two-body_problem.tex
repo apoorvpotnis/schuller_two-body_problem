@@ -557,7 +557,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         L_3 &= -\i\hbar(z\partial_y - y\partial_x).
     \end{align*}
 
-    Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces under consideration are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of finite-dimensional subspaces of the Schwartz space, each of which is invariant under the action of the group corresponding to rotations along an axis.\footnote{Let \(D_j(\alpha) \colon \rthree \rightarrow \rthree\) be the operator that describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(\{D_j(\alpha) \mid \alpha \in [0, 2\pi)\}\) with the group operation being executing the rotations about the axis one after other.} Our treatment here is based on an answer of Valter Moretti~\cite{MorettiPeter}.
+    Consider a Lie algebra over \(\cc\) with the basis \(\{J_1, J_2, J_3\}\), where \(J_i\)'s are linear operators on a \textit{finite-dimensional} Hilbert space and the Lie bracket is given by the commutator. Furthermore, let \([J_i, J_j] = \i \epsilon_{ijk} J_k\) for all \(i, j, k \in \{1, 2, 3\}\). In the thirteenth lecture `13: Spin' of the English quantum mechanics series~\cite{Schuller, SchullerVideos}, we analysed the spectrum of such a system. But it should be noted that without any further justifications, such an analysis \textit{cannot} be done when the vector spaces under consideration are infinite-dimensional. The Schwartz space, which we need to consider for a spectral analysis of the orbital angular momentum operators, is infinite-dimensional. The justification we need is something Schuller briefly alludes to in the end of the twelfth lecture, but does not elaborate on it any further in the lecture series. We need to consider a number of finite-dimensional subspaces of the Schwartz space, each of which is invariant under the action of the group corresponding to rotations along an axis. Our treatment here is based on an answer of Valter Moretti~\cite{MorettiPeter}.
 
     The following discussion for this section requires some rudimentary definitions from topology and representation theory; more precisely, one needs to know the following notions and concepts. Topological: Hausdorffness, compactness and simple connectedness. Representation theory: Irreducible unitary representations, the Lie groups \(\SUtwo\), \(\SOthree\) and \(\operatorname{SL}(2;\cc)\), and the Lie algebras \(\sutwo\) and \(\sltwoc\). In my (Apoorv) opinion, understanding these notions from Wikipedia is sufficient for the present purposes. One can also take a look at `The Geometrical Anatomy of Physics' lectures of Schuller~\cite{Schuller_geometric_videos, Schuller_geometric_notes} for a more detailed view of some of these concepts.
 
@@ -641,14 +641,40 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \[
         \ltworthree = \bigoplus_{n \in \nn} \ltworthree_n.
     \]
-    Define \(\schwartzrthree_n \coloneq \schwartzrthree \cap \ltworthree_n\), for all \(n \in \nn\). Thus,
+    % Define \(\schwartzrthree_n \coloneq \schwartzrthree \cap \ltworthree_n\), for all \(n \in \nn\). Thus,
+    % \[
+    % \schwartzrthree = \bigoplus_{n \in \nn} \schwartzrthree_n.
+    % \]
+    % Each \(\schwartzrthree_n\) is invariant under the action of \(J_i\)'s. This was the procedure Schuller briefly mentioned. Now, since \[\restr{J_i}{\schwartzrthree_n} \colon \schwartzrthree_n \rightarrow \schwartzrthree_n\] acts on finite dimensional spaces, it spectrum consists of only eigenvalues, i.e.\ each \(\restr{J_i}{\schwartzrthree_n}\) has a pure point spectrum. The spectrum of \(J_i\)'s just the union of these individual eigenvalues, i.e.\
+    % \[
+    %     \spec(J_i) = \bigcup_{n \in \nn} \spec\left(\restr{J_i}{\schwartzrthree_n}\right).
+    % \]
+    Let \(D_k(\alpha) \colon \rthree \rightarrow \rthree\) be the operator that describes a counter-clockwise rotation about the \(j\)\textsuperscript{th} axis by an angle \(\alpha\). The corresponding group here then is \(R_k \coloneq \{D_k(\alpha) \mid \alpha \in \rr\}\) with the group operation being executing the rotations about the axis one after other. Let
     \[
-    \schwartzrthree = \bigoplus_{n \in \nn} \schwartzrthree_n.
+        U_k \colon \rr \rightarrow \symcal{U}(\ltworthree),
     \]
-    Each \(\schwartzrthree_n\) is invariant under the action of \(J_i\)'s. This was the procedure Schuller briefly mentioned. Now, since \[\restr{J_i}{\schwartzrthree_n} \colon \schwartzrthree_n \rightarrow \schwartzrthree_n\] acts on finite dimensional spaces, it spectrum consists of only eigenvalues, i.e.\ each \(\restr{J_i}{\schwartzrthree_n}\) has a pure point spectrum. The spectrum of \(J_i\)'s just the union of these individual eigenvalues, i.e.\
+    be defined as
     \[
-        \spec(J_i) = \bigcup_{n \in \nn} \spec\left(\restr{J_i}{\schwartzrthree_n}\right).
+        ((U_k(\alpha))\psi)(x) \coloneq \psi((D_k(\alpha))x), 
     \]
+    where \(\symcal{U}(\ltworthree)\) denotes the set of all unitaries of \(\ltworthree\). Then, by Stone's theorem,
+    \[
+        J_k \colon \domain_{J_k} \rightarrow \ltworthree
+    \] is a self-adjoint operator, with 
+    \[
+        \domain_{J_k} = \bigg\{ \psi \in \ltworthree \biggm| \lim_{\epsilon \rightarrow 0} \frac{\i}{\epsilon} (U_k(\epsilon)\psi - \psi) \text{ exists.}\bigg\},
+    \]
+    where \(\epsilon \in \rr\), and
+    \[
+        \exp(-\i J_k \alpha) = U_k(\alpha).
+    \]
+    Each \(\ltworthree_n\) is invariant under the action of any unitary one-parameter group \(U_k\). As each \(\ltworthree_n\) is finite-dimensional, every vector in \(\psi \in \ltworthree_n\) is smooth for \(U_k\), i.e. the mapping
+    \begin{align*}
+        s &\colon \rr \rightarrow \ltworthree_n,\\
+        s &\colon t \mapsto (U_k(t))\psi,
+    \end{align*}
+    is differentiable in the norm topology on \(\ltworthree_n\). Thus, each \(\ltworthree_n \subset \domain_{J_k}\).\footnote{Note that even though each subset belongs to the domain, the union of all the subsets does not. The direct sum in the decomposition of \(\ltworthree\) is a Hilbert direct sum, and not an algebraic direct sum.}
+
     Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
     Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i \in \{1, 2, 3\}\),
@@ -659,7 +685,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \begin{thm}[Spectral Mapping]
         Let \(\Xi\) be a self-adjoint operator on a Hilbert space \(\hilbert\), and let \(f \colon \rr \rightarrow \cc\) be a continuous function. Then
         \[
-            \spec((f(\Xi)) = f(\spec(\Xi)),
+            \spec(f(\Xi)) = f(\spec(\Xi)),
         \]
         if \(\abs{f(\lambda)} \rightarrow \infty\) as \(\abs{\lambda} \rightarrow \infty\).
     \end{thm}
