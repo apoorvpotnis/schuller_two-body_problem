@@ -660,7 +660,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     where \(\symcal{U}(\ltworthree)\) denotes the set of all unitaries of \(\ltworthree\). Then, by Stone's theorem,
     \[
         J_k \colon \domain_{J_k} \rightarrow \ltworthree
-    \] is a self-adjoint operator, with 
+    \] is a self-adjoint operator, with the Stone domain
     \[
         \domain_{J_k} = \bigg\{ \psi \in \ltworthree \biggm| \lim_{\epsilon \rightarrow 0} \frac{\i}{\epsilon} (U_k(\epsilon)\psi - \psi) \text{ exists.}\bigg\},
     \]
@@ -668,12 +668,12 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \[
         \exp(-\i J_k \alpha) = U_k(\alpha).
     \]
-    Each \(\ltworthree_n\) is invariant under the action of any unitary one-parameter group \(U_k\). As each \(\ltworthree_n\) is finite-dimensional, every vector in \(\psi \in \ltworthree_n\) is smooth for \(U_k\), i.e. the mapping
+    Each \(\ltworthree_n\) is invariant under the action of any unitary one-parameter group \(U_k\), by the Peter--Weyl theorem. Each \(\ltworthree_n\) is finite-dimensional, and every vector in \(\psi \in \ltworthree_n\) is smooth for \(U_k\), i.e. the mapping
     \begin{align*}
         s &\colon \rr \rightarrow \ltworthree_n,\\
-        s &\colon t \mapsto (U_k(t))\psi,
+        s &\colon \alpha \mapsto (U_k(\alpha))\psi,
     \end{align*}
-    is differentiable in the norm topology on \(\ltworthree_n\). Thus, each \(\ltworthree_n \subset \domain_{J_k}\).\footnote{Note that even though each subset belongs to the domain, the union of all the subsets does not. The direct sum in the decomposition of \(\ltworthree\) is a Hilbert direct sum, and not an algebraic direct sum.}
+    is differentiable in the norm topology on \(\ltworthree_n\). This is due to the fact that \(U_k(\alpha) = \e^{-\i t J_k}\) is analytic in \(\alpha\). This is  Thus, each \(\ltworthree_n \subset \domain_{J_k}\).\footnote{Note that even though each subset, \(\ltworthree_n\), belongs to the domain, \(\domain_{J_k}\), the union of all the subsets, \(\ltworthree\), does not. The direct sum in the decomposition of \(\ltworthree\) is a Hilbert direct sum, and not an algebraic direct sum. An element of the algebraic direct sum consists of a \textit{finite} linear combination of vectors, with atmost one vector from each subspace. The algebraic direct sum is dense in the Hilbert direct sum.}
 
     Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
