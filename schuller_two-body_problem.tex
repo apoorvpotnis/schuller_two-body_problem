@@ -124,8 +124,8 @@ SlantedFont=NewCMSans10-Oblique.otf,%
 BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 ]{NewCMSans10-Regular.otf}
 
-\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
-\let\symcal\mathcal
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+% \let\symcal\mathcal
 
 \makeatletter
 \g@addto@macro\bfseries{\boldmath}
@@ -675,7 +675,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \end{align*}
     is differentiable in the norm topology on \(\ltworthree_n\). This is due to the fact that \(U_k(\alpha) = \e^{-\i t J_k}\) is analytic in \(\alpha\). This is  Thus, each \(\ltworthree_n \subset \domain_{J_k}\).\footnote{Note that even though each subset, \(\ltworthree_n\), belongs to the domain, \(\domain_{J_k}\), the union of all the subsets, \(\ltworthree\), does not. The direct sum in the decomposition of \(\ltworthree\) is a Hilbert direct sum, and not an algebraic direct sum. An element of the algebraic direct sum consists of a \textit{finite} linear combination of vectors, with atmost one vector from each subspace. The algebraic direct sum is dense in the Hilbert direct sum.}
 
-    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\schwartzrthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
+    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\ltworthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
     Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i \in \{1, 2, 3\}\),
     \[
