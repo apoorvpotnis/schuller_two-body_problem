@@ -470,8 +470,8 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
                 legend style={draw=none, at={(axis cs:2,-1.8)},anchor=north west},
                 legend style={row sep=10pt}
                 ]
-                \addplot[thick, red] {-exp(-\x)/(\x)};
-                \addplot[thick, blue, dashed] {-1/(\x)};
+                \addplot[thick, red] {-exp(-x)/(x)};
+                \addplot[thick, blue, dashed] {-1/(x)};
                 \addlegendentry{$\displaystyle-\frac{\e^{-r}}{r}$};
                 \addlegendentry{$\displaystyle-\frac{1}{r}$};
             \end{axis};
@@ -542,7 +542,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     \section{Spectrum of angular momentum operators}
 
-    We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They are defined as the generators of a rotation about an axis. We shall instead consider the restrictions of the these operators on a common core, the Schwartz space \(\schwartzrthree\), to avoid running into technical issues. \(\schwartzrthree\) is dense in the Stone domains and $\ltworthree$. These operators are essentially self-adjoint on the Schwartz space. This machinery has been explained in the twelfth lecture `12: Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
+    We know that the orbital angular momentum operators are self-adjoint and defined on their Stone domains. They are defined as the generators of a rotation about an axis. We shall also consider the restrictions of the these operators on a common core, the Schwartz space \(\schwartzrthree\), to avoid running into technical issues. \(\schwartzrthree\) is dense in the Stone domains and $\ltworthree$. These operators are essentially self-adjoint on the Schwartz space. This machinery has been explained in the twelfth lecture `12: Stone's Theorem and Construction of Observables' in the English quantum mechanics series~\cite{SchullerVideos, Schuller}.
 
     Let $i \in \{1,2,3\}$. We thus have the Cartesian angular momentum operators
     \begin{align*}
@@ -610,13 +610,13 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
             U &\colon g \mapsto U_g,
         \end{align*}
         on \(\hilbert\) of the unique simply-connected Lie group \(G_V\) with the Lie algebra \(V\).
-        \(U\) is uniquely determined by the fact that the closures \(\overline{S}\), for every \(-\i S \in V\), are the self-adjoint generators of the representations of the one-parameter subgroups of \(G_V\).
+        \(U\) is uniquely determined by the fact that the closures \(\bar{S}\), for every \(-\i S \in V\), are the self-adjoint generators of the representations of the one-parameter subgroups of \(G_V\).
     \end{thm}
     A proof of the above theorem can be found in the original paper of Nelson~\cite{Nelson}.
 
     In our case, we see that the conditions of Nelson's theorem are satisfied, with the real Lie algebra \(\tilde{V} = \spann_{\rr}\{-\i J_1, -\i J_2, -\i J_3\}\), the commutator relation \[[-\i J_i, -\i J_j] = \epsilon_{ijk}(-\i J_k),\] the Hilbert space being \(\ltworthree\), and the common domain or core  being the Schwartz space \(\schwartzrthree\). \(V\) is isomorphic to \[\displaystyle\sutwo = \spann_{\rr}\left\{-\frac{\i\sigma_1}{2}, -\frac{\i\sigma_2}{2}, -\frac{\i\sigma_3}{2}\right\}\] as a Lie algebra, where \(\sigma_i\) denote the Pauli matrices, with the commutator relation \[\displaystyle\left[-\frac{\i\sigma_i}{2}, -\frac{\i\sigma_j}{2}\right] = \epsilon_{ijk}\left(-\frac{\i\sigma_k}{2}\right).\] The isomorphism maps \(-\i J_i\) to \(-\i \sigma_i/2\).\footnote{Side note: Since \(\symfrak{s\kern-0.6ptu}(2) + \i\,\symfrak{s\kern-0.6ptu}(2) = \symfrak{s\kern-0.8ptl}(2;\cc)\), we have that \(\symcal{A} = \tilde{V} + \i \tilde{V}\). \(\symcal{A}\) is isomorphic to \(\symfrak{s\kern-0.8ptl}(2;\cc)\) as a Lie algebra.}
 
-    \(\sutwo\) is the Lie algebra of both \(\SUtwo\) and \(\SOthree\). There is a two-to-one correspondence from \(\SUtwo\) to \(\SOthree\). \(\SOthree\) is not simply connected. The unique simply-connected Lie group associated to \(\sutwo\) is \(\SUtwo\). Thus, Nelson's theorem guarantees the existence of a unique strongly continuous unitary representation \(\tilde{U} \colon \SUtwo \rightarrow B(\hilbert)\).\footnote{Note that the closure of \(J_i\), \(\overline{J}_i\), is the self adjoint generator of the one-parameter subgroup \( \tilde{U}( (\SUtwo)_{-\i J_i}) \).}
+    \(\sutwo\) is the Lie algebra of both \(\SUtwo\) and \(\SOthree\). There is a two-to-one correspondence from \(\SUtwo\) to \(\SOthree\). \(\SOthree\) is not simply connected. The unique simply-connected Lie group associated to \(\sutwo\) is \(\SUtwo\). Thus, Nelson's theorem guarantees the existence of a unique strongly continuous unitary representation \(\tilde{U} \colon \SUtwo \rightarrow B(\hilbert)\).\footnote{Note that the closure of \(J_i\), \(\bar{J}_i\), is the self adjoint generator of the one-parameter subgroup \( \tilde{U}( (\SUtwo)_{-\i J_i}) \).}
 
     We now state a version of the Peter--Weyl theorem, adapted from Moretti's book~\cite[p.~287]{MorettiFundamental}.
     \begin{thm}[Peter--Weyl]
@@ -659,23 +659,24 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \]
     where \(\symcal{U}(\ltworthree)\) denotes the set of all unitaries of \(\ltworthree\). Then, by Stone's theorem,
     \[
-        J_k \colon \domain_{J_k} \rightarrow \ltworthree
-    \] is a self-adjoint operator, with the Stone domain
+        \bar{J_k} \colon \domain_{J_k} \rightarrow \ltworthree
+    \] 
+    is a self-adjoint operator, with the Stone domain
     \[
-        \domain_{J_k} = \bigg\{ \psi \in \ltworthree \biggm| \lim_{\epsilon \rightarrow 0} \frac{\i}{\epsilon} (U_k(\epsilon)\psi - \psi) \text{ exists.}\bigg\},
+        \domain_{\bar{J_k}} = \bigg\{ \psi \in \ltworthree \biggm| \lim_{\epsilon \rightarrow 0} \frac{\i}{\epsilon} (U_k(\epsilon)\psi - \psi) \text{ exists.}\bigg\},
     \]
     where \(\epsilon \in \rr\), and
     \[
-        \exp(-\i J_k \alpha) = U_k(\alpha).
+        \exp(-\i \bar{J_k} \alpha) = U_k(\alpha).
     \]
-    Each \(\ltworthree_n\) is invariant under the action of any unitary one-parameter group \(U_k\), by the Peter--Weyl theorem. Each \(\ltworthree_n\) is finite-dimensional, and every vector in \(\psi \in \ltworthree_n\) is smooth for \(U_k\), i.e. the mapping
+    \(J_k\) is an essentially self-adjoint operator with \(\schwartzrthree\) as the core. Each \(\ltworthree_n\) is invariant under the action of any unitary one-parameter group \(U_k\), by the Peter--Weyl theorem. Each \(\ltworthree_n\) is finite-dimensional, and every vector in \(\psi \in \ltworthree_n\) is smooth for \(U_k\), i.e. the mapping
     \begin{align*}
         s_k &\colon \rr \rightarrow \ltworthree_n,\\
         s_k &\colon \alpha \mapsto (U_k(\alpha))\psi,
     \end{align*}
-    is differentiable in the norm topology on \(\ltworthree_n\) for each \(k\). This is due to the fact that \(U_k(\alpha) = \exp(-\i \alpha J_k)\) is analytic in \(\alpha\). Thus, each \(\ltworthree_n \subset \domain_{J_k}\).\footnote{Note that even though each subset, \(\ltworthree_n\), belongs to the domain, \(\domain_{J_k}\), the union of all the subsets, \(\ltworthree\), does not. The direct sum in the decomposition of \(\ltworthree\) is a Hilbert direct sum, and not an algebraic direct sum. An element of the algebraic direct sum consists of a \textit{finite} linear combination of vectors, with atmost one vector from each subspace. The algebraic direct sum is dense in the Hilbert direct sum.}
+    is differentiable in the norm topology on \(\ltworthree_n\) for each \(k\). This is due to the fact that \(U_k(\alpha) = \exp(-\i \alpha \bar{J_k})\) is analytic in \(\alpha\). Thus, each \(\ltworthree_n \subset \domain_{\bar{J_k}}\).\footnote{Note that even though each subset, \(\ltworthree_n\), belongs to the domain, \(\domain_{\bar{J_k}}\), the union of all the subsets, \(\ltworthree\), does not. The direct sum in the decomposition of \(\ltworthree\) is a Hilbert direct sum, and not an algebraic direct sum. An element of the algebraic direct sum consists of a \textit{finite} linear combination of vectors, with atmost one vector from each subspace. The algebraic direct sum is dense in the Hilbert direct sum.}
 
-    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\ltworthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $J_i$'s have a pure point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
+    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\ltworthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $\overline{J_i}$'s have a pure point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \ldots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
     Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i \in \{1, 2, 3\}\),
     \[
