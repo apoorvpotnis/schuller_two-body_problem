@@ -18,118 +18,175 @@
 \documentclass[12pt, a4 paper]{article}
 \usepackage{geometry}
 
-\usepackage[ngerman,english]{babel}
+\usepackage[italian, ngerman, english]{babel}
 \PassOptionsToPackage{math-style=ISO, bold-style=ISO, sans-style=italic, nabla=upright, partial=upright, warnings-off={mathtools-colon,mathtools-overbracket}}{unicode-math}
-\usepackage{mathtools, microtype}
-\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage[verbose=false, final, nopatch=footnote]{microtype}
+% \usepackage{setspace}
 \usepackage[style=british]{csquotes}
 
-\usepackage[newcmbb]{fontsetup}
-\setmainfont[%
-SizeFeatures={%
-    {Size=-8, Font=NewCM08-Book.otf,
-        ItalicFont=NewCM08-BookItalic.otf,%
-        BoldFont=NewCM10-Bold.otf,%
-        BoldItalicFont=NewCM10-BoldItalic.otf,%
-        SlantedFont=NewCM08-Book.otf,%
-        BoldSlantedFont=NewCM10-Bold.otf,%
-        SmallCapsFeatures={Numbers=OldStyle}},
-    {Size=8, Font=NewCM08-Book.otf,
-        ItalicFont=NewCM08-BookItalic.otf,%
-        BoldFont=NewCM10-Bold.otf,%
-        BoldItalicFont=NewCM10-BoldItalic.otf,%
-        SlantedFont=NewCM08-Book.otf,%
-        BoldSlantedFont=NewCM10-Bold.otf,%
-        SmallCapsFeatures={Numbers=OldStyle}},
-    {Size= 9-, Font = NewCM10-Book.otf,
-        ItalicFont=NewCM10-BookItalic.otf,%
-        BoldFont=NewCM10-Bold.otf,%
-        BoldItalicFont=NewCM10-BoldItalic.otf,%
-        SlantedFont=NewCM10-Book.otf,%
-        BoldSlantedFont=NewCM10-Bold.otf,%
-        SmallCapsFeatures={Numbers=OldStyle}}%
-},%
-SmallCapsFeatures={Numbers=OldStyle},%
-BoldSlantedFont=NewCM10-Bold.otf,%
-SlantedFont=NewCM10-Book.otf,%
-BoldItalicFont=NewCM10-BoldItalic.otf,%
-BoldFont=NewCM10-Bold.otf,%
-ItalicFont=NewCM10-BookItalic.otf,%
-SlantedFeatures={FakeSlant=0.25},%
-BoldSlantedFeatures={FakeSlant=0.25},%
+\usepackage{unicode-math}
+% \usepackage{fontspec}
+% \usepackage{lua-unicode-math}
+\setmainfont[
+    SizeFeatures={
+        {Size=-8, Font=NewCM08-Book.otf,
+            ItalicFont=NewCM08-BookItalic.otf,
+            BoldFont=NewCM10-Bold.otf,
+            BoldItalicFont=NewCM10-BoldItalic.otf,
+            SlantedFont=NewCM08-Book.otf,
+            BoldSlantedFont=NewCM10-Bold.otf,
+            SmallCapsFeatures={Numbers=OldStyle}},
+        {Size=8, Font=NewCM08-Book.otf,
+            ItalicFont=NewCM08-BookItalic.otf,
+            BoldFont=NewCM10-Bold.otf,
+            BoldItalicFont=NewCM10-BoldItalic.otf,
+            SlantedFont=NewCM08-Book.otf,
+            BoldSlantedFont=NewCM10-Bold.otf,
+            SmallCapsFeatures={Numbers=OldStyle}},
+        {Size= 9-, Font = NewCM10-Book.otf,
+            ItalicFont=NewCM10-BookItalic.otf,
+            BoldFont=NewCM10-Bold.otf,
+            BoldItalicFont=NewCM10-BoldItalic.otf,
+            SlantedFont=NewCM10-Book.otf,
+            BoldSlantedFont=NewCM10-Bold.otf,
+            SmallCapsFeatures={Numbers=OldStyle}},
+    },
+    SmallCapsFeatures={Numbers=OldStyle},
+    BoldSlantedFont=NewCM10-Bold.otf,
+    SlantedFont=NewCM10-Book.otf,
+    BoldItalicFont=NewCM10-BoldItalic.otf,
+    BoldFont=NewCM10-Bold.otf,
+    ItalicFont=NewCM10-BookItalic.otf,
+    SlantedFeatures={FakeSlant=0.25},
+    BoldSlantedFeatures={FakeSlant=0.25}
 ]{NewCM10-Book.otf}
-\setsansfont[%
-SizeFeatures={%
-    {Size= -8, Font=NewCMSans08-Regular.otf,%
-        ItalicFont=NewCMSans08-Oblique.otf,%
-        BoldFont=NewCMSans10-Bold.otf,%
-        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-        SmallCapsFeatures={Numbers=OldStyle},%
-    },
-    {Size= 8, Font=NewCMSans08-Regular.otf,%
-        ItalicFont=NewCMSans08-Oblique.otf,%
-        BoldFont=NewCMSans10-Bold.otf,%
-        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-        SmallCapsFeatures={Numbers=OldStyle},%
-    },
-    {Size= 9-, Font=NewCMSans10-Regular.otf,%
-        ItalicFont=NewCMSans10-Oblique.otf,%
-        BoldFont=NewCMSans10-Bold.otf,%
-        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-        SmallCapsFeatures={Numbers=OldStyle},%
-    }},
-ItalicFont=NewCMSans10-Oblique.otf,%
-BoldFont=NewCMSans10-Bold.otf,%
-BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-SmallCapsFeatures={Numbers=OldStyle},%
-SlantedFont=NewCMSans10-Oblique.otf,%
-BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
-]{NewCMSans10-Regular.otf}
-\setmathfont{NewCMMath-Book.otf}[StylisticSet=3, BoldFont = NewCMMath-Bold.otf]
-\setmathfont[range={\symfrak,\symbffrak}, BoldFont = NewCMMath-Bold.otf]{NewCMMath-Regular.otf}
-\setmonofont[%
-ItalicFont=NewCMMono10-Italic.otf,%
-BoldFont=NewCMMono10-Bold.otf,%
-BoldItalicFont=NewCMMono10-BoldOblique.otf,%
-SlantedFont=NewCMMono10-Regular.otf,%
-SlantedFeatures={FakeSlant=0.25},
-BoldSlantedFont=NewCMMono10-Bold.otf,%
-BoldSlantedFeatures={FakeSlant=0.25},
-SmallCapsFeatures={Numbers=OldStyle}]{NewCMMono10-Regular.otf}
-\setsansfont[%
-SizeFeatures={%
-    {Size= -8, Font=NewCMSans08-Regular.otf,%
-        ItalicFont=NewCMSans08-Oblique.otf,%
-        BoldFont=NewCMSans10-Bold.otf,%
-        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-        SmallCapsFeatures={Numbers=OldStyle},%
-    },
-    {Size= 8, Font=NewCMSans08-Regular.otf,%
-        ItalicFont=NewCMSans08-Oblique.otf,%
-        BoldFont=NewCMSans10-Bold.otf,%
-        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-        SmallCapsFeatures={Numbers=OldStyle},%
-    },
-    {Size= 9-, Font=NewCMSans10-Regular.otf,%
-        ItalicFont=NewCMSans10-Oblique.otf,%
-        BoldFont=NewCMSans10-Bold.otf,%
-        BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-        SmallCapsFeatures={Numbers=OldStyle},%
-    }},
-ItalicFont=NewCMSans10-Oblique.otf,%
-BoldFont=NewCMSans10-Bold.otf,%
-BoldItalicFont=NewCMSans10-BoldOblique.otf,%
-SmallCapsFeatures={Numbers=OldStyle},%
-SlantedFont=NewCMSans10-Oblique.otf,%
-BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
+
+\setmonofont[
+    ItalicFont=NewCMMono10-Italic.otf,
+    BoldFont=NewCMMono10-Bold.otf,
+    BoldItalicFont=NewCMMono10-BoldOblique.otf,
+    SlantedFont=NewCMMono10-Regular.otf,
+    SlantedFeatures={FakeSlant=0.25},
+    BoldSlantedFont=NewCMMono10-Bold.otf,
+    BoldSlantedFeatures={FakeSlant=0.25},
+    SmallCapsFeatures={Numbers=OldStyle}
+]{NewCMMono10-Regular.otf}
+
+\setsansfont[
+    SizeFeatures={
+        {Size= -8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 8, Font=NewCMSans08-Regular.otf,
+            ItalicFont=NewCMSans08-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        },
+        {Size= 9-, Font=NewCMSans10-Regular.otf,
+            ItalicFont=NewCMSans10-Oblique.otf,
+            BoldFont=NewCMSans10-Bold.otf,
+            BoldItalicFont=NewCMSans10-BoldOblique.otf,
+            SmallCapsFeatures={Numbers=OldStyle},
+        }},
+    ItalicFont=NewCMSans10-Oblique.otf,
+    BoldFont=NewCMSans10-Bold.otf,
+    BoldItalicFont=NewCMSans10-BoldOblique.otf,
+    SmallCapsFeatures={Numbers=OldStyle},
+    SlantedFont=NewCMSans10-Oblique.otf,
+    BoldSlantedFont=NewCMSans10-BoldOblique.otf,
 ]{NewCMSans10-Regular.otf}
 
-% \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
-% \let\symcal\mathcal
+\directlua{
+    local kerns = {
+        ["NewCMMath-Book"] = {
+          ["uni211D.bb"] = { topright = { { kern = -70 } } },
+          ["u1D6F7"] = {bottomright = { { kern = 0 } } },
+          ["u1D6F9"] = {bottomright = { { kern = 0 } } },
+          ["u1D464"] = {bottomright = { { kern = -90 } } },
+          ["u1D437"] = {bottomright = { { kern = 0 } } },
+          ["L"] = {topright = { { kern = -30 } } }
+        },
+        ["NewCMMath-Bold"] = {
+          ["uni211D.bb"] = { topright = { { kern = -30 } } }
+        }
+    }
+    local function addkerns(tfmdata)
+        if tfmdata.mathparameters then
+            local kerns = kerns[tfmdata.properties.fontname]
+            local unicodes = tfmdata.resources.unicodes
+            if kerns then
+                local characters = tfmdata.characters
+                for name, specification in pairs(kerns) do
+                    local character = characters[unicodes[name]]
+                    if character and not character.mathkerns then
+                        character.mathkerns = specification
+                    end
+                end
+            end
+        end
+    end
+    fonts.handlers.otf.features.register {
+        name         = "mathkerns",
+        description  = "additional math kerns",
+        initializers = {
+            position = 1,
+            base     = addkerns,
+            node     = addkerns,
+        }
+    }
+}
 
-\makeatletter
-\g@addto@macro\bfseries{\boldmath}
-\makeatother
+\setmathfont[
+    StylisticSet={3},
+    BoldFont = NewCMMath-Bold.otf,
+    RawFeature=+mathkerns
+]{NewCMMath-Book.otf}
+\newcommand{\ipatext}{\addfontfeature{StylisticSet=5}}
+\newcommand{\textipa}[1]{{\ipatext#1}}
+\setmathfont[
+    range={\symfrak,\symbffrak}, 
+    BoldFont = NewCMMath-Bold.otf
+]{NewCMMath-Regular.otf}
+
+\AddToHook{bfseries}{\boldmath} % Correct macro by egreg 
+
+% code copied from here https://tex.stackexchange.com/a/82221/128462
+
+\everymath=\expandafter{%
+\the\everymath%
+\Umathsubshiftdown\textstyle=1.5pt\Umathsubshiftdrop\textstyle=0.5pt}
+\everydisplay=\expandafter{%
+\the\everydisplay%
+\Umathsubshiftdown\displaystyle=1.5pt\Umathsubshiftdrop\displaystyle=0.5pt}
+
+% code copied from here https://tex.stackexchange.com/a/754196/128462
+
+\RenewDocumentCommand{\DeclareMathOperator}{mm}{%
+  \NewDocumentCommand{#1}{}{%
+    \operatorname{\vphantom{#2}}\!%
+    \operatorname{\smash[b]{#2}}%
+  }%
+}
+
+% % Ulrike Fischer code from here https://tex.stackexchange.com/a/373539/128462
+
+% \DeclareFontFamily{U}{mathc}{}
+% \DeclareFontShape{U}{mathc}{m}{it}%
+% {<->s*[1.03] mathc10}{}
+
+% \DeclareMathAlphabet{\lmathccal}{U}{mathc}{m}{it}
+% % \DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+% \renewcommand{\symcal}{\lmathccal}
+
+\DeclareMathAlphabet\cmmathcal{OMS}{cmsy}{m}{n}
+\DeclareMathAlphabet\cmmathbfcal{OMS}{cmsy}{b}{n}
+\renewcommand{\symcal}{\cmmathcal}
+\renewcommand{\symbfcal}{\cmmathbfcal}
 
 \usepackage{amsthm}
 \theoremstyle{definition}
@@ -194,13 +251,13 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         title = {Methods of Modern Mathematical Analysis I: Functional Analysis},
         edition = {Revised and Enlarged editon},
         year = {1980},
-        volume = 1,
+        volume = 1
     }
 
     @misc{MorettiDomain,
         author = {Valter Moretti (\url{https://physics.stackexchange.com/users/35354/valter-moretti})},
         howpublished = {Physics Stack Exchange (\url{https://physics.stackexchange.com})},
-        note = {(version: 2014-07-23 00:40:35Z)},
+        note = {Version: 2014-07-23 00:40:35Z},
         title = {Answer to the question `What are the proper domains of the position and squared angular momentum operator?'},
         url = {https://physics.stackexchange.com/a/127629/81224}
     }
@@ -208,7 +265,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     @misc{MorettiPeter,
         author = {Valter Moretti (\url{https://physics.stackexchange.com/users/35354/valter-moretti})},
         howpublished = {Physics Stack Exchange (\url{https://physics.stackexchange.com})},
-        note = {(version: 2024-05-17 21:03:48Z)},
+        note = {Version: 2024-05-17 21:03:48Z},
         title = {Answer to the question `Angular momentum Lie algebra for infinite-dimensional Hilbert spaces'},
         url = {https://physics.stackexchange.com/a/814882/81224}
     }
@@ -217,18 +274,23 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         author = {Moretti, Valter},
         isbn = {978-3-319-70705-1},
         publisher = {Springer Nature Switzerland AG},
-        title = {Spectral Theory and Quantum Mechanics: Mathematical Foundations of Quantum Theories, Symmetries and Introduction to the Algebraic Formulation},
+        title = {Spectral Theory and Quantum Mechanics},
+        subtitle = {Mathematical Foundations of Quantum Theories, Symmetries and Introduction to the Algebraic Formulation},
         edition = {2},
         year = {2018},
-        addendum = {Translated from Italian by Simon G.\ Choissi.}
+        translator = {Simon G.\ Choissi},
+        origlanguage = {Italian},
+        series = {\selectlanguage{italian}UNITEXT - La Matematica per il 3+2\selectlanguage{english}},
+        volume = 110
     }
 
     @book{MorettiFundamental,
         author = {Moretti, Valter},
         isbn = {978-3-030-18345-5},
         publisher = {Springer Nature Switzerland AG},
-        title = {Fundamental Mathematical Structures of Quantum Theory: Spectral Theory, Foundational Issues, Symmetries, Algebraic Formulation},
-        year = {20189}
+        title = {Fundamental Mathematical Structures of Quantum Theory},
+        subtitle = {Spectral Theory, Foundational Issues, Symmetries, Algebraic Formulation},
+        year = {2019}
     }
 
     @book{Teschl,
@@ -236,8 +298,11 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         isbn = {978-1-4704-1704-8},
         publisher = {American Mathematical Society, Providence, Rhode Island},
         edition = {2},
-        title = {Mathematical Methods in Quantum Mechanics: With Applications to Schr\"odinger Operators},
+        title = {Mathematical Methods in Quantum Mechanics},
+        subtitle = {With Applications to Schr\"odinger Operators},
         year = {2014},
+        series = {Graduate Studies in Mathematics},
+        volume = 157,
         note = {The book is freely available in \texttt{.pdf} format on the author's website at \url{https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf}.}
     }
 
@@ -247,7 +312,9 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         edition = {2},
         year = {1981},
         publisher = {Academic Press, Inc. London},
-        isbn = {0-12-566060-X}
+        isbn = {0-12-566060-X},
+        series = {Pure and Applied Mathematics},
+        volume = 92
     }
 
     @book{Hall,
@@ -255,7 +322,9 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         title = {Quantum Theory for Mathematicians},
         year = {2013},
         publisher = {Springer Science+Business Media New York},
-        isbn = {978-1-4614-7115-8}
+        isbn = {978-1-4614-7115-8},
+        series = {Graduate Texts in Mathematics},
+        volume = 267
     }
 
     @book{Gustafson,
@@ -264,7 +333,8 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
         edition = {2},
         publisher = {Springer-Verlag Berlin Heidelberg},
         year = {2011},
-        isbn = {978-3-642-21865-1}
+        isbn = {978-3-642-21865-1},
+        series = {Universitext}
     }
 
     @article{Nelson,
@@ -282,20 +352,25 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \end{filecontents}
 
 \usepackage[sorting=none, hyperref, backref]{biblatex}
+\renewcommand*{\subtitlepunct}{\addcolon\space}
 \addbibresource{schuller_two-body_problem.bib}
 \usepackage{bibentry}
 \usepackage{embedall}
 \embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
 
 \usepackage{hyperref}
-\hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-Body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-Body Problem in Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Spin, Two-Body Problem, Kepler's Problem, Nelson's Theorem, Peter–Weyl Theorem, Spherical Harmonics, Strong Irreducible Unitary Representations of SU(2), Point Spectrum}}
+\hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-Body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-Body Problem in Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Spin, Two-Body Problem, Kepler's Problem, Nelson's Theorem, Peter–Weyl Theorem, Spherical Harmonics, Strong Irreducible Unitary Representations of SU(2), Point Spectrum, Eigenvalues, Hydrogen Atom}}
 
 \usepackage{imakeidx}
 \makeindex[intoc]
 
 \usepackage{caption, cleveref, xurl, bookmark}
 
-\newcommand{\ltwo}{\symup{L\kern-0.5pt^2}}
+\newcommand*{\mitsansXi}{\char"E04E}
+\renewcommand{\mitsansXi}{\hat{\Xi}}
+\newcommand{\cpi}{\ensuremath{\text{п}}}
+\newcommand{\cepsilon}{\text{\textipa{ɛ}}}
+\newcommand{\ltwo}{\symrm{L\kern-0.3pt^2}}
 \newcommand{\ltworthree}{\ltwo(\rr^3)}
 \newcommand{\ltworsix}{\ltwo(\rr^6)}
 \newcommand{\position}{Q}
@@ -324,7 +399,6 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 \newcommand{\lift}{\hat{D}}
 \newcommand{\domain}{\symcal{D}}
 \newcommand{\identity}{\symrm{id}}
-\newcommand{\w}{w\kern-1pt}
 \newcommand{\spec}{\sigma}
 \newcommand{\resolvent}{\symup{\rho}}
 \newcommand{\lap}{∆}
@@ -376,10 +450,6 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 % \usepackage{etoolbox}
 % \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
 % \emergencystretch=1em
-
-\makeatletter
-\g@addto@macro\bfseries{\boldmath}
-\makeatother
 
 \usepackage{tikz, tkz-euclide, pgfplots}
 \pgfplotsset{compat=1.18}
@@ -435,23 +505,6 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \begin{figure}[h]
         \centering
         \begin{tikzpicture}[line cap=round]
-            %		%Grid
-            %		\draw[thin, dotted] (0,0) grid (8,8);
-            %		\foreach \i in {1,...,8}
-            %		{
-            %			\node at (\i,-2ex) {\i};
-            %		}
-            %		\foreach \i in {1,...,8}
-            %		{
-            %			\node at (-2ex,\i) {\i};
-            %		}
-            %		\node at (-2ex,-2ex) {0};
-
-% 			% Axis
-% 			\draw[thick, -{>[bend]}] (0,0) -- (5,0) node[above] {$r$};
-% 			\draw[thick, {<[bend]}-{>[bend]}] (0,-4.5) -- (0,0.5) node[right] {$V(r)$};
-% 			\node at (-0.3,0) {$0$};
-
             \begin{axis}[
                 samples=500,
                 domain=0.24:4.5,
@@ -460,37 +513,23 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
                 axis lines=middle,
                 ticks=none,
                 width=0.5\textwidth,
-% 				height=5cm,
                 xlabel={$r$},
                 ylabel={$V(r)$},
                 x axis line style={thick, -{>[bend]}},
                 y axis line style={thick, {<[bend]}-{>[bend]}},
                 y label style={anchor=south},
                 x label style={anchor=west},
-                legend style={draw=none, at={(axis cs:2,-1.8)},anchor=north west},
-                legend style={row sep=10pt}
+                legend style={draw=none, 
+                    at={(axis cs:2,-1.8)},
+                    anchor=north west,
+                    row sep=10pt
+                }
                 ]
                 \addplot[thick, red] {-exp(-x)/(x)};
                 \addplot[thick, blue, dashed] {-1/(x)};
-                \addlegendentry{$\displaystyle-\frac{\e^{-r}}{r}$};
-                \addlegendentry{$\displaystyle-\frac{1}{r}$};
-            \end{axis};
-
-
-            % Plot Function
-    % 		\draw[domain=0.177:7.5, samples=600, variable=\r, very thick] plot ({\r},{0.3/(\r*\r)-0.9/\r});
-    % 		\draw[domain=0.6:7.5, samples=500, variable=\r, thick, dashed, red] plot ({\r},{1/(\r*\r)});
-% 			\draw[domain=0.24:4.5, samples=500, variable=\r, thick, blue] plot ({\r},{-1/(\r)});
-% 			\draw[domain=0.24:4.5, samples=500, variable=\r, thick, red] plot ({\r},{-exp(-\r)/(\r)});
-
-            % Dashed
-    % 			\draw[dashed] (2/3,0) -- +(0,-0.65) node[pos=0, above] {$r_o$};
-% 			\draw[dashed] (2/3,-0.68) -- (0,-0.68);
-
-            % Nodes
-% 			\node at (0.6,3.5) {$V_\text{eff}$};
-% 			\node[red] at (1.3,1.5) {$1/r^2$};
-% 			\node[blue] at (1.4,-1.5) {$-1/r$};
+                \addlegendentry{$\displaystyle\frac{-\e^{-r}}{r}$}
+                \addlegendentry{$\displaystyle\frac{-1}{r}$}
+            \end{axis}
         \end{tikzpicture}
         \caption{Yukawa and Coulomb potentials}\label{fig:potential}
     \end{figure}
@@ -587,7 +626,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \begin{defn}[Self-adjoint generator associated with an element of a Lie algebra]
         Let \(G\) be a Lie group, with the Lie algebra \(\symfrak{g}\). Let \(U\) be a strongly continuous unitary representation of \(G\) on \(\hilbert\). Let \(\mitsansXi \in \symfrak{g}\). Let \(\operatorname{ran}(U^{\mitsansXi})\), defined by
         \begin{align*}
-            U^{\mitsansXi} &\colon \rr \rightarrow \exp(s\mitsansXi\kern2.1pt),\\
+            U^{\mitsansXi} &\colon \rr \rightarrow \exp(s\mitsansXi),\\
             U^{\mitsansXi} &\colon s \mapsto G,
         \end{align*}
         be the one-parameter Lie subgroup of \(G\) generated by \(\mitsansXi\). Then, the self-adjoint generator associated with \(\mitsansXi\), \(\Xi \colon \domain_{\Xi} \rightarrow \hilbert\), is the generator of the strongly continuous one-parameter unitary group \(G_{\mitsansXi}\), with \(G_{\mitsansXi}\) defined by
@@ -830,14 +869,14 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
 
     \subsection{Spherical harmonics}
 
-    \(\schwartzrthree\), \(\schwartz(\tilde{\rr}^3)\), \(\schwartz(A)\), and \(\schwartz(\tilde{A})\) are all isomorphic to each other. Thus, the eigenvalues and eigenvectors of \(\symbfit{L}^2\) and \(L_i\)'s, and \(\lvecsquare\) and \(\tilde{L}_i\)'s are the same, respectively. The self-adjointness is unaffected by these coordinate changes as well. Thus, we know that the common eigenvectors of $\lvecsquare$ and $\tilde{L}_3$ come as families $\psi\kern0.5pt_l^m \in \schwartz(\tilde{A})$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
+    \(\schwartzrthree\), \(\schwartz(\tilde{\rr}^3)\), \(\schwartz(A)\), and \(\schwartz(\tilde{A})\) are all isomorphic to each other. Thus, the eigenvalues and eigenvectors of \(\symbfit{L}^2\) and \(L_i\)'s, and \(\lvecsquare\) and \(\tilde{L}_i\)'s are the same, respectively. The self-adjointness is unaffected by these coordinate changes as well. Thus, we know that the common eigenvectors of $\lvecsquare$ and $\tilde{L}_3$ come as families $\psi_l^m \in \schwartz(\tilde{A})$, where $m = -l, -l+1, \ldots, l-1, l$ and $l \in \nn$. We have
     \begin{align*}
-        \lvecsquare \psi\kern0.5pt_l^m &= l(l+1)\psi\kern0.5pt_l^m,\\
-        \tilde{L}_3 \psi\kern0.5pt_l^m &= m \psi\kern0.5pt_l^m.
+        \lvecsquare \psi_l^m &= l(l+1)\psi_l^m,\\
+        \tilde{L}_3 \psi_l^m &= m \psi_l^m.
     \end{align*}
-    Note that $l$ can take only integer values, not half-integer values, as we are dealing with the orbital angular momentum operator. In spherical coordinates, it turns out that the solutions $\psi\kern0.5pt_l^m$ are given by
+    Note that $l$ can take only integer values, not half-integer values, as we are dealing with the orbital angular momentum operator. In spherical coordinates, it turns out that the solutions $\psi_l^m$ are given by
     \[
-        \psi\kern0.5pt_l^m (\tilde{\symbfit{x}} (r, \theta, \phi)) = k \cdot Y^m_l (\theta, \phi) \cdot f(r),
+        \psi_l^m (\tilde{\symbfit{x}} (r, \theta, \phi)) = k \cdot Y^m_l (\theta, \phi) \cdot f(r),
     \]
     where
     \[
@@ -850,7 +889,7 @@ BoldSlantedFont=NewCMSans10-BoldOblique.otf,%
     \end{align*}
     i.e.\@ the spherical harmonic functions are eigenvectors of $\lvecsquare$ and $\tilde{L}_3$. These functions form an orthonormal basis of the Hilbert space $\symrm{L}\kern-0.7pt^2(\symbb{S}^2)$, consisting of complex square-integrable functions defined on the 2-sphere.
     \[
-        \langle \sphe , Y_{l'}^{m'} \rangle = \delta\kern0.5pt_{l, l'}\cdot\delta\kern0.4pt_{m, m'}.
+        \langle \sphe , Y_{l'}^{m'} \rangle = \delta_{l, l'}\cdot\delta_{m, m'}.
     \]
     We request that the reader consult section 14.2 of the book of Bowers for a derivation of these spherical harmonic functions~\cite[p.~200]{Bowers}.
 
