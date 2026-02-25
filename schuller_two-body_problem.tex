@@ -417,7 +417,6 @@
 \newcommand{\anti}{\overline{\distr}}
 \renewcommand{\i}{\symrm{i}}
 \newcommand{\e}{\symrm{e}}
-\renewcommand{\pi}{\muppi}
 \newcommand{\cinfinity}{\symrm{C}^\infty}
 \newcommand{\family}{\symcal{F}}
 \newcommand{\lift}{\hat{D}}
@@ -694,7 +693,7 @@
 
     In our case, we see that the conditions of Nelson's theorem are satisfied, with the real Lie algebra \(\tilde{V} = \spann_{\rr}\{-\i J_1, -\i J_2, -\i J_3\}\), the commutator relation \[[-\i J_i, -\i J_j] = \epsilon_{ijk}(-\i J_k),\] the Hilbert space being \(\ltworthree\), and the common domain or core  being the Schwartz space \(\schwartzrthree\). \(V\) is isomorphic to \[\displaystyle\sutwo = \spann_{\rr}\left\{-\frac{\i\sigma_1}{2}, -\frac{\i\sigma_2}{2}, -\frac{\i\sigma_3}{2}\right\}\] as a Lie algebra, where \(\sigma_i\) denote the Pauli matrices, with the commutator relation \[\displaystyle\left[-\frac{\i\sigma_i}{2}, -\frac{\i\sigma_j}{2}\right] = \epsilon_{ijk}\left(-\frac{\i\sigma_k}{2}\right).\] The isomorphism maps \(-\i J_i\) to \(-\i \sigma_i/2\).\footnote{Side note: Since \(\symfrak{s\kern-0.6ptu}(2) + \i\,\symfrak{s\kern-0.6ptu}(2) = \symfrak{s\kern-0.8ptl}(2;\cc)\), we have that \(\symcal{A} = \tilde{V} + \i \tilde{V}\). \(\symcal{A}\) is isomorphic to \(\symfrak{s\kern-0.8ptl}(2;\cc)\) as a Lie algebra.}
 
-    \(\sutwo\) is the Lie algebra of both \(\SUtwo\) and \(\SOthree\). There is a two-to-one correspondence from \(\SUtwo\) to \(\SOthree\). \(\SOthree\) is not simply connected. The unique simply-connected Lie group associated to \(\sutwo\) is \(\SUtwo\). Thus, Nelson's theorem guarantees the existence of a unique strongly continuous unitary representation \(\tilde{U} \colon \SUtwo \rightarrow B(\hilbert)\).\footnote{Note that the closure of \(J_i\), \(\bar{J}_i\), is the self adjoint generator of the one-parameter subgroup \( \tilde{U}( (\SUtwo)_{-\i J_i}) \).}
+    \(\sutwo\) is the Lie algebra of both \(\SUtwo\) and \(\SOthree\). There is a two-to-one correspondence from \(\SUtwo\) to \(\SOthree\). \(\SOthree\) is not simply connected. The unique simply-connected Lie group associated to \(\sutwo\) is \(\SUtwo\). Thus, Nelson's theorem guarantees the existence of a unique strongly continuous unitary representation \(\tilde{U} \colon \SUtwo \rightarrow B(\hilbert)\).\footnote{Note that the closure of \(J_i\), \(\bar{J}_i\), is the self-adjoint generator of the one-parameter subgroup \( \tilde{U}( (\SUtwo)_{-\i J_i}) \).}
 
     We now state a version of the Peter--Weyl theorem, adapted from Moretti's book~\cite[p.~287]{MorettiFundamental}.
     \begin{thm}[Peter--Weyl]
@@ -803,7 +802,7 @@
 
     We have the spherical coordinate system as shown in \cref{fig:sphericalcoordinates}. Let
     \[
-        A \coloneq [0, +\infty) \times [0,\pi] \times [0,2\pi).
+        A \coloneq [0, +\infty) \times [0,\cpi] \times [0,2\cpi).
     \]
     Let $T$ be defined as
     \begin{align*}
@@ -842,7 +841,7 @@
         \tilde{L}_3 = -\i\hbar\partial_\phi,
     \]
     where $\tilde{L}_3 \colon \schwartz(A) \rightarrow \schwartz(A)$ denotes the angular momentum operator in spherical coordinates.
-    We now restrict the domain of $T$ suitably such that it becomes injective and $T^{-1}$ becomes a well defined function. More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\pi) \times (0,2\pi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions. If we define $\tilde{\rr}^3$ as $\rthree$ excluding the axes, we have $T^{-1} \colon \tilde{\rr}^3 \rightarrow \tilde{A}$, $T^{-1} \colon (x, y, z) \mapsto (r, \theta, \phi)$ as
+    We now restrict the domain of $T$ suitably such that it becomes injective and $T^{-1}$ becomes a well defined function. More precisely, we take the domain to be $\tilde{A} \coloneq (0, +\infty) \times (0,\cpi) \times (0,2\cpi)$. This does not cause any problems as we are excluding only measure zero sets which are irrelevant when considering wave-functions. If we define $\tilde{\rr}^3$ as $\rthree$ excluding the axes, we have $T^{-1} \colon \tilde{\rr}^3 \rightarrow \tilde{A}$, $T^{-1} \colon (x, y, z) \mapsto (r, \theta, \phi)$ as
     \begin{align*}
         r      &= \sqrt{x^2 + y^2 + z^2},\\
         \theta &= \cos^{-1}{\left(\frac{z}{\sqrt{x^2 + y^2 + z^2}}\right)},\\
@@ -869,7 +868,7 @@
 
     We now observe that $\lvecsquare F$ is dependent solely on the angular part of $F$. So, if we multiply $F$ by a function $f(r)$ of $r$ alone, without any dependence on $\theta$ and $\phi$, then we have that $\lvecsquare(f\cdot F) = f \cdot \lvecsquare F$. Because of this observation, we attempt to decompose the the Hilbert space into radial and angular parts.
 
-    We know that \[\rthree = \symbb{S}^2 \times [0, +\infty)\] as sets. The standard Lebesgue measure on $\rthree$ can be seen as the tensor product of the measures on $\symbb{S}^2$ and $[0, \infty)$. Let $\symcal{B}(\symbb{S}^2)$ be the Borel $\sigma$-algebra on $\symbb{S}^2$, generated by the standard induced subset topology on $\symbb{S}^2$, and let $\symcal{B}([0,+\infty))$ be the Borel $\sigma$-algebra on $[0, +\infty)$ generated by the standard induced subset topology on $[0, +\infty)$. We know that $\symbb{S}^2 = [0, \pi] \times [0, 2\pi),$ as sets. Every element of $\symcal{B}(\symbb{S}^2)$, i.e.\@ every measurable set of $\symbb{S}^2$, can be expressed as a countable union of sets $\Theta \times \Phi$, where $\Theta \coloneq (\theta_1, \theta_2)$ and $\Phi \coloneq (\phi_1, \phi_2)$ are open sets in $[0, \pi]$ and $[0, 2\pi)$. Let
+    We know that \[\rthree = \symbb{S}^2 \times [0, +\infty)\] as sets. The standard Lebesgue measure on $\rthree$ can be seen as the tensor product of the measures on $\symbb{S}^2$ and $[0, \infty)$. Let $\symcal{B}(\symbb{S}^2)$ be the Borel $\sigma$-algebra on $\symbb{S}^2$, generated by the standard induced subset topology on $\symbb{S}^2$, and let $\symcal{B}([0,+\infty))$ be the Borel $\sigma$-algebra on $[0, +\infty)$ generated by the standard induced subset topology on $[0, +\infty)$. We know that $\symbb{S}^2 = [0, \cpi] \times [0, 2\cpi),$ as sets. Every element of $\symcal{B}(\symbb{S}^2)$, i.e.\@ every measurable set of $\symbb{S}^2$, can be expressed as a countable union of sets $\Theta \times \Phi$, where $\Theta \coloneq (\theta_1, \theta_2)$ and $\Phi \coloneq (\phi_1, \phi_2)$ are open sets in $[0, \cpi]$ and $[0, 2\cpi)$. Let
     \[
         \nu \colon \symcal{B}(\symbb{S}^2) \rightarrow \rr
     \]
@@ -919,7 +918,7 @@
     \]
     where
     \[
-        Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\pi (l+m)!}\right)^{\frac{1}{2}}\!\cdot\e^{\i m\phi}\cdot\!(\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!\!(\cos^2{\theta} -1)^l
+        Y^m_l (\theta, \phi) \coloneq \frac{(-1)^m}{2^l l!}\left(\frac{(2l+1) (l-m)!}{4\cpi (l+m)!}\right)^{\frac{1}{2}}\!\cdot\e^{\i m\phi}\cdot\!(\sin{\theta})^m \left(\frac{\partial}{\partial \cos{\theta}}\right)^{l+m}\!\!\!(\cos^2{\theta} -1)^l
     \]
     and $\tilde{\symbfit{x}} = T^{-1}(\symbfit{x})$. These $\sphe$'s are called as \textit{spherical harmonic functions}. \(\sphe \in \ltwoa\).\footnote{We have identified \(\ltworthree\) and \(\ltwoa\).} Since the operators $\lvecsquare$ and $\tilde{L}_3$ act only on the angular components, and not on the radial components when expressed in spherical coordinates, we have that
     \begin{align*}
