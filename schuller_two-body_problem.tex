@@ -279,7 +279,7 @@
         edition = {2},
         year = {2018},
         translator = {Simon G.\ Choissi},
-        origlanguage = {Italian},
+        origlanguage = {italian},
         series = {\selectlanguage{italian}UNITEXT - La Matematica per il 3+2\selectlanguage{english}},
         volume = 110
     }
@@ -352,11 +352,35 @@
 \end{filecontents}
 
 \usepackage[sorting=none, hyperref, backref]{biblatex}
-\renewcommand*{\subtitlepunct}{\addcolon\space}
+
 \addbibresource{schuller_two-body_problem.bib}
 \usepackage{bibentry}
 \usepackage{embedall}
 \embedfile[desc = bibliography source file]{schuller_two-body_problem.bib}
+
+\renewcommand*{\subtitlepunct}{\addcolon\space}
+
+% moewe's code from here https://tex.stackexchange.com/a/609093/128462
+
+\DefineBibliographyStrings{english}{
+  backrefpage  = {cited on page},
+  backrefpages = {cited on pages},
+}
+
+\renewcommand*{\bibpagerefpunct}{%
+  \finentrypunct\space}
+
+\DeclareFieldFormat{bracketswithperiod}{\mkbibbrackets{#1\addperiod}}
+
+\renewbibmacro*{pageref}{%
+  \iflistundef{pageref}
+    {}
+    {\printtext[bracketswithperiod]{%
+       \ifnumgreater{\value{pageref}}{1}
+         {\bibstring{backrefpages}\ppspace}
+         {\bibstring{backrefpage}\ppspace}%
+       \printlist[pageref][-\value{listtotal}]{pageref}}%
+\renewcommand*{\finentrypunct}{}}}
 
 \usepackage{hyperref}
 \hypersetup{linktoc=all, citecolor=red, pdfencoding=auto, psdextra, colorlinks=true, linkcolor=red, breaklinks=true, urlcolor=blue, pdftitle={Schuller – The Quantum Mechanical Two-Body Problem}, bookmarksopen=true, pdfauthor={Apoorv Potnis}, pdfsubject={Two-Body Problem in Quantum Mechanics}, unicode=true, pdftoolbar=true, pdfmenubar=true, pdfstartview={FitH}, pdfkeywords={Frederic Schuller, Hydrogen Atom, Quantum Mechanics, Mathematical Physics, Lecture Notes, Angular Momentum, Spin, Two-Body Problem, Kepler's Problem, Nelson's Theorem, Peter–Weyl Theorem, Spherical Harmonics, Strong Irreducible Unitary Representations of SU(2), Point Spectrum, Eigenvalues, Hydrogen Atom}}
