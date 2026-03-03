@@ -101,31 +101,50 @@
     BoldSlantedFont=NewCMSans10-BoldOblique.otf,
 ]{NewCMSans10-Regular.otf}
 
-\directlua{
+\usepackage{luacode}
+
+% \usepackage{lua-visual-debug}
+% \lvdset{glyph={show=true}}
+
+% code adapted from Marcel Kruger's answer https://tex.stackexchange.com/a/760117/128462
+
+% \directlua{
+\begin{luacode}
     local kerns = {
         ["NewCMMath-Book"] = {
-          ["uni211D.bb"] = { topright = { { kern = -70 } } },
-          ["u1D6F7"] = {bottomright = { { kern = 0 } } },
-          ["u1D6F9"] = {bottomright = { { kern = 0 } } },
-          ["u1D464"] = {bottomright = { { kern = -90 } } },
-          ["u1D437"] = {bottomright = { { kern = 0 } } },
-          ["L"] = {topright = { { kern = -30 } } }
+          ["uni211D.bb"] = { topright = { { kern = -70 } } }, -- double-struck capital R
+          ["u1D6F7"] = {bottomright = { { kern = 0 } } }, -- mathematical italic capital Phi
+          ["u1D6F9"] = {bottomright = { { kern = 0 } } }, -- mathematical italic capital Psi
+          --["u1D464"] = {bottomright = { { kern = -90 } } }, -- mathematical italic small a
+          ["u1D460"] = {bottomright = { { kern = -20 } } }, -- mathematical italic small s
+          ["u1D437"] = {bottomright = { { kern = 0 } } }, -- mathematical italic capital H
+          ["L"] = {topright = { { kern = -50 } } },
+          ["u1D43D"] = {bottomright = { { kern = 0 } } }, -- mathematical italic capital J
+          ["u1D70E"] = {bottomright = { { kern = -80 } } }, -- mathematical italic small sigma
+          --["u1D457.sts"] = {topleft = { { kern = -1000 } } }, -- mathematical italic small j subscript level 1
         },
         ["NewCMMath-Bold"] = {
           ["uni211D.bb"] = { topright = { { kern = -30 } } }
         }
     }
     local function addkerns(tfmdata)
-        if tfmdata.mathparameters then
-            local kerns = kerns[tfmdata.properties.fontname]
-            local unicodes = tfmdata.resources.unicodes
-            if kerns then
-                local characters = tfmdata.characters
-                for name, specification in pairs(kerns) do
-                    local character = characters[unicodes[name]]
-                    if character and not character.mathkerns then
-                        character.mathkerns = specification
-                    end
+        if not tfmdata.mathparameters then return end
+
+        local font_kerns = kerns[tfmdata.properties.fontname]
+        if not font_kerns then return end
+
+        local unicodes   = tfmdata.resources.unicodes
+        local characters = tfmdata.characters
+
+        for name, specification in pairs(font_kerns) do
+            local unicode = unicodes[name]
+            local character = unicode and characters[unicode]
+
+            if character then
+                character.mathkerns = character.mathkerns or {}
+
+                for side, data in pairs(specification) do
+                    character.mathkerns[side] = data
                 end
             end
         end
@@ -139,7 +158,8 @@
             node     = addkerns,
         }
     }
-}
+\end{luacode}
+% }
 
 \setmathfont[
     StylisticSet={3},
@@ -159,10 +179,10 @@
 
 \everymath=\expandafter{%
 \the\everymath%
-\Umathsubshiftdown\textstyle=1.8pt\Umathsubshiftdrop\textstyle=0.5pt}
+\Umathsubshiftdown\textstyle=1.5pt\Umathsubshiftdrop\textstyle=0.5pt}
 \everydisplay=\expandafter{%
 \the\everydisplay%
-\Umathsubshiftdown\displaystyle=1.8pt\Umathsubshiftdrop\displaystyle=0.5pt}
+\Umathsubshiftdown\displaystyle=1.5pt\Umathsubshiftdrop\displaystyle=0.5pt}
 
 % code copied from here https://tex.stackexchange.com/a/754196/128462
 
@@ -392,7 +412,7 @@
 
 \newcommand*{\mitsansXi}{\char"E04E}
 \renewcommand{\mitsansXi}{\hat{\Xi}}
-\newcommand{\cpi}{\ensuremath{\text{п}}}
+\newcommand{\cpi}{\ensuremath{\kern0.4pt\text{п}}}
 \newcommand{\cepsilon}{\text{\textipa{ɛ}}}
 \newcommand{\ltwo}{\symrm{L\kern-0.3pt^2}}
 \newcommand{\ltworthree}{\ltwo(\rr^3)}
@@ -414,7 +434,7 @@
 \newcommand{\dist}{\schwartz^\times}
 \newcommand{\distr}{\dist(\rr)}
 \newcommand{\distar}{\schwartz^*(\rr)}
-\newcommand{\anti}{\overline{\distr}}
+\newcommand{\anti}{\bar{\distr}}
 \renewcommand{\i}{\symrm{i}}
 \newcommand{\e}{\symrm{e}}
 \newcommand{\cinfinity}{\symrm{C}^\infty}
@@ -753,7 +773,7 @@
     \end{align*}
     is differentiable in the norm topology on \(\ltworthree_n\) for each \(k\). This is due to the fact that \(U_k(\alpha) = \exp(-\i \alpha \bar{J_k})\) is analytic in \(\alpha\). Thus, each \(\ltworthree_n \subset \domain_{\bar{J_k}}\).\footnote{Note that even though each subset, \(\ltworthree_n\), belongs to the domain, \(\domain_{\bar{J_k}}\), their direct sum \(\ltworthree\) does not. The direct sum in the decomposition of \(\ltworthree\) is a Hilbert direct sum, and not an algebraic direct sum. An element of the algebraic direct sum consists of a \textit{finite} linear combination of vectors, with atmost one vector from each subspace. The algebraic direct sum is dense in the Hilbert direct sum.}
 
-    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\ltworthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $\overline{J_i}$'s have a pure point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \dots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
+    Thus, the usual spectral analysis for angular momentum operators using ladder operators holds, since all \(\ltworthree_n\) are finite-dimensional. Thus, using the theorems of Nelson and Peter--Weyl, and the subsequent ladder operator analysis, we get that $\bar{J_i}$'s have a pure point spectrum, and that the common eigenvectors of $\symbfit{J}^2$ and $J_3$ come as families $\psi_{j(j+1), m}$, where $m = -j, -j+1, \dots, j-1, +j$. The eigenvalue $j(j+1)$ is associated to $\symbfit{J}^2$ and $m$ is associated to $J_3$ with $j \in \symbb{N}_0/2$.
 
     Actually, as we only discuss the orbital angular momentum operators, i.e.\ the \(L_i\)'s in this lecture, we could have used a slightly different approach to justify the procedure using ladder operators. We know that the spectrum of each \(L_i\) is entirely pure point and contained within the integers, i.e.\ for all \(i \in \{1, 2, 3\}\),
     \[
